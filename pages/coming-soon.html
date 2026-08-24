@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Coming Soon — PRINTXTORE</title>
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="../assets/images/favicon.svg">
+  
+  <!-- CSS assets -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            dark: 'var(--color-dark)',
+            'dark-teal': 'var(--color-dark-teal)',
+            teal: 'var(--color-teal)',
+            emerald: 'var(--color-emerald)',
+            green: 'var(--color-green)',
+            'light-mint': 'var(--color-light-mint)',
+            'off-white': 'var(--color-off-white)'
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            display: ['Space Grotesk', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="../assets/css/style.css">
+  
+  <!-- CDNs -->
+  <script src="https://cdn.jsdelivr.net/npm/lucide/dist/umd/lucide.min.js"></script>
+  
+  <!-- App JS Initializers -->
+  <script src="../assets/js/database.js" defer></script>
+  <script src="../assets/js/theme-rtl.js" defer></script>
+  <script src="../assets/js/main.js" defer></script>
+</head>
+<body class="bg-gradient-to-br from-dark to-dark-teal text-off-white min-h-screen flex items-center justify-center p-6 relative overflow-hidden">
+  <!-- Top Bar with Logo & Actions -->
+  <div class="absolute top-6 left-6 right-6 flex items-center justify-between z-50">
+    <a href="../index.html" class="flex items-center gap-2 font-display text-xl font-bold tracking-wider text-white">
+      <span class="rtl-flip">
+        <svg class="w-8 h-8 text-green" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z" />
+        </svg>
+      </span>
+      <span>PRINT<span class="x-brand">X</span>TORE</span>
+    </a>
+
+    <div class="flex items-center gap-3">
+      <button class="theme-toggle p-2.5 rounded-lg bg-white/5 hover:bg-white/10 text-white/80 hover:text-white border border-white/10 transition" aria-label="Toggle Theme">
+        <i data-lucide="sun" class="w-4 h-4 block dark:hidden"></i>
+        <i data-lucide="moon" class="w-4 h-4 hidden dark:block"></i>
+      </button>
+      
+      <button class="rtl-toggle px-3 py-1.5 text-xs text-white/85 hover:text-white transition rounded-lg bg-white/5 border border-white/10 hover:bg-white/10 flex items-center justify-center gap-1.5 font-semibold">
+        <i data-lucide="arrow-left-right" class="w-3.5 h-3.5"></i>
+        <span>RTL</span>
+      </button>
+    </div>
+  </div>
+
+  
+  <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(113,178,128,0.08),transparent_60%)]"></div>
+
+  <div class="max-w-xl w-full text-center space-y-12 relative z-10">
+    TORE</span>
+    
+    <div class="space-y-4">
+      <h1 class="text-3xl sm:text-4xl font-extrabold font-display text-white">We're Crafting The Future.</h1>
+      <p class="text-xs text-white/50 max-w-sm mx-auto">Our physical copy center is expanding to a fully automated digital pre-press dashboard. Launching in:</p>
+    </div>
+
+    <!-- Countdown Timer Grid -->
+    <div class="grid grid-cols-4 gap-4 max-w-sm mx-auto text-center">
+      <div class="glass p-4 rounded-xl border-white/5">
+        <p id="days-val" class="text-2xl sm:text-3xl font-bold font-display text-green">00</p>
+        <p class="text-[9px] text-white/40 uppercase mt-1">Days</p>
+      </div>
+      <div class="glass p-4 rounded-xl border-white/5">
+        <p id="hours-val" class="text-2xl sm:text-3xl font-bold font-display text-green">00</p>
+        <p class="text-[9px] text-white/40 uppercase mt-1">Hours</p>
+      </div>
+      <div class="glass p-4 rounded-xl border-white/5">
+        <p id="mins-val" class="text-2xl sm:text-3xl font-bold font-display text-green">00</p>
+        <p class="text-[9px] text-white/40 uppercase mt-1">Mins</p>
+      </div>
+      <div class="glass p-4 rounded-xl border-white/5">
+        <p id="secs-val" class="text-2xl sm:text-3xl font-bold font-display text-green">00</p>
+        <p class="text-[9px] text-white/40 uppercase mt-1">Secs</p>
+      </div>
+    </div>
+
+    <!-- Email Subscription -->
+    <div class="max-w-md mx-auto space-y-4">
+      <form class="flex gap-2 p-1.5 rounded-2xl glass border border-white/10">
+        <input type="email" placeholder="Enter your email address" class="flex-grow bg-transparent px-4 py-2.5 text-xs text-white focus:outline-none placeholder-white/30" required>
+        <button type="button" onclick="showToast('Thank you! We will notify you at launch.')" class="px-6 py-2.5 rounded-xl bg-gradient-to-r from-emerald to-green text-white font-bold text-xs border border-white/5 hover:opacity-90 transition">Notify Me</button>
+      </form>
+    </div>
+
+    <!-- Social shortcuts -->
+    <div class="flex justify-center gap-6 text-white/40 pt-4">
+      <a href="#" class="hover:text-green transition"><i data-lucide="instagram" class="w-5 h-5"></i></a>
+      <a href="#" class="hover:text-green transition"><i data-lucide="facebook" class="w-5 h-5"></i></a>
+      <a href="#" class="hover:text-green transition"><i data-lucide="linkedin" class="w-5 h-5"></i></a>
+    </div>
+  </div>
+
+  <script>
+    lucide.createIcons();
+
+    // Simple countdown logic: 30 days from current date
+    const targetDate = new Date();
+    targetDate.setDate(targetDate.getDate() + 30);
+
+    const dVal = document.getElementById("days-val");
+    const hVal = document.getElementById("hours-val");
+    const mVal = document.getElementById("mins-val");
+    const sVal = document.getElementById("secs-val");
+
+    function updateCountdown() {
+      const diff = targetDate - new Date();
+      if (diff <= 0) return;
+
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const mins = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+      const secs = Math.floor((diff % (1000 * 60)) / 1000);
+
+      dVal.textContent = days.toString().padStart(2, '0');
+      hVal.textContent = hours.toString().padStart(2, '0');
+      mVal.textContent = mins.toString().padStart(2, '0');
+      sVal.textContent = secs.toString().padStart(2, '0');
+    }
+
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
+  </script>
+</body>
+</html>

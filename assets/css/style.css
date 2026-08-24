@@ -1,0 +1,533 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+/* Color Variables */
+:root {
+  --color-primary-dark: #E95D2C;
+  --color-dark-teal: #EAEFF2;
+  --color-teal: #B0CEE2;
+  --color-emerald: #A63E1B;
+  --color-green: #E95D2C;
+  --color-light-mint: #45586C;
+  --color-off-white: #1A2730;
+  --color-dark: #F4F8F5;
+  
+  --bg-primary: #F4F8F5;
+  --bg-secondary: #FFFFFF;
+  --bg-tertiary: #EAEFF2;
+  --text-primary: #1A2730;
+  --text-secondary: #424048;
+  --border-color: rgba(26, 39, 48, 0.15);
+  --glass-bg: rgba(255, 255, 255, 0.7);
+  --glass-border: rgba(255, 255, 255, 0.4);
+}
+
+[data-theme="dark"] {
+  --color-primary-dark: #1A2730;
+  --color-dark-teal: #424048;
+  --color-teal: #45586C;
+  --color-emerald: #A63E1B;
+  --color-green: #E95D2C;
+  --color-light-mint: #B0CEE2;
+  --color-off-white: #F4F8F5;
+  --color-dark: #1A2730;
+
+  --bg-primary: #1A2730;
+  --bg-secondary: #24303A;
+  --bg-tertiary: #2D3B47;
+  --text-primary: #F4F8F5;
+  --text-secondary: #B0CEE2;
+  --border-color: rgba(255, 255, 255, 0.08);
+  --glass-bg: rgba(26, 39, 48, 0.6);
+  --glass-border: rgba(255, 255, 255, 0.05);
+}
+
+/* Global resets & typography */
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  transition: background-color 0.4s ease, color 0.4s ease;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+footer {
+  margin-top: auto;
+}
+
+h1, h2, h3, h4, h5, h6, .font-display {
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--color-primary-dark), var(--color-green));
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, var(--color-teal), var(--color-light-mint));
+}
+
+/* Brand Accent Glow */
+.x-brand {
+  background: linear-gradient(135deg, var(--color-emerald), var(--color-green));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+  font-weight: 800;
+  text-shadow: 0 0 15px rgba(233, 93, 44, 0.25);
+}
+
+/* Glassmorphism Classes */
+.glass {
+  background: var(--glass-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--glass-border);
+}
+
+.glass-dark {
+  background: rgba(26, 39, 48, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Floating Animations */
+@keyframes float-slow {
+  0% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-15px) rotate(2deg); }
+  100% { transform: translateY(0px) rotate(0deg); }
+}
+
+@keyframes float-medium {
+  0% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-25px) rotate(-3deg); }
+  100% { transform: translateY(0px) rotate(0deg); }
+}
+
+@keyframes float-fast {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+  100% { transform: translateY(0px); }
+}
+
+.animate-float-slow {
+  animation: float-slow 8s ease-in-out infinite;
+}
+
+.animate-float-medium {
+  animation: float-medium 6s ease-in-out infinite;
+}
+
+.animate-float-fast {
+  animation: float-fast 4s ease-in-out infinite;
+}
+
+/* Shimmer Border Animation */
+.shimmer-border {
+  position: relative;
+  border-radius: inherit;
+  overflow: hidden;
+}
+.shimmer-border::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    45deg,
+    transparent,
+    rgba(233, 93, 44, 0.15),
+    transparent
+  );
+  transform: rotate(45deg);
+  transition: 0.8s;
+  opacity: 0;
+}
+.shimmer-border:hover::after {
+  opacity: 1;
+  left: 120%;
+}
+
+/* Magnets & Hover effects */
+.magnetic {
+  transition: transform 0.2s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* Active Link Underline */
+.nav-link {
+  position: relative;
+}
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--color-primary-dark), var(--color-green));
+  transition: width 0.3s ease;
+}
+.nav-link.active::after, .nav-link:hover::after {
+  width: 100%;
+}
+
+/* Torn paper effect for 404 */
+.torn-paper {
+  background: var(--bg-secondary);
+  filter: drop-shadow(0 10px 15px rgba(0,0,0,0.1));
+  clip-path: polygon(
+    0% 0%, 100% 0%, 100% 90%, 
+    95% 85%, 90% 92%, 85% 86%, 80% 90%, 75% 84%, 70% 91%, 65% 85%, 60% 89%, 55% 83%, 
+    50% 92%, 45% 86%, 40% 90%, 35% 85%, 30% 91%, 25% 84%, 20% 88%, 15% 83%, 10% 91%, 
+    5% 84%, 0% 90%
+  );
+}
+
+/* RTL Specific Overrides (where Tailwind logical properties don't fully kick in) */
+[dir="rtl"] .rtl-flip {
+  transform: scaleX(-1);
+}
+
+/* Dynamic toast styling */
+.toast-notification {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 1.5rem;
+  border-radius: 0.75rem;
+  box-shadow: 0 10px 25px -5px rgba(0,0,0,0.1), 0 8px 10px -6px rgba(0,0,0,0.1);
+  transform: translateY(100px);
+  opacity: 0;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+[dir="rtl"] .toast-notification {
+  right: auto;
+  left: 2rem;
+}
+.toast-notification.show {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* Masonry grid items mapping */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-gap: 1.5rem;
+  grid-auto-flow: dense;
+}
+.gallery-item.wide {
+  grid-column: span 2;
+}
+.gallery-item.tall {
+  grid-row: span 2;
+}
+@media (max-width: 640px) {
+  .gallery-item.wide, .gallery-item.tall {
+    grid-column: span 1;
+    grid-row: span 1;
+  }
+}
+
+/* Light Theme Layout Fixes */
+html[data-theme="light"] body {
+  color: #1A2730;
+}
+
+html[data-theme="light"] #main-navbar {
+  background-color: rgba(244, 248, 245, 0.9) !important;
+  backdrop-filter: blur(12px);
+  border-bottom-color: rgba(26, 39, 48, 0.08) !important;
+}
+
+/* Nav links, logo, and toggles */
+html[data-theme="light"] #main-navbar a,
+html[data-theme="light"] #main-navbar button,
+html[data-theme="light"] #main-navbar span:not(.x-brand) {
+  color: #1A2730 !important;
+}
+
+html[data-theme="light"] #main-navbar a:hover,
+html[data-theme="light"] #main-navbar button:hover {
+  color: #E95D2C !important;
+}
+
+/* Glass element styles in light mode */
+html[data-theme="light"] .glass,
+html[data-theme="light"] [class*="glass"] {
+  background: rgba(255, 255, 255, 0.65) !important;
+  border-color: rgba(26, 39, 48, 0.08) !important;
+  color: #1A2730 !important;
+}
+
+/* Border overrides */
+html[data-theme="light"] .border-white\/10,
+html[data-theme="light"] .border-white\/5 {
+  border-color: rgba(26, 39, 48, 0.08) !important;
+}
+
+/* Background overrides for transparencies */
+html[data-theme="light"] .bg-white\/5,
+html[data-theme="light"] .bg-white\/10,
+html[data-theme="light"] .bg-dark\/40,
+html[data-theme="light"] .bg-dark\/30,
+html[data-theme="light"] .bg-dark\/20 {
+  background-color: rgba(26, 39, 48, 0.04) !important;
+}
+
+/* Widespread text color corrections in light mode */
+html[data-theme="light"] h1,
+html[data-theme="light"] h2,
+html[data-theme="light"] h3,
+html[data-theme="light"] h4,
+html[data-theme="light"] h5,
+html[data-theme="light"] h6 {
+  color: #1A2730 !important;
+}
+
+/* Target and fix Tailwind JIT text-white opacity classes using attribute selectors */
+html[data-theme="light"] [class*="text-white"]:not(footer *):not(button *):not(a.bg-gradient-to-r *) {
+  color: #1A2730 !important;
+}
+html[data-theme="light"] [class*="text-white/80"]:not(footer *):not(button *):not(a.bg-gradient-to-r *) {
+  color: rgba(26, 39, 48, 0.95) !important;
+}
+html[data-theme="light"] [class*="text-white/70"]:not(footer *):not(button *):not(a.bg-gradient-to-r *) {
+  color: rgba(26, 39, 48, 0.9) !important;
+}
+html[data-theme="light"] [class*="text-white/60"]:not(footer *):not(button *):not(a.bg-gradient-to-r *) {
+  color: rgba(26, 39, 48, 0.85) !important;
+}
+html[data-theme="light"] [class*="text-white/50"]:not(footer *):not(button *):not(a.bg-gradient-to-r *) {
+  color: rgba(26, 39, 48, 0.8) !important;
+}
+html[data-theme="light"] [class*="text-white/40"]:not(footer *):not(button *):not(a.bg-gradient-to-r *) {
+  color: rgba(26, 39, 48, 0.7) !important;
+}
+html[data-theme="light"] [class*="text-white/30"]:not(footer *):not(button *):not(a.bg-gradient-to-r *) {
+  color: rgba(26, 39, 48, 0.6) !important;
+}
+
+/* Reset/restore white text inside elements serving as dark containers in light mode */
+html[data-theme="light"] [class*="bg-dark"] h1,
+html[data-theme="light"] [class*="bg-dark"] h2,
+html[data-theme="light"] [class*="bg-dark"] h3,
+html[data-theme="light"] [class*="bg-dark"] h4,
+html[data-theme="light"] [class*="bg-dark"] h5,
+html[data-theme="light"] [class*="bg-dark"] h6,
+html[data-theme="light"] [class*="bg-black"] h1,
+html[data-theme="light"] [class*="bg-black"] h2,
+html[data-theme="light"] [class*="bg-black"] h3,
+html[data-theme="light"] [class*="bg-black"] h4,
+html[data-theme="light"] [class*="bg-black"] h5,
+html[data-theme="light"] [class*="bg-black"] h6,
+html[data-theme="light"] [class*="bg-emerald"] h1,
+html[data-theme="light"] [class*="bg-emerald"] h2,
+html[data-theme="light"] [class*="bg-emerald"] h3,
+html[data-theme="light"] [class*="bg-emerald"] h4,
+html[data-theme="light"] [class*="bg-emerald"] h5,
+html[data-theme="light"] [class*="bg-emerald"] h6,
+html[data-theme="light"] [class*="from-dark"] h1,
+html[data-theme="light"] [class*="from-dark"] h2,
+html[data-theme="light"] [class*="from-dark"] h3,
+html[data-theme="light"] [class*="from-dark"] h4,
+html[data-theme="light"] [class*="from-dark"] h5,
+html[data-theme="light"] [class*="from-dark"] h6,
+html[data-theme="light"] [class*="from-black"] h1,
+html[data-theme="light"] [class*="from-black"] h2,
+html[data-theme="light"] [class*="from-black"] h3,
+html[data-theme="light"] [class*="from-black"] h4,
+html[data-theme="light"] [class*="from-black"] h5,
+html[data-theme="light"] [class*="from-black"] h6 {
+  color: #FFFFFF !important;
+}
+
+html[data-theme="light"] [class*="bg-dark"] [class*="text-white"],
+html[data-theme="light"] [class*="bg-black"] [class*="text-white"],
+html[data-theme="light"] [class*="bg-emerald"] [class*="text-white"],
+html[data-theme="light"] [class*="from-dark"] [class*="text-white"],
+html[data-theme="light"] [class*="from-black"] [class*="text-white"],
+html[data-theme="light"] [class*="via-dark"] [class*="text-white"],
+html[data-theme="light"] [class*="bg-dark"] a,
+html[data-theme="light"] [class*="bg-black"] a,
+html[data-theme="light"] [class*="bg-dark"] span,
+html[data-theme="light"] [class*="bg-black"] span {
+  color: #FFFFFF !important;
+}
+
+html[data-theme="light"] [class*="bg-dark"] [class*="text-white/80"],
+html[data-theme="light"] [class*="bg-black"] [class*="text-white/80"],
+html[data-theme="light"] [class*="from-dark"] [class*="text-white/80"],
+html[data-theme="light"] [class*="from-black"] [class*="text-white/80"] {
+  color: rgba(255, 255, 255, 0.8) !important;
+}
+
+html[data-theme="light"] [class*="bg-dark"] [class*="text-white/70"],
+html[data-theme="light"] [class*="bg-black"] [class*="text-white/70"],
+html[data-theme="light"] [class*="from-dark"] [class*="text-white/70"],
+html[data-theme="light"] [class*="from-black"] [class*="text-white/70"] {
+  color: rgba(255, 255, 255, 0.7) !important;
+}
+
+html[data-theme="light"] [class*="bg-dark"] [class*="text-white/60"],
+html[data-theme="light"] [class*="bg-black"] [class*="text-white/60"],
+html[data-theme="light"] [class*="from-dark"] [class*="text-white/60"],
+html[data-theme="light"] [class*="from-black"] [class*="text-white/60"] {
+  color: rgba(255, 255, 255, 0.6) !important;
+}
+
+html[data-theme="light"] [class*="bg-dark"] [class*="text-white/50"],
+html[data-theme="light"] [class*="bg-black"] [class*="text-white/50"],
+html[data-theme="light"] [class*="from-dark"] [class*="text-white/50"],
+html[data-theme="light"] [class*="from-black"] [class*="text-white/50"] {
+  color: rgba(255, 255, 255, 0.5) !important;
+}
+
+html[data-theme="light"] [class*="bg-dark"] [class*="text-white/40"],
+html[data-theme="light"] [class*="bg-black"] [class*="text-white/40"],
+html[data-theme="light"] [class*="from-dark"] [class*="text-white/40"],
+html[data-theme="light"] [class*="from-black"] [class*="text-white/40"] {
+  color: rgba(255, 255, 255, 0.4) !important;
+}
+
+html[data-theme="light"] [class*="bg-dark"] [class*="text-white/30"],
+html[data-theme="light"] [class*="bg-black"] [class*="text-white/30"],
+html[data-theme="light"] [class*="from-dark"] [class*="text-white/30"],
+html[data-theme="light"] [class*="from-black"] [class*="text-white/30"] {
+  color: rgba(255, 255, 255, 0.3) !important;
+}
+
+/* Retain white text inside elements explicitly serving as badges on dark/accent backgrounds */
+html[data-theme="light"] .x-brand {
+  color: #E95D2C !important;
+  background: linear-gradient(135deg, #A63E1B, #E95D2C);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Footer override to look dark and premium even in light mode */
+footer {
+  background-color: #1A2730 !important;
+  color: #F4F8F5 !important;
+  border-top-color: rgba(255, 255, 255, 0.05) !important;
+}
+
+footer h4,
+footer span:not(.x-brand) {
+  color: #FFFFFF !important;
+}
+
+footer p,
+footer a {
+  color: rgba(244, 248, 245, 0.6) !important;
+}
+
+footer a:hover {
+  color: #E95D2C !important;
+}
+
+footer .border-t {
+  border-top-color: rgba(255, 255, 255, 0.05) !important;
+}
+
+/* Specific footer override to immunize it from Light Mode text adjustments */
+html[data-theme="light"] footer,
+html[data-theme="light"] footer * {
+  border-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+html[data-theme="light"] footer .text-white,
+html[data-theme="light"] footer span:not(.x-brand) {
+  color: #FFFFFF !important;
+}
+
+html[data-theme="light"] footer [class*="text-white/80"] {
+  color: rgba(255, 255, 255, 0.8) !important;
+}
+html[data-theme="light"] footer [class*="text-white/70"] {
+  color: rgba(255, 255, 255, 0.7) !important;
+}
+html[data-theme="light"] footer [class*="text-white/60"] {
+  color: rgba(255, 255, 255, 0.6) !important;
+}
+html[data-theme="light"] footer [class*="text-white/50"] {
+  color: rgba(255, 255, 255, 0.5) !important;
+}
+html[data-theme="light"] footer [class*="text-white/40"] {
+  color: rgba(255, 255, 255, 0.4) !important;
+}
+html[data-theme="light"] footer [class*="text-white/30"] {
+  color: rgba(255, 255, 255, 0.3) !important;
+}
+
+/* Brighter visible section dividers/borders in Dark Mode */
+html[data-theme="dark"] section.border-t,
+html[data-theme="dark"] footer.border-t {
+  border-top: 1px solid rgba(255, 255, 255, 0.14) !important;
+}
+
+/* Clear section dividers/borders in Light Mode (excl. footer) */
+html[data-theme="light"] section.border-t {
+  border-top: 1px solid rgba(26, 39, 48, 0.1) !important;
+}
+
+/* Always keep footer borders light and visible */
+footer.border-t,
+html[data-theme="light"] footer.border-t {
+  border-top: 1px solid rgba(255, 255, 255, 0.14) !important;
+}
+
+/* Specific footer override to immunize it from Light Mode text and border adjustments */
+html[data-theme="light"] footer,
+html[data-theme="light"] footer * {
+  border-color: rgba(255, 255, 255, 0.14) !important;
+}
+
+/* Light mode form input text and background corrections */
+html[data-theme="light"] select,
+html[data-theme="light"] input:not([type="submit"]):not([type="button"]),
+html[data-theme="light"] textarea,
+html[data-theme="light"] option {
+  background-color: #FFFFFF !important;
+  color: #1A2730 !important;
+  border-color: rgba(26, 39, 48, 0.15) !important;
+}
+
+/* Dark mode form input text and background corrections */
+html[data-theme="dark"] select,
+html[data-theme="dark"] input:not([type="submit"]):not([type="button"]),
+html[data-theme="dark"] textarea,
+html[data-theme="dark"] option {
+  background-color: #16222B !important;
+  color: #FFFFFF !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Custom toggle switch background overrides for active/checked states */
+input[type="checkbox"]:checked + div.bg-dark\/40,
+input[type="checkbox"]:checked + div[class*="bg-dark/40"] {
+  background-color: #E95D2C !important;
+}
+
+/* Inactive state background contrast correction in Light Mode */
+html[data-theme="light"] input[type="checkbox"]:not(:checked) + div.bg-dark\/40,
+html[data-theme="light"] input[type="checkbox"]:not(:checked) + div[class*="bg-dark/40"] {
+  background-color: rgba(26, 39, 48, 0.15) !important;
+}

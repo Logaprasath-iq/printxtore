@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PRINTXTORE — Premium Print Shop & Copy Center Template</title>
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+  
+  <!-- CSS assets -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            dark: 'var(--color-dark)',
+            'dark-teal': 'var(--color-dark-teal)',
+            teal: 'var(--color-teal)',
+            emerald: 'var(--color-emerald)',
+            green: 'var(--color-green)',
+            'light-mint': 'var(--color-light-mint)',
+            'off-white': 'var(--color-off-white)'
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            display: ['Space Grotesk', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="assets/css/style.css">
+  
+  <!-- CDNs -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+  <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lucide/dist/umd/lucide.min.js"></script>
+  
+  <!-- App JS Initializers -->
+  <script src="assets/js/database.js" defer></script>
+  <script src="assets/js/theme-rtl.js" defer></script>
+  <script src="assets/js/three-scene.js" defer></script>
+  <script src="assets/js/main.js" defer></script>
+</head>
+<body class="bg-gradient-to-br from-dark to-dark-teal text-off-white min-h-screen">
+
+  <!-- Header Navbar -->
+  <nav id="main-navbar" class="fixed top-0 left-0 w-full z-50 transition-all duration-300 bg-dark/40 backdrop-blur-sm border-b border-white/10">
+    <div class="w-full px-6 md:px-12">
+      <div class="flex items-center justify-between h-20">
+        
+        <!-- Logo -->
+        <a href="index.html" class="flex items-center gap-2 font-display text-xl font-bold tracking-wider text-white">
+          <span class="rtl-flip">
+            <svg class="w-8 h-8 text-green" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z" />
+            </svg>
+          </span>
+          <span>PRINT<span class="x-brand">X</span>TORE</span>
+        </a>
+        
+        <!-- Desktop Nav -->
+        <div class="hidden md:flex items-center gap-8 text-sm font-medium text-white/80">
+          <div class="relative group">
+            <button class="hover:text-white flex items-center gap-1 transition font-semibold text-white">
+              HOME <span class="text-[10px] mt-0.5">▼</span>
+            </button>
+            <div class="absolute top-full left-0 mt-2 w-56 rounded-xl glass border border-white/10 shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+              <div class="p-2 space-y-1">
+                <a href="index.html" class="block px-4 py-2 text-xs hover:bg-emerald/10 hover:text-emerald rounded-lg transition font-semibold text-white">Home 1 — General Services</a>
+                <a href="home-2.html" class="block px-4 py-2 text-xs hover:bg-emerald/10 hover:text-emerald rounded-lg transition text-white/70">Home 2 — Creative Print Studio</a>
+              </div>
+            </div>
+          </div>
+          
+          <a href="pages/about.html" class="nav-link hover:text-white transition">ABOUT</a>
+          <a href="pages/services.html" class="nav-link hover:text-white transition">SERVICES</a>
+          <a href="pages/gallery.html" class="nav-link hover:text-white transition">GALLERY</a>
+          <a href="pages/pricing.html" class="nav-link hover:text-white transition">PRICING</a>
+          <a href="pages/blog.html" class="nav-link hover:text-white transition">BLOG</a>
+          
+          <div class="relative group">
+            <button class="hover:text-white flex items-center gap-1 transition">
+              PAGES <span class="text-[10px] mt-0.5">▼</span>
+            </button>
+            <div class="absolute top-full left-0 mt-2 w-56 rounded-xl glass border border-white/10 shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+              <div class="p-2 space-y-1">
+                <a href="pages/faq.html" class="block px-4 py-2 text-xs hover:bg-emerald/10 hover:text-emerald rounded-lg transition">FAQ</a>
+                <a href="pages/file-preparation.html" class="block px-4 py-2 text-xs hover:bg-emerald/10 hover:text-emerald rounded-lg transition font-medium">File Preparation Guide</a>
+                <a href="pages/delivery-options.html" class="block px-4 py-2 text-xs hover:bg-emerald/10 hover:text-emerald rounded-lg transition">Delivery Options</a>
+                <a href="pages/404.html" class="block px-4 py-2 text-xs hover:bg-emerald/10 hover:text-emerald rounded-lg transition">404</a>
+                <a href="pages/coming-soon.html" class="block px-4 py-2 text-xs hover:bg-emerald/10 hover:text-emerald rounded-lg transition">Coming Soon</a>
+                <a href="pages/maintenance.html" class="block px-4 py-2 text-xs hover:bg-emerald/10 hover:text-emerald rounded-lg transition">Maintenance</a>
+              </div>
+            </div>
+          </div>
+          
+          <a href="pages/contact.html" class="nav-link hover:text-white transition">CONTACT</a>
+        </div>
+        
+        <!-- Right side tools -->
+        <div class="hidden md:flex items-center gap-4">
+          <button class="theme-toggle p-2 rounded-lg bg-white/5 hover:bg-white/10 text-white/80 hover:text-white border border-white/10 transition" aria-label="Toggle Theme">
+            <i data-lucide="sun" class="w-5 h-5 block dark:hidden"></i>
+            <i data-lucide="moon" class="w-5 h-5 hidden dark:block"></i>
+          </button>
+          
+          <button class="rtl-toggle px-4 py-2 text-sm text-white/85 hover:text-white transition rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 flex items-center justify-center gap-2">
+            <i data-lucide="arrow-left-right" class="w-4 h-4"></i>
+            <span>RTL</span>
+          </button>
+          
+          <a href="auth/login.html" class="px-4 py-2 text-sm text-white/85 hover:text-white transition rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 flex items-center justify-center">LOGIN</a>
+          <a href="auth/register.html" class="px-5 py-2 text-sm font-semibold rounded-xl bg-gradient-to-r from-emerald to-green text-white hover:opacity-90 transition shadow-lg shadow-emerald/10 border border-white/5">SIGN UP</a>
+        </div>
+        
+        <!-- Mobile navbar indicators -->
+        <div class="md:hidden flex items-center gap-3">
+          <button class="theme-toggle p-2 rounded-lg bg-white/5 text-white border border-white/10 transition">
+            <i data-lucide="moon" class="w-5 h-5"></i>
+          </button>
+          <button id="mobile-menu-btn" class="p-2 rounded-lg bg-white/5 text-white border border-white/10 transition">
+            <i data-lucide="menu" class="w-6 h-6"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile Navigation Overlay -->
+  <div id="mobile-menu" class="fixed inset-0 z-[100] translate-x-full transition-transform duration-300 ease-in-out bg-dark-teal/98 flex flex-col p-6 overflow-y-auto">
+    <div class="flex items-center justify-between mb-8">
+      <span class="font-display text-xl font-bold tracking-wider text-white">PRINT<span class="x-brand">X</span>TORE</span>
+      <button id="mobile-menu-close" class="p-2 rounded-lg bg-white/5 text-white border border-white/10">
+        <i data-lucide="x" class="w-6 h-6"></i>
+      </button>
+    </div>
+    
+    <div class="flex flex-col gap-6 text-lg font-medium text-white/90">
+      <div>
+        <button class="mobile-accordion-header flex items-center justify-between w-full hover:text-white transition">
+          <span>HOME</span>
+          <i data-lucide="chevron-down" class="accordion-arrow w-4 h-4 transition"></i>
+        </button>
+        <div class="hidden pl-4 mt-2 space-y-2 text-sm text-white/60">
+          <a href="index.html" class="block py-1 hover:text-white">Home 1 — General Services</a>
+          <a href="home-2.html" class="block py-1 hover:text-white">Home 2 — Creative Print Studio</a>
+        </div>
+      </div>
+      
+      <a href="pages/about.html" class="hover:text-white transition">ABOUT</a>
+      <a href="pages/services.html" class="hover:text-white transition">SERVICES</a>
+      <a href="pages/gallery.html" class="hover:text-white transition">GALLERY</a>
+      <a href="pages/pricing.html" class="hover:text-white transition">PRICING</a>
+      <a href="pages/blog.html" class="hover:text-white transition">BLOG</a>
+      
+      <div>
+        <button class="mobile-accordion-header flex items-center justify-between w-full hover:text-white transition">
+          <span>PAGES</span>
+          <i data-lucide="chevron-down" class="accordion-arrow w-4 h-4 transition"></i>
+        </button>
+        <div class="hidden pl-4 mt-2 space-y-2 text-sm text-white/60">
+          <a href="pages/faq.html" class="block py-1 hover:text-white">FAQ</a>
+          <a href="pages/file-preparation.html" class="block py-1 hover:text-white">File Preparation Guide</a>
+          <a href="pages/delivery-options.html" class="block py-1 hover:text-white">Delivery Options</a>
+          <a href="pages/404.html" class="block py-1 hover:text-white">404</a>
+          <a href="pages/coming-soon.html" class="block py-1 hover:text-white">Coming Soon</a>
+          <a href="pages/maintenance.html" class="block py-1 hover:text-white">Maintenance</a>
+        </div>
+      </div>
+      
+      <a href="pages/contact.html" class="hover:text-white transition">CONTACT</a>
+    </div>
+    
+    <div class="mt-auto pt-8 border-t border-white/5 space-y-4">
+      <button class="rtl-toggle w-full py-3 rounded-xl bg-white/5 text-white text-sm font-semibold border border-white/10 transition flex items-center justify-center gap-2">
+        <i data-lucide="arrow-left-right" class="w-4 h-4"></i>
+        <span>RTL</span>
+      </button>
+      <div class="grid grid-cols-2 gap-4">
+        <a href="auth/login.html" class="py-3 text-center rounded-xl bg-white/5 text-white border border-white/10 text-sm font-semibold">LOGIN</a>
+        <a href="auth/register.html" class="py-3 text-center rounded-xl bg-gradient-to-r from-emerald to-green text-white text-sm font-semibold border border-white/5">SIGN UP</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Hero Section -->
+  <section class="relative pt-32 pb-24 md:pt-48 md:pb-40 overflow-hidden">
+    <!-- Parallax background shapes -->
+    <div class="absolute top-1/4 left-10 w-96 h-96 bg-green/5 rounded-full blur-[120px] pointer-events-none"></div>
+    <div class="absolute bottom-10 right-10 w-96 h-96 bg-teal/10 rounded-full blur-[120px] pointer-events-none"></div>
+    
+    <div class="w-full px-6 md:px-12 grid grid-cols-1 md:grid-cols-12 gap-12 items-center relative z-10">
+      
+      <!-- Text details -->
+      <div class="md:col-span-6 space-y-8 text-left">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs font-semibold text-green uppercase tracking-wider animate-pulse">
+          <i data-lucide="sparkles" class="w-4 h-4"></i> NEXT-GENERATION PRINT STUDIO
+        </div>
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-none text-white font-display">
+          We Turn Your Ideas <br class="hidden sm:inline">Into Something <br>You Can <span class="bg-gradient-to-r from-emerald to-green bg-clip-text text-transparent">Hold.</span>
+        </h1>
+        <p class="text-lg text-white/70 max-w-xl">
+          Professional printing solutions for businesses, brands, creators, and individuals. Experience premium textures, accurate pigments, and custom 3D finishes.
+        </p>
+        <div class="flex flex-wrap gap-4">
+          <a href="auth/login.html" class="magnetic px-8 py-4 bg-gradient-to-r from-emerald to-green text-white font-bold rounded-xl shadow-lg shadow-emerald/20 hover:opacity-90 transition border border-white/10">
+            Start a Print Order
+          </a>
+          <a href="pages/services.html" class="px-8 py-4 bg-white/5 text-white font-bold rounded-xl border border-white/10 hover:bg-white/10 transition">
+            Explore Services
+          </a>
+        </div>
+
+        <!-- Floating stats cards in hero -->
+        <div class="grid grid-cols-2 gap-4 pt-8">
+          <div class="glass p-4 rounded-2xl flex items-center gap-3 border-white/5 animate-float-slow">
+            <div class="p-3 bg-emerald/10 text-green rounded-xl">
+              <i data-lucide="check-circle" class="w-6 h-6"></i>
+            </div>
+            <div>
+              <p class="text-2xl font-bold font-display text-white">10K+</p>
+              <p class="text-xs text-white/50">Orders Completed</p>
+            </div>
+          </div>
+          
+          <div class="glass p-4 rounded-2xl flex items-center gap-3 border-white/5 animate-float-medium">
+            <div class="p-3 bg-teal/20 text-green rounded-xl">
+              <i data-lucide="smile" class="w-6 h-6"></i>
+            </div>
+            <div>
+              <p class="text-2xl font-bold font-display text-white">98%</p>
+              <p class="text-xs text-white/50">Customer Satisfaction</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- New Hero Image -->
+      <div class="md:col-span-6 flex justify-center items-center relative w-full h-[350px] md:h-[500px]">
+        <img src="assets/images/hero-creative.png"
+             alt="PrintXtore creative printing studio"
+             class="w-full max-w-2xl h-auto object-contain drop-shadow-2xl z-10">
+             
+        <!-- Floating overlay specs -->
+        <div class="absolute top-4 right-3 glass p-3 rounded-xl border-white/10 animate-float-slow hidden sm:block z-20">
+          <p class="text-[10px] text-white/50 uppercase tracking-wider">Express Speed</p>
+          <p class="text-sm font-bold font-display text-white">24H Turnaround</p>
+        </div>
+        
+        <div class="absolute bottom-4 left-3 glass p-3 rounded-xl border-white/10 animate-float-medium hidden sm:block z-20">
+          <p class="text-[10px] text-white/50 uppercase tracking-wider">Printing Experience</p>
+          <p class="text-sm font-bold font-display text-white">8+ Years Experience</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section class="py-24 relative border-t border-white/5">
+    <div class="w-full px-6 md:px-12 text-center">
+      <div class="space-y-4 mb-16">
+        <h2 class="text-xs text-green font-bold uppercase tracking-widest font-display">WHAT WE CREATE</h2>
+        <p class="text-3xl sm:text-4xl font-extrabold font-display text-white">Everything You Need. Printed Perfectly.</p>
+      </div>
+      
+      <!-- Bento Grid (Asymmetric) -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <!-- Card 1: Large (Business Cards) -->
+        <div class="glass md:col-span-2 group overflow-hidden rounded-3xl border-white/5 flex flex-col justify-between hover:-translate-y-2 transition duration-300 relative min-h-[300px]">
+          <div class="absolute inset-0 bg-cover bg-center opacity-40 group-hover:scale-110 transition duration-500" style="background-image: url('./assets/images/service1.jpg')"></div>
+          <div class="absolute inset-0 bg-gradient-to-t from-dark via-dark/40 to-transparent"></div>
+          <div class="p-8 relative z-10 text-left mt-auto">
+            <span class="px-2.5 py-1 rounded bg-green/10 text-green text-xs font-semibold uppercase tracking-wider">Bestseller</span>
+            <h3 class="text-2xl font-bold font-display text-white mt-3">Business Cards</h3>
+            <p class="text-sm text-white/70 mt-2 max-w-md">Ultra-thick matte cards, spot UV gloss, gold foil, and textured cotton stock to make your name unforgettable.</p>
+            <a href="services/business-cards.html" class="inline-flex items-center gap-2 mt-4 text-xs font-bold text-green hover:underline">
+              Configure Specifications <i data-lucide="arrow-right" class="w-4 h-4"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Card 2: Medium (Packaging) -->
+        <div class="glass group overflow-hidden rounded-3xl border-white/5 flex flex-col justify-between hover:-translate-y-2 transition duration-300 relative min-h-[300px]">
+          <div class="absolute inset-0 bg-cover bg-center opacity-25 group-hover:scale-110 transition duration-500" style="background-image: url('./assets/images/service10.jpg')"></div>
+          <div class="absolute inset-0 bg-gradient-to-t from-dark via-dark/40 to-transparent"></div>
+          <div class="p-8 relative z-10 text-left mt-auto">
+            <h3 class="text-2xl font-bold font-display text-white">Packaging</h3>
+            <p class="text-sm text-white/70 mt-2">Corrugated cardboard mailers and premium luxury gift box structures.</p>
+            <a href="services/packaging.html" class="inline-flex items-center gap-2 mt-4 text-xs font-bold text-green hover:underline">
+              Configure <i data-lucide="arrow-right" class="w-4 h-4"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Card 3: Small (Flyers) -->
+        <div class="glass group overflow-hidden rounded-3xl border-white/5 flex flex-col justify-between hover:-translate-y-2 transition duration-300 relative min-h-[250px]">
+          <div class="absolute inset-0 bg-cover bg-center opacity-40 group-hover:scale-110 transition duration-500" style="background-image: url('./assets/images/service2.jpg')"></div>
+          <div class="absolute inset-0 bg-gradient-to-t from-dark via-dark/40 to-transparent"></div>
+          <div class="p-8 relative z-10 text-left mt-auto">
+            <h3 class="text-xl font-bold font-display text-white">Flyers & Leaflets</h3>
+            <p class="text-xs text-white/70 mt-1">Crisp, vibrant flyers on silk or glossy paper. Available in multiple folding variations.</p>
+            <a href="services/flyers-leaflets.html" class="inline-flex items-center gap-2 mt-4 text-xs font-bold text-green hover:underline">
+              Learn More <i data-lucide="arrow-right" class="w-4 h-4"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Card 4: Small (Booklets) -->
+        <div class="glass group overflow-hidden rounded-3xl border-white/5 flex flex-col justify-between hover:-translate-y-2 transition duration-300 relative min-h-[250px]">
+          <div class="absolute inset-0 bg-cover bg-center opacity-40 group-hover:scale-110 transition duration-500" style="background-image: url('./assets/images/service4.jpg')"></div>
+          <div class="absolute inset-0 bg-gradient-to-t from-dark via-dark/40 to-transparent"></div>
+          <div class="p-8 relative z-10 text-left mt-auto">
+            <h3 class="text-xl font-bold font-display text-white">Brochures & Catalogs</h3>
+            <p class="text-xs text-white/70 mt-1">Saddle-stitched or perfect bound books and tri-fold booklets for catalog layouts.</p>
+            <a href="services/brochures.html" class="inline-flex items-center gap-2 mt-4 text-xs font-bold text-green hover:underline">
+              Learn More <i data-lucide="arrow-right" class="w-4 h-4"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Card 6: Small (Stickers & Labels) -->
+        <div class="glass group overflow-hidden rounded-3xl border-white/5 flex flex-col justify-between hover:-translate-y-2 transition duration-300 relative min-h-[250px]">
+          <div class="absolute inset-0 bg-cover bg-center opacity-40 group-hover:scale-110 transition duration-500" style="background-image: url('./assets/images/service7.jpg')"></div>
+          <div class="absolute inset-0 bg-gradient-to-t from-dark via-dark/40 to-transparent"></div>
+          <div class="p-8 relative z-10 text-left mt-auto">
+            <h3 class="text-xl font-bold font-display text-white">Stickers & Labels</h3>
+            <p class="text-xs text-white/70 mt-1">Custom die-cut product labels, vinyl stickers, roll labels, and custom holographic finishes.</p>
+            <a href="services/stickers-labels.html" class="inline-flex items-center gap-2 mt-4 text-xs font-bold text-green hover:underline">
+              Learn More <i data-lucide="arrow-right" class="w-4 h-4"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Card 5: Large (Posters & Signage) -->
+        <div class="glass md:col-span-2 group overflow-hidden rounded-3xl border-white/5 flex flex-col justify-between hover:-translate-y-2 transition duration-300 relative min-h-[250px]">
+          <div class="absolute inset-0 bg-cover bg-center opacity-30 group-hover:scale-110 transition duration-500" style="background-image: url('./assets/images/service3.jpg')"></div>
+          <div class="absolute inset-0 bg-gradient-to-t from-dark via-dark/40 to-transparent"></div>
+          <div class="p-8 relative z-10 text-left mt-auto">
+            <h3 class="text-2xl font-bold font-display text-white">Large Format Posters</h3>
+            <p class="text-sm text-white/70 mt-2 max-w-md">Exhibition-grade matte prints, custom canvas wraps, and vinyl display banners for trade shows and displays.</p>
+            <a href="services/posters-banners.html" class="inline-flex items-center gap-2 mt-4 text-xs font-bold text-green hover:underline">
+              Learn More <i data-lucide="arrow-right" class="w-4 h-4"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Card 7: Small (Outdoor Signage) -->
+        <div class="glass group overflow-hidden rounded-3xl border-white/5 flex flex-col justify-between hover:-translate-y-2 transition duration-300 relative min-h-[250px]">
+          <div class="absolute inset-0 bg-cover bg-center opacity-40 group-hover:scale-110 transition duration-500" style="background-image: url('./assets/images/service12.jpg')"></div>
+          <div class="absolute inset-0 bg-gradient-to-t from-dark via-dark/40 to-transparent"></div>
+          <div class="p-8 relative z-10 text-left mt-auto">
+            <h3 class="text-xl font-bold font-display text-white">Calendars & Diaries</h3>
+            <p class="text-xs text-white/70 mt-1">Custom wire-o desktop calendars, wall calendars, and branded corporate journals.</p>
+            <a href="services/calendars-diaries.html" class="inline-flex items-center gap-2 mt-4 text-xs font-bold text-green hover:underline">
+              Learn More <i data-lucide="arrow-right" class="w-4 h-4"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Horizontal Scroll 3D Showcase (GSAP triggered overlay section) -->
+  <section class="py-24 overflow-hidden bg-dark/40 border-y border-white/5 relative">
+    <div class="w-full px-6 md:px-12 mb-12 text-left">
+      <h2 class="text-xs text-green font-bold uppercase tracking-widest font-display">CREATIVE SHOWCASE</h2>
+      <p class="text-3xl sm:text-4xl font-extrabold font-display text-white">From Screen To Something Real.</p>
+    </div>
+    
+    <!-- Scrolling horizontal wrapper -->
+    <div class="flex gap-8 px-8 overflow-x-auto pb-6 scrollbar-hide select-none cursor-grab active:cursor-grabbing">
+      <div class="flex-none w-80 glass p-6 rounded-2xl border-white/5 relative group hover:border-green/20 transition-all duration-300">
+        <img src="./assets/images/home1.jpg" alt="Cards" class="w-full h-48 object-cover rounded-xl mb-4 group-hover:scale-105 transition-transform duration-300" loading="lazy">
+        <h4 class="font-display font-semibold text-lg text-white">Soft-Touch Cards</h4>
+        <p class="text-xs text-white/50 mt-1">Silk laminated with spot UV emboss.</p>
+      </div>
+      
+      <div class="flex-none w-80 glass p-6 rounded-2xl border-white/5 relative group hover:border-green/20 transition-all duration-300">
+        <img src="./assets/images/home21.jpg" alt="Mailer" class="w-full h-48 object-cover rounded-xl mb-4 group-hover:scale-105 transition-transform duration-300" loading="lazy">
+        <h4 class="font-display font-semibold text-lg text-white">Mailer Boxes</h4>
+        <p class="text-xs text-white/50 mt-1">Branded boxes on natural Kraft Board.</p>
+      </div>
+
+      <div class="flex-none w-80 glass p-6 rounded-2xl border-white/5 relative group hover:border-green/20 transition-all duration-300">
+        <img src="./assets/images/home3.jpg" alt="Brochure" class="w-full h-48 object-cover rounded-xl mb-4 group-hover:scale-105 transition-transform duration-300" loading="lazy">
+        <h4 class="font-display font-semibold text-lg text-white">Tri-Fold Brochures</h4>
+        <p class="text-xs text-white/50 mt-1">Laminated, saddle-stitched catalogs.</p>
+      </div>
+
+      <div class="flex-none w-80 glass p-6 rounded-2xl border-white/5 relative group hover:border-green/20 transition-all duration-300">
+        <img src="./assets/images/home4.jpg" alt="Poster" class="w-full h-48 object-cover rounded-xl mb-4 group-hover:scale-105 transition-transform duration-300" loading="lazy">
+        <h4 class="font-display font-semibold text-lg text-white">Exhibition Banners</h4>
+        <p class="text-xs text-white/50 mt-1">High fidelity large format prints.</p>
+      </div>
+      
+      <div class="flex-none w-80 glass p-6 rounded-2xl border-white/5 relative group hover:border-green/20 transition-all duration-300">
+        <img src="./assets/images/home5.jpg" alt="Art Prints" class="w-full h-48 object-cover rounded-xl mb-4 group-hover:scale-105 transition-transform duration-300" loading="lazy">
+        <h4 class="font-display font-semibold text-lg text-white">Fine Art Giclée</h4>
+        <p class="text-xs text-white/50 mt-1">Archival pigment prints on heavy cotton paper.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Process Section -->
+  <section class="py-24 relative">
+    <div class="w-full px-6 md:px-12 text-center">
+      <div class="space-y-4 mb-16">
+        <h2 class="text-xs text-green font-bold uppercase tracking-widest font-display">THE JOURNEY</h2>
+        <p class="text-3xl sm:text-4xl font-extrabold font-display text-white">How Your Print Project Comes To Life</p>
+      </div>
+
+      <!-- Steps Timeline -->
+      <div class="grid grid-cols-1 md:grid-cols-6 gap-6 relative">
+        <div class="glass p-6 rounded-2xl border-white/5 relative text-left">
+          <div class="text-3xl font-bold font-display text-green">01</div>
+          <h4 class="font-bold text-white mt-2">Upload Artwork</h4>
+          <p class="text-xs text-white/50 mt-1">Drag and drop vector formats (PDF/SVG) directly.</p>
+        </div>
+        
+        <div class="glass p-6 rounded-2xl border-white/5 relative text-left">
+          <div class="text-3xl font-bold font-display text-green">02</div>
+          <h4 class="font-bold text-white mt-2">Specifications</h4>
+          <p class="text-xs text-white/50 mt-1">Choose quantity, size, paper options, and GSM.</p>
+        </div>
+
+        <div class="glass p-6 rounded-2xl border-white/5 relative text-left">
+          <div class="text-3xl font-bold font-display text-green">03</div>
+          <h4 class="font-bold text-white mt-2">Artwork Review</h4>
+          <p class="text-xs text-white/50 mt-1">Our pre-press technicians inspect bleed layouts.</p>
+        </div>
+
+        <div class="glass p-6 rounded-2xl border-white/5 relative text-left">
+          <div class="text-3xl font-bold font-display text-green">04</div>
+          <h4 class="font-bold text-white mt-2">Printing</h4>
+          <p class="text-xs text-white/50 mt-1">Your items go onto offset, digital, or SLA printers.</p>
+        </div>
+
+        <div class="glass p-6 rounded-2xl border-white/5 relative text-left">
+          <div class="text-3xl font-bold font-display text-green">05</div>
+          <h4 class="font-bold text-white mt-2">Quality Check</h4>
+          <p class="text-xs text-white/50 mt-1">Individual checks on folding, cutting, and glosses.</p>
+        </div>
+
+        <div class="glass p-6 rounded-2xl border-white/5 relative text-left">
+          <div class="text-3xl font-bold font-display text-green">06</div>
+          <h4 class="font-bold text-white mt-2">Pickup / Delivery</h4>
+          <p class="text-xs text-white/50 mt-1">Doorstep delivery or immediate pickup in studio.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing Calculator & Drag-and-Drop File Upload -->
+  <section class="py-24 relative border-t border-white/5 bg-dark/20">
+    <div class="w-full px-6 md:px-12 grid grid-cols-1 lg:grid-cols-12 gap-12">
+      
+      <!-- Left side: Price Calculator -->
+      <div class="lg:col-span-7 space-y-8 text-left">
+        <div>
+          <h2 class="text-xs text-green font-bold uppercase tracking-widest font-display">CALCULATOR</h2>
+          <p class="text-3xl font-extrabold font-display text-white mt-1">Configure & Estimate Instantly</p>
+        </div>
+        
+        <form id="price-calculator-form" class="glass p-8 rounded-3xl border-white/5 space-y-6">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <div>
+              <label class="block text-xs font-bold text-white/60 mb-2 uppercase">Select Product</label>
+              <select id="calc-product" class="w-full p-3.5 rounded-xl bg-dark/40 border border-white/10 text-white text-sm focus:border-green focus:outline-none transition">
+                <option value="Business Cards">Business Cards</option>
+                <option value="Flyers & Leaflets">Flyers & Leaflets</option>
+                <option value="Posters & Banners">Posters & Banners</option>
+                <option value="Brochures">Brochures</option>
+                <option value="Custom Packaging">Custom Packaging</option>
+                <option value="Photo Printing">Photo Printing</option>
+              </select>
+            </div>
+            
+            <div>
+              <label class="block text-xs font-bold text-white/60 mb-2 uppercase">Quantity</label>
+              <input type="number" id="calc-quantity" min="1" value="100" class="w-full p-3 rounded-xl bg-dark/40 border border-white/10 text-white text-sm focus:border-green focus:outline-none transition">
+            </div>
+
+            <div>
+              <label class="block text-xs font-bold text-white/60 mb-2 uppercase">Paper Size</label>
+              <select id="calc-paper-size" class="w-full p-3.5 rounded-xl bg-dark/40 border border-white/10 text-white text-sm focus:border-green focus:outline-none transition">
+                <option value="3.5\" x 2.0\"">Standard Card (3.5" x 2.0")</option>
+                <option value="A5">A5 Leaflet</option>
+                <option value="A4">A4 Standard</option>
+                <option value="A3">A3 Brochure</option>
+                <option value="A2">A2 Large Poster</option>
+              </select>
+            </div>
+
+            <div>
+              <label class="block text-xs font-bold text-white/60 mb-2 uppercase">Paper Type</label>
+              <select id="calc-paper-type" class="w-full p-3.5 rounded-xl bg-dark/40 border border-white/10 text-white text-sm focus:border-green focus:outline-none transition">
+                <option value="Premium Silk">Premium Silk</option>
+                <option value="Recycled Kraft">Recycled Kraft</option>
+                <option value="High Gloss Photo">High Gloss Photo</option>
+                <option value="Smooth Matte">Smooth Matte</option>
+              </select>
+            </div>
+
+            <div>
+              <label class="block text-xs font-bold text-white/60 mb-2 uppercase">GSM (Thickness)</label>
+              <select id="calc-gsm" class="w-full p-3.5 rounded-xl bg-dark/40 border border-white/10 text-white text-sm focus:border-green focus:outline-none transition">
+                <option value="350 GSM">350 GSM (Thick)</option>
+                <option value="300 GSM">300 GSM</option>
+                <option value="250 GSM">250 GSM</option>
+                <option value="170 GSM">170 GSM (Thin flyer)</option>
+              </select>
+            </div>
+
+            <div>
+              <label class="block text-xs font-bold text-white/60 mb-2 uppercase">Finishing</label>
+              <select id="calc-finish" class="w-full p-3.5 rounded-xl bg-dark/40 border border-white/10 text-white text-sm focus:border-green focus:outline-none transition">
+                <option value="None">None (Standard)</option>
+                <option value="Matte Lamination">Matte Lamination</option>
+                <option value="Gloss Lamination">Gloss Lamination</option>
+                <option value="Foil Stamping">Foil Stamping</option>
+                <option value="Spot UV">Spot UV Gloss</option>
+              </select>
+            </div>
+
+            <div>
+              <label class="block text-xs font-bold text-white/60 mb-2 uppercase">Binding</label>
+              <select id="calc-binding" class="w-full p-3.5 rounded-xl bg-dark/40 border border-white/10 text-white text-sm focus:border-green focus:outline-none transition">
+                <option value="None">None</option>
+                <option value="Saddle Stitch">Saddle Stitch (Fold & Clip)</option>
+                <option value="Perfect Bound">Perfect Bound (Book glue)</option>
+                <option value="Spiral Bound">Spiral Binding</option>
+              </select>
+            </div>
+
+            <div class="flex items-center mt-6">
+              <label class="inline-flex items-center cursor-pointer">
+                <input type="checkbox" id="calc-double-side" checked class="sr-only peer">
+                <div class="w-11 h-6 bg-dark/40 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-white/20 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-green relative"></div>
+                <span class="ml-3 text-xs font-bold text-white/80 uppercase">Double-Sided Print</span>
+              </label>
+            </div>
+          </div>
+        </form>
+      </div>
+
+      <!-- Right side: File Upload & Estimates output -->
+      <div class="lg:col-span-5 flex flex-col justify-between gap-8 text-left">
+        <div class="glass p-8 rounded-3xl border-white/5 space-y-6 flex-grow flex flex-col justify-between">
+          <div>
+            <h3 class="text-xs text-green font-bold uppercase tracking-widest font-display mb-3">ARTWORK SUBMISSION</h3>
+            <p class="text-sm text-white/60 mb-4">Drag and drop vector layouts to store inside order parameters. Max size: 25MB.</p>
+            
+            <!-- Drag and drop zone -->
+            <div id="artwork-dropzone" class="border-2 border-dashed border-white/10 hover:border-green/50 rounded-2xl p-8 flex flex-col items-center justify-center gap-3 cursor-pointer bg-dark/30 hover:bg-dark/50 transition duration-300">
+              <i data-lucide="upload-cloud" class="w-10 h-10 text-white/40"></i>
+              <p class="text-sm font-semibold text-white">Click or drag print artwork here</p>
+              <p class="text-xs text-white/30">Accepting PDF, SVG, JPG, PNG files</p>
+              <input type="file" id="artwork-file-input" class="hidden" accept=".pdf,.svg,.jpg,.jpeg,.png">
+            </div>
+
+            <!-- List uploaded files -->
+            <div id="uploaded-files-list"></div>
+          </div>
+
+          <!-- Total price indicator -->
+          <div class="pt-6 border-t border-white/5 mt-6 flex items-center justify-between">
+            <div>
+              <p class="text-xs text-white/40 uppercase">Estimated Price</p>
+              <p id="calc-estimated-price" class="text-3xl font-black text-white font-display">₹1,299</p>
+            </div>
+            
+            <a href="auth/login.html" class="px-6 py-3 rounded-xl bg-gradient-to-r from-emerald to-green text-white font-bold hover:opacity-90 transition border border-white/5 text-sm">
+              Confirm & Order
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="py-24 relative overflow-hidden border-t border-white/5">
+    <div class="w-full px-6 md:px-12 text-center space-y-12">
+      <div class="space-y-4">
+        <h2 class="text-xs text-green font-bold uppercase tracking-widest font-display">REVIEWS</h2>
+        <p class="text-3xl sm:text-4xl font-extrabold font-display text-white">What Clients Say</p>
+      </div>
+      
+      <!-- 3-Column Review Cards Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-left">
+        <!-- Review 1 -->
+        <div class="glass p-8 rounded-3xl border-white/5 flex flex-col justify-between hover:-translate-y-2 transition duration-300">
+          <div>
+            <div class="flex items-center gap-1 text-yellow-500 mb-4">
+              <i data-lucide="star" class="fill-current w-4 h-4"></i>
+              <i data-lucide="star" class="fill-current w-4 h-4"></i>
+              <i data-lucide="star" class="fill-current w-4 h-4"></i>
+              <i data-lucide="star" class="fill-current w-4 h-4"></i>
+              <i data-lucide="star" class="fill-current w-4 h-4"></i>
+            </div>
+            <p class="text-white/80 italic text-sm">"PRINTXTORE has transformed our marketing launches. Their colors are exceptionally accurate and shipping is unbelievably fast."</p>
+          </div>
+          <div class="mt-6 border-t border-white/5 pt-4">
+            <p class="font-bold text-white text-sm">Sarah Jenkins</p>
+            <p class="text-xs text-white/40">Brand Director, Apex Group</p>
+          </div>
+        </div>
+
+        <!-- Review 2 -->
+        <div class="glass p-8 rounded-3xl border-white/5 flex flex-col justify-between hover:-translate-y-2 transition duration-300">
+          <div>
+            <div class="flex items-center gap-1 text-yellow-500 mb-4">
+              <i data-lucide="star" class="fill-current w-4 h-4"></i>
+              <i data-lucide="star" class="fill-current w-4 h-4"></i>
+              <i data-lucide="star" class="fill-current w-4 h-4"></i>
+              <i data-lucide="star" class="fill-current w-4 h-4"></i>
+              <i data-lucide="star" class="fill-current w-4 h-4"></i>
+            </div>
+            <p class="text-white/80 italic text-sm">"The 3D packaging builder on the dashboard let us preview our kraft mailer boxes perfectly. The final delivery matched the WebGL render exactly."</p>
+          </div>
+          <div class="mt-6 border-t border-white/5 pt-4">
+            <p class="font-bold text-white text-sm">Marcus Vance</p>
+            <p class="text-xs text-white/40">Founder, Vance Tech</p>
+          </div>
+        </div>
+
+        <!-- Review 3 -->
+        <div class="glass p-8 rounded-3xl border-white/5 flex flex-col justify-between hover:-translate-y-2 transition duration-300">
+          <div>
+            <div class="flex items-center gap-1 text-yellow-500 mb-4">
+              <i data-lucide="star" class="fill-current w-4 h-4"></i>
+              <i data-lucide="star" class="fill-current w-4 h-4"></i>
+              <i data-lucide="star" class="fill-current w-4 h-4"></i>
+              <i data-lucide="star" class="fill-current w-4 h-4"></i>
+              <i data-lucide="star" class="fill-current w-4 h-4"></i>
+            </div>
+            <p class="text-white/80 italic text-sm">"Our custom silk business cards are a major talking point at conferences. The foil stamping quality is absolutely top-tier."</p>
+          </div>
+          <div class="mt-6 border-t border-white/5 pt-4">
+            <p class="font-bold text-white text-sm">Diana Prince</p>
+            <p class="text-xs text-white/40">Marketing Lead, Themyscira Group</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="border-t border-white/5 bg-dark pt-16 pb-12 text-left">
+    <div class="w-full px-6 md:px-12 grid grid-cols-1 md:grid-cols-12 gap-12">
+      <!-- Info Column -->
+      <div class="md:col-span-3 space-y-6">
+        <span class="font-display text-2xl font-bold tracking-wider text-white">PRINT<span class="x-brand">X</span>TORE</span>
+        <p class="text-sm text-white/50 max-w-sm">From Digital to Real. Providing next-generation print configurations for brands, startups, and designers globally.</p>
+        <div class="flex items-center gap-4 text-white/40">
+          <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="hover:text-green transition">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M9 8H7v3h2v9h4v-9h3.6l.4-3H13V6c0-.5.5-1 1-1h3V1H13c-3 0-4 2-4 4v3z"/></svg>
+          </a>
+          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="hover:text-green transition">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </a>
+          <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" class="hover:text-green transition">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.163a3.003 3.003 0 0 0-2.11-2.11C19.518 3.545 12 3.545 12 3.545s-7.518 0-9.388.507a3.003 3.003 0 0 0-2.11 2.11C0 8.033 0 12 0 12s0 3.967.502 5.837a3.003 3.003 0 0 0 2.11 2.11c1.87.507 9.388.507 9.388.507s7.518 0 9.388-.507a3.003 3.003 0 0 0 2.11-2.11C24 15.967 24 12 24 12s0-3.967-.502-5.837zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+          </a>
+          <a href="https://x.com" target="_blank" rel="noopener noreferrer" class="hover:text-green transition">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+          <a href="https://whatsapp.com" target="_blank" rel="noopener noreferrer" class="hover:text-green transition">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.504-5.724-1.466L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.82 1.45 5.43 0 9.85-4.38 9.85-9.8 0-2.63-1.02-5.1-2.88-6.96C16.63 2.02 14.19 1 12 1 6.56 1 2.14 5.38 2.13 10.8c0 1.71.45 3.38 1.32 4.88L2.44 20.3l4.79-1.25c1.55.85 3.2 1.25 4.82 1.25zM17.8 16.15c-.25.7-.75 1.25-1.45 1.5-.7.25-2.25-.35-4.35-1.2-2.1-.85-3.85-2.6-4.7-4.7-.85-2.1-.25-3.65 0-4.35.25-.7.8-1.2 1.5-1.45h.5c.2 0 .35.15.45.35l1 2.4c.05.15.05.3 0 .45-.05.1-.15.2-.25.3l-.6.6c-.15.15-.2.35-.1.55.5 1 1.6 2.1 2.6 2.6.2.1.4.05.55-.1l.6-.6c.1-.1.25-.2.4-.25s.3 0 .45.05l2.4 1c.2.1.35.25.35.45v.5z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Services Column -->
+      <div class="md:col-span-2 space-y-4">
+        <h4 class="font-bold text-white text-sm">Services</h4>
+        <ul class="space-y-2 text-sm text-white/50">
+          <li><a href="services/business-cards.html" class="hover:text-white transition">Business Cards</a></li>
+          <li><a href="pages/services.html" class="hover:text-white transition">Flyers & Leaflets</a></li>
+          <li><a href="pages/services.html" class="hover:text-white transition">Posters & Banners</a></li>
+          <li><a href="pages/services.html" class="hover:text-white transition">Brochures</a></li>
+          <li><a href="pages/services.html" class="hover:text-white transition">Custom Packaging</a></li>
+        </ul>
+      </div>
+
+      <!-- Company Column -->
+      <div class="md:col-span-2 space-y-4">
+        <h4 class="font-bold text-white text-sm">Company</h4>
+        <ul class="space-y-2 text-sm text-white/50">
+          <li><a href="pages/about.html" class="hover:text-white transition">About Us</a></li>
+          <li><a href="pages/gallery.html" class="hover:text-white transition">Gallery</a></li>
+          <li><a href="pages/blog.html" class="hover:text-white transition">Blog & News</a></li>
+        </ul>
+      </div>
+
+      <!-- Support Column -->
+      <div class="md:col-span-2 space-y-4">
+        <h4 class="font-bold text-white text-sm">Support</h4>
+        <ul class="space-y-2 text-sm text-white/50">
+          <li><a href="pages/faq.html" class="hover:text-white transition">FAQ Accordion</a></li>
+          <li><a href="pages/file-preparation.html" class="hover:text-white transition">File Prep Guide</a></li>
+          <li><a href="pages/delivery-options.html" class="hover:text-white transition">Delivery Options</a></li>
+          <li><a href="pages/contact.html" class="hover:text-white transition">Contact Us</a></li>
+        </ul>
+      </div>
+
+      <!-- Newsletter Column -->
+      <div class="md:col-span-3 space-y-4">
+        <h4 class="font-bold text-white text-sm">Newsletter</h4>
+        <p class="text-xs text-white/50">Subscribe to receive layout templates and discounts.</p>
+        <form class="flex gap-2">
+          <input type="email" placeholder="Your email" class="flex-grow p-2.5 rounded-lg bg-white/5 border border-white/10 text-xs text-white focus:outline-none focus:border-green">
+          <button type="button" onclick="showToast('Thank you for subscribing!')" class="px-4 py-2.5 rounded-lg bg-gradient-to-r from-emerald to-green text-white text-xs font-semibold border border-white/5">Go</button>
+        </form>
+      </div>
+    </div>
+    
+    <!-- Giant Footer Logo and Copy -->
+    <div class="w-full px-6 md:px-12 mt-16 pt-8 border-t border-white/5 flex flex-col md:flex-row items-center justify-between gap-6 text-xs text-white/30">
+      <p>&copy; 2026 PRINTXTORE. All rights reserved. Premium Multipurpose Template.</p>
+      <div class="font-display font-black text-3xl tracking-widest text-white/10">
+        PRINT<span class="text-green/20">X</span>TORE
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script>
+    // Initialize icons
+    lucide.createIcons();
+    
+    // Initialize swiper
+    new Swiper('.testimonial-swiper', {
+      loop: true,
+      autoplay: { delay: 4000 },
+      slidesPerView: 1
+    });
+  </script>
+</body>
+</html>

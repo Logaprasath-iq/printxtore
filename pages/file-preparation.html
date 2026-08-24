@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>File Preparation Guide — PRINTXTORE</title>
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="../assets/images/favicon.svg">
+  
+  <!-- CSS assets -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            dark: 'var(--color-dark)',
+            'dark-teal': 'var(--color-dark-teal)',
+            teal: 'var(--color-teal)',
+            emerald: 'var(--color-emerald)',
+            green: 'var(--color-green)',
+            'light-mint': 'var(--color-light-mint)',
+            'off-white': 'var(--color-off-white)'
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            display: ['Space Grotesk', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="../assets/css/style.css">
+  
+  <!-- CDNs -->
+  <script src="https://cdn.jsdelivr.net/npm/lucide/dist/umd/lucide.min.js"></script>
+  
+  <!-- App JS Initializers -->
+  <script src="../assets/js/database.js" defer></script>
+  <script src="../assets/js/theme-rtl.js" defer></script>
+  <script src="../assets/js/main.js" defer></script>
+</head>
+<body class="bg-gradient-to-br from-dark to-dark-teal text-off-white min-h-screen">
+
+  <!-- Header Navbar -->
+  <nav id="main-navbar" class="fixed top-0 left-0 w-full z-50 transition-all duration-300 bg-dark/40 backdrop-blur-sm border-b border-white/10">
+    <div class="w-full px-6 md:px-12">
+      <div class="flex items-center justify-between h-20">
+        
+        <!-- Logo -->
+        <a href="../index.html" class="flex items-center gap-2 font-display text-xl font-bold tracking-wider text-white">
+          <span class="rtl-flip">
+            <svg class="w-8 h-8 text-green" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z" />
+            </svg>
+          </span>
+          <span>PRINT<span class="x-brand">X</span>TORE</span>
+        </a>
+        
+        <!-- Desktop Nav -->
+        <div class="hidden md:flex items-center gap-8 text-sm font-medium text-white/80">
+          <div class="relative group">
+            <button class="hover:text-white flex items-center gap-1 transition">
+              HOME <span class="text-[10px] mt-0.5">▼</span>
+            </button>
+            <div class="absolute top-full left-0 mt-2 w-56 rounded-xl glass border border-white/10 shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+              <div class="p-2 space-y-1">
+                <a href="../index.html" class="block px-4 py-2 text-xs hover:bg-emerald/10 hover:text-emerald rounded-lg transition text-white/70">Home 1 — General Services</a>
+                <a href="../home-2.html" class="block px-4 py-2 text-xs hover:bg-emerald/10 hover:text-emerald rounded-lg transition text-white/70">Home 2 — Creative Print Studio</a>
+              </div>
+            </div>
+          </div>
+          
+          <a href="about.html" class="nav-link hover:text-white transition">ABOUT</a>
+          <a href="services.html" class="nav-link hover:text-white transition">SERVICES</a>
+          <a href="gallery.html" class="nav-link hover:text-white transition font-semibold">GALLERY</a>
+          <a href="pricing.html" class="nav-link hover:text-white transition font-medium">PRICING</a>
+          <a href="blog.html" class="nav-link hover:text-white transition">BLOG</a>
+          
+          <div class="relative group">
+            <button class="hover:text-white flex items-center gap-1 transition font-semibold text-white">
+              PAGES <span class="text-[10px] mt-0.5">▼</span>
+            </button>
+            <div class="absolute top-full left-0 mt-2 w-56 rounded-xl glass border border-white/10 shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+              <div class="p-2 space-y-1">
+                <a href="faq.html" class="block px-4 py-2 text-xs hover:bg-emerald/10 hover:text-emerald rounded-lg transition">FAQ</a>
+                <a href="file-preparation.html" class="block px-4 py-2 text-xs hover:bg-emerald/10 hover:text-emerald rounded-lg transition font-semibold text-white">File Preparation Guide</a>
+                <a href="delivery-options.html" class="block px-4 py-2 text-xs hover:bg-emerald/10 hover:text-emerald rounded-lg transition">Delivery Options</a>
+                <a href="404.html" class="block px-4 py-2 text-xs hover:bg-emerald/10 hover:text-emerald rounded-lg transition">404</a>
+                <a href="coming-soon.html" class="block px-4 py-2 text-xs hover:bg-emerald/10 hover:text-emerald rounded-lg transition">Coming Soon</a>
+                <a href="maintenance.html" class="block px-4 py-2 text-xs hover:bg-emerald/10 hover:text-emerald rounded-lg transition">Maintenance</a>
+              </div>
+            </div>
+          </div>
+          
+          <a href="contact.html" class="nav-link hover:text-white transition">CONTACT</a>
+        </div>
+        
+        <!-- Right side tools -->
+        <div class="hidden md:flex items-center gap-4">
+          <button class="theme-toggle p-2 rounded-lg bg-white/5 hover:bg-white/10 text-white/80 hover:text-white border border-white/10 transition" aria-label="Toggle Theme">
+            <i data-lucide="sun" class="w-5 h-5 block dark:hidden"></i>
+            <i data-lucide="moon" class="w-5 h-5 hidden dark:block"></i>
+          </button>
+          
+          <button class="rtl-toggle px-4 py-2 text-sm text-white/85 hover:text-white transition rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 flex items-center justify-center gap-2">
+            <i data-lucide="arrow-left-right" class="w-4 h-4"></i>
+            <span>RTL</span>
+          </button>
+          
+          <a href="../auth/login.html" class="px-4 py-2 text-sm text-white/85 hover:text-white transition rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 flex items-center justify-center">LOGIN</a>
+          <a href="../auth/register.html" class="px-5 py-2 text-sm font-semibold rounded-xl bg-gradient-to-r from-emerald to-green text-white hover:opacity-90 transition shadow-lg shadow-emerald/10 border border-white/5">SIGN UP</a>
+        </div>
+        
+        <div class="md:hidden flex items-center gap-3">
+          <button class="theme-toggle p-2 rounded-lg bg-white/5 text-white border border-white/10 transition">
+            <i data-lucide="moon" class="w-5 h-5"></i>
+          </button>
+          <button id="mobile-menu-btn" class="p-2 rounded-lg bg-white/5 text-white border border-white/10 transition">
+            <i data-lucide="menu" class="w-6 h-6"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div id="mobile-menu" class="fixed inset-0 z-[100] translate-x-full transition-transform duration-300 ease-in-out bg-dark-teal/98 flex flex-col p-6 overflow-y-auto">
+    <div class="flex items-center justify-between mb-8">
+      <span class="font-display text-xl font-bold tracking-wider text-white">PRINT<span class="x-brand">X</span>TORE</span>
+      <button id="mobile-menu-close" class="p-2 rounded-lg bg-white/5 text-white border border-white/10">
+        <i data-lucide="x" class="w-6 h-6"></i>
+      </button>
+    </div>
+    <div class="flex flex-col gap-6 text-lg font-medium text-white/90">
+      <div>
+        <button class="mobile-accordion-header flex items-center justify-between w-full hover:text-white transition">
+          <span>HOME</span>
+          <i data-lucide="chevron-down" class="accordion-arrow w-4 h-4 transition"></i>
+        </button>
+        <div class="hidden pl-4 mt-2 space-y-2 text-sm text-white/60">
+          <a href="../index.html" class="block py-1 hover:text-white">Home 1 — General Services</a>
+          <a href="../home-2.html" class="block py-1 hover:text-white">Home 2 — Creative Print Studio</a>
+        </div>
+      </div>
+      <a href="about.html" class="hover:text-white transition">ABOUT</a>
+      <a href="services.html" class="hover:text-white transition font-semibold text-white">SERVICES</a>
+      <a href="gallery.html" class="hover:text-white transition font-semibold">GALLERY</a>
+      <a href="pricing.html" class="hover:text-white transition font-medium">PRICING</a>
+      <a href="blog.html" class="hover:text-white transition font-semibold">BLOG</a>
+      <div>
+        <button class="mobile-accordion-header flex items-center justify-between w-full hover:text-white transition">
+          <span>PAGES</span>
+          <i data-lucide="chevron-down" class="accordion-arrow w-4 h-4 transition"></i>
+        </button>
+        <div class="hidden pl-4 mt-2 space-y-2 text-sm text-white/60">
+          <a href="faq.html" class="block py-1 hover:text-white">FAQ</a>
+          <a href="file-preparation.html" class="block py-1 hover:text-white">File Preparation Guide</a>
+          <a href="delivery-options.html" class="block py-1 hover:text-white">Delivery Options</a>
+          <a href="404.html" class="block py-1 hover:text-white">404</a>
+          <a href="coming-soon.html" class="block py-1 hover:text-white">Coming Soon</a>
+          <a href="maintenance.html" class="block py-1 hover:text-white">Maintenance</a>
+        </div>
+      </div>
+      <a href="contact.html" class="hover:text-white transition">CONTACT</a>
+    </div>
+    <div class="mt-auto pt-8 border-t border-white/5 space-y-4">
+      <button class="rtl-toggle w-full py-3 rounded-xl bg-white/5 text-white text-sm font-semibold border border-white/10 transition flex items-center justify-center gap-2">
+        <i data-lucide="arrow-left-right" class="w-4 h-4"></i>
+        <span>RTL</span>
+      </button>
+      <div class="grid grid-cols-2 gap-4">
+        <a href="../auth/login.html" class="py-3 text-center rounded-xl bg-white/5 text-white border border-white/10 text-sm font-semibold">LOGIN</a>
+        <a href="../auth/register.html" class="py-3 text-center rounded-xl bg-gradient-to-r from-emerald to-green text-white text-sm font-semibold border border-white/5">SIGN UP</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Guide Header -->
+  <section class="pt-32 pb-12 text-left">
+    <div class="w-full px-6 md:px-12">
+      <h1 class="text-4xl sm:text-5xl font-extrabold font-display text-white">Pre-Press Setup Guide</h1>
+      <p class="text-sm text-white/50 mt-2 max-w-xl">Configure your document borders, color modes, and typography outlines using these standard rules to prevent errors.</p>
+    </div>
+  </section>
+
+  <!-- Interactive/Visual CSS Layout Diagram -->
+  <section class="py-12 border-t border-white/5 text-left">
+    <div class="w-full px-6 md:px-12 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+      
+      <!-- Left: Diagram Explanation -->
+      <div class="lg:col-span-5 space-y-6">
+        <h3 class="text-2xl font-bold font-display text-white">1. Margins & Dimensions</h3>
+        <p class="text-sm text-white/60">
+          Trimming blades shift slightly when slicing large printing sheets. By setting up three layered margins, your files remain completely layout-safe.
+        </p>
+        
+        <ul class="space-y-4 text-xs text-white/70">
+          <li class="flex items-start gap-3">
+            <span class="w-3 h-3 rounded bg-red-500 mt-1 flex-shrink-0"></span>
+            <div>
+              <p class="font-bold text-white">Bleed Line (Red, +3.0mm)</p>
+              <p class="text-white/50">Extend your background color entirely to this line to prevent white paper borders if cuts shift.</p>
+            </div>
+          </li>
+          
+          <li class="flex items-start gap-3">
+            <span class="w-3 h-3 rounded bg-white mt-1 flex-shrink-0"></span>
+            <div>
+              <p class="font-bold text-white">Trim Line (White, 0.0mm)</p>
+              <p class="text-white/50">This is the actual boundary of your finalized product (e.g. 3.5" x 2.0" card size).</p>
+            </div>
+          </li>
+
+          <li class="flex items-start gap-3">
+            <span class="w-3 h-3 rounded bg-green mt-1 flex-shrink-0"></span>
+            <div>
+              <p class="font-bold text-white">Safe Boundary (Green, -4.0mm)</p>
+              <p class="text-white/50">Keep logos, text details, and key vectors inside this line to ensure they never get sliced.</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Right: Interactive CSS Business Card Canvas Diagram -->
+      <div class="lg:col-span-7 flex justify-center">
+        <!-- Bleed area box (Outer container) -->
+        <div class="w-full max-w-[480px] aspect-[1.8/1] rounded-2xl border-2 border-dashed border-red-500 bg-red-500/5 p-4 flex flex-col justify-between relative shadow-2xl animate-float-slow">
+          <span class="absolute -top-3.5 left-6 bg-red-500 text-white text-[9px] font-bold px-2 py-0.5 rounded">BLEED BOUNDARY</span>
+
+          <!-- Trim area box -->
+          <div class="w-full h-full border-2 border-solid border-white rounded-xl bg-white/5 p-4 flex flex-col justify-between relative">
+            <span class="absolute -top-3.5 left-6 bg-white text-dark text-[9px] font-bold px-2 py-0.5 rounded">TRIM LINE</span>
+
+            <!-- Safe area box -->
+            <div class="w-full h-full border-2 border-dotted border-green rounded-lg bg-green/5 p-4 flex flex-col justify-between relative">
+              <span class="absolute -top-3 left-6 bg-green text-white text-[8px] font-bold px-2 py-0.5 rounded">SAFE AREA</span>
+
+              <!-- Mock logo and details safely placed inside Safe Area -->
+              <div class="flex items-center gap-2">
+                <div class="w-6 h-6 rounded bg-green/20 flex items-center justify-center text-green"><i data-lucide="shield" class="w-4 h-4"></i></div>
+                <span class="text-[10px] font-bold text-white">LOGO HERE</span>
+              </div>
+              
+              <div class="text-[8px] text-white/50 space-y-0.5">
+                <p class="font-bold text-white">Sarah Jenkins</p>
+                <p>designer@example.com</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Comparative animated cards section -->
+  <section class="py-16 bg-dark/20 border-t border-white/5 text-left">
+    <div class="w-full px-6 md:px-12 space-y-12">
+      <h3 class="text-3xl font-extrabold font-display text-white text-center">Setup Rules Checklist</h3>
+      
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Card 1: Colors -->
+        <div class="glass p-6 rounded-3xl border-white/5 space-y-4 hover:border-green/20 transition duration-300">
+          <div class="w-10 h-10 rounded-xl bg-teal/20 text-green flex items-center justify-center"><i data-lucide="palette" class="w-5 h-5"></i></div>
+          <h4 class="font-bold text-white font-display text-lg">CMYK Color Gamut</h4>
+          <p class="text-xs text-white/50">
+            Convert files to <strong>CMYK (FOGRA39)</strong> profiles. RGB profiles (screen displays) contain wide neon gamuts that offset press inks cannot reproduce, leading to flat printed output.
+          </p>
+        </div>
+
+        <!-- Card 2: Outlines -->
+        <div class="glass p-6 rounded-3xl border-white/5 space-y-4 hover:border-green/20 transition duration-300">
+          <div class="w-10 h-10 rounded-xl bg-green/10 text-green flex items-center justify-center"><i data-lucide="type" class="w-5 h-5"></i></div>
+          <h4 class="font-bold text-white font-display text-lg font-medium">Outline Typography</h4>
+          <p class="text-xs text-white/50">
+            Select all texts in Adobe Illustrator or InDesign and convert them to <strong>Curves/Outlines</strong> (Ctrl+Shift+O). This locks fonts into custom vector paths to prevent missing font errors on our presses.
+          </p>
+        </div>
+
+        <!-- Card 3: Resolution -->
+        <div class="glass p-6 rounded-3xl border-white/5 space-y-4 hover:border-green/20 transition duration-300">
+          <div class="w-10 h-10 rounded-xl bg-teal/20 text-green flex items-center justify-center"><i data-lucide="scan-line" class="w-5 h-5"></i></div>
+          <h4 class="font-bold text-white font-display text-lg font-medium">300 DPI Resolution</h4>
+          <p class="text-xs text-white/50">
+            Export raster graphics and photos at <strong>300 DPI (Dots Per Inch)</strong>. Screens output at 72 DPI, which looks sharp on screens but renders pixelated or blurry on card stocks.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="border-t border-white/5 bg-dark pt-16 pb-12 text-left">
+    <div class="w-full px-6 md:px-12 grid grid-cols-1 md:grid-cols-12 gap-12">
+      <!-- Info Column -->
+      <div class="md:col-span-3 space-y-6">
+        <span class="font-display text-2xl font-bold tracking-wider text-white">PRINT<span class="x-brand">X</span>TORE</span>
+        <p class="text-sm text-white/50 max-w-sm">From Digital to Real. Providing next-generation print configurations for brands, startups, and designers globally.</p>
+        <div class="flex items-center gap-4 text-white/40">
+          <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="hover:text-green transition">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M9 8H7v3h2v9h4v-9h3.6l.4-3H13V6c0-.5.5-1 1-1h3V1H13c-3 0-4 2-4 4v3z"/></svg>
+          </a>
+          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="hover:text-green transition">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </a>
+          <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" class="hover:text-green transition">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.163a3.003 3.003 0 0 0-2.11-2.11C19.518 3.545 12 3.545 12 3.545s-7.518 0-9.388.507a3.003 3.003 0 0 0-2.11 2.11C0 8.033 0 12 0 12s0 3.967.502 5.837a3.003 3.003 0 0 0 2.11 2.11c1.87.507 9.388.507 9.388.507s7.518 0 9.388-.507a3.003 3.003 0 0 0 2.11-2.11C24 15.967 24 12 24 12s0-3.967-.502-5.837zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+          </a>
+          <a href="https://x.com" target="_blank" rel="noopener noreferrer" class="hover:text-green transition">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+          <a href="https://whatsapp.com" target="_blank" rel="noopener noreferrer" class="hover:text-green transition">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.504-5.724-1.466L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.82 1.45 5.43 0 9.85-4.38 9.85-9.8 0-2.63-1.02-5.1-2.88-6.96C16.63 2.02 14.19 1 12 1 6.56 1 2.14 5.38 2.13 10.8c0 1.71.45 3.38 1.32 4.88L2.44 20.3l4.79-1.25c1.55.85 3.2 1.25 4.82 1.25zM17.8 16.15c-.25.7-.75 1.25-1.45 1.5-.7.25-2.25-.35-4.35-1.2-2.1-.85-3.85-2.6-4.7-4.7-.85-2.1-.25-3.65 0-4.35.25-.7.8-1.2 1.5-1.45h.5c.2 0 .35.15.45.35l1 2.4c.05.15.05.3 0 .45-.05.1-.15.2-.25.3l-.6.6c-.15.15-.2.35-.1.55.5 1 1.6 2.1 2.6 2.6.2.1.4.05.55-.1l.6-.6c.1-.1.25-.2.4-.25s.3 0 .45.05l2.4 1c.2.1.35.25.35.45v.5z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Services Column -->
+      <div class="md:col-span-2 space-y-4">
+        <h4 class="font-bold text-white text-sm">Services</h4>
+        <ul class="space-y-2 text-sm text-white/50">
+          <li><a href="../services/business-cards.html" class="hover:text-white transition">Business Cards</a></li>
+          <li><a href="services.html" class="hover:text-white transition">Flyers & Leaflets</a></li>
+          <li><a href="services.html" class="hover:text-white transition">Posters & Banners</a></li>
+          <li><a href="services.html" class="hover:text-white transition">Brochures</a></li>
+          <li><a href="services.html" class="hover:text-white transition">Custom Packaging</a></li>
+        </ul>
+      </div>
+
+      <!-- Company Column -->
+      <div class="md:col-span-2 space-y-4">
+        <h4 class="font-bold text-white text-sm">Company</h4>
+        <ul class="space-y-2 text-sm text-white/50">
+          <li><a href="about.html" class="hover:text-white transition">About Us</a></li>
+          <li><a href="gallery.html" class="hover:text-white transition">Gallery</a></li>
+          <li><a href="blog.html" class="hover:text-white transition">Blog & News</a></li>
+        </ul>
+      </div>
+
+      <!-- Support Column -->
+      <div class="md:col-span-2 space-y-4">
+        <h4 class="font-bold text-white text-sm">Support</h4>
+        <ul class="space-y-2 text-sm text-white/50">
+          <li><a href="faq.html" class="hover:text-white transition">FAQ Accordion</a></li>
+          <li><a href="file-preparation.html" class="hover:text-white transition">File Prep Guide</a></li>
+          <li><a href="delivery-options.html" class="hover:text-white transition">Delivery Options</a></li>
+          <li><a href="contact.html" class="hover:text-white transition">Contact Us</a></li>
+        </ul>
+      </div>
+
+      <!-- Newsletter Column -->
+      <div class="md:col-span-3 space-y-4">
+        <h4 class="font-bold text-white text-sm">Newsletter</h4>
+        <p class="text-xs text-white/50">Subscribe to receive layout templates and discounts.</p>
+        <form class="flex gap-2">
+          <input type="email" placeholder="Your email" class="flex-grow p-2.5 rounded-lg bg-white/5 border border-white/10 text-xs text-white focus:outline-none focus:border-green">
+          <button type="button" onclick="showToast('Thank you for subscribing!')" class="px-4 py-2.5 rounded-lg bg-gradient-to-r from-emerald to-green text-white text-xs font-semibold border border-white/5">Go</button>
+        </form>
+      </div>
+    </div>
+    
+    <!-- Giant Footer Logo and Copy -->
+    <div class="w-full px-6 md:px-12 mt-16 pt-8 border-t border-white/5 flex flex-col md:flex-row items-center justify-between gap-6 text-xs text-white/30">
+      <p>&copy; 2026 PRINTXTORE. All rights reserved. Premium Multipurpose Template.</p>
+      <div class="font-display font-black text-3xl tracking-widest text-white/10">
+        PRINT<span class="text-green/20">X</span>TORE
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    lucide.createIcons();
+  </script>
+</body>
+</html>

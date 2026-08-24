@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <defs>
+    <linearGradient id="gradient-x" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#A63E1B" />
+      <stop offset="100%" stop-color="#E95D2C" />
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="15" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+  <!-- Background Rounded Box (Brand Dark Navy) -->
+  <rect width="512" height="512" rx="128" fill="#1A2730" />
+  
+  <!-- The X symbol: two crossing papers with orange/rust gradients -->
+  <g filter="url(#glow)">
+    <!-- Sheet 1 (Top-Left to Bottom-Right) -->
+    <path d="M120 120 L220 120 L392 392 L292 392 Z" fill="url(#gradient-x)" opacity="0.95" />
+    <!-- Sheet 2 (Top-Right to Bottom-Left) -->
+    <path d="M392 120 L292 120 L120 392 L220 392 Z" fill="url(#gradient-x)" opacity="0.75" />
+    <!-- Overlay intersecting highlight to create a paper fold look -->
+    <path d="M220 220 L292 220 L292 292 L220 292 Z" fill="#E95D2C" opacity="0.4" />
+  </g>
+</svg>

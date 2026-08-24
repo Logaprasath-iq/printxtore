@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Business Cards Details — PRINTXTORE</title>
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="../assets/images/favicon.svg">
+  
+  <!-- CSS assets -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            dark: 'var(--color-dark)',
+            'dark-teal': 'var(--color-dark-teal)',
+            teal: 'var(--color-teal)',
+            emerald: 'var(--color-emerald)',
+            green: 'var(--color-green)',
+            'light-mint': 'var(--color-light-mint)',
+            'off-white': 'var(--color-off-white)'
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            display: ['Space Grotesk', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="../assets/css/style.css">
+  
+  <!-- CDNs -->
+  <script src="https://cdn.jsdelivr.net/npm/lucide/dist/umd/lucide.min.js"></script>
+  
+  <!-- App JS Initializers -->
+  <script src="../assets/js/database.js" defer></script>
+  <script src="../assets/js/theme-rtl.js" defer></script>
+  <script src="../assets/js/main.js" defer></script>
+</head>
+<body class="bg-gradient-to-br from-dark to-dark-teal text-off-white min-h-screen">
+
+  <!-- Header Navbar -->
+  <nav id="main-navbar" class="fixed top-0 left-0 w-full z-50 transition-all duration-300 bg-dark/40 backdrop-blur-sm border-b border-white/10">
+    <div class="w-full px-6 md:px-12">
+      <div class="flex items-center justify-between h-20">
+        
+        <!-- Logo -->
+        <a href="../index.html" class="flex items-center gap-2 font-display text-xl font-bold tracking-wider text-white">
+          <span class="rtl-flip">
+            <svg class="w-8 h-8 text-green" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z" />
+            </svg>
+          </span>
+          <span>PRINT<span class="x-brand">X</span>TORE</span>
+        </a>
+        
+        <!-- Desktop Nav -->
+        <div class="hidden md:flex items-center gap-8 text-sm font-medium text-white/80">
+          <div class="relative group">
+            <button class="hover:text-white flex items-center gap-1 transition">
+              HOME <span class="text-[10px] mt-0.5">▼</span>
+            </button>
+            <div class="absolute top-full left-0 mt-2 w-56 rounded-xl glass border border-white/10 shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+              <div class="p-2 space-y-1">
+                <a href="../index.html" class="block px-4 py-2 text-xs hover:bg-emerald/10 hover:text-emerald rounded-lg transition text-white/70">Home 1 — General Services</a>
+                <a href="../home-2.html" class="block px-4 py-2 text-xs hover:bg-emerald/10 hover:text-emerald rounded-lg transition text-white/70">Home 2 — Creative Print Studio</a>
+              </div>
+            </div>
+          </div>
+          
+          <a href="../pages/about.html" class="nav-link hover:text-white transition">ABOUT</a>
+          <a href="../pages/services.html" class="nav-link hover:text-white transition font-semibold text-white">SERVICES</a>
+          <a href="../pages/gallery.html" class="nav-link hover:text-white transition">GALLERY</a>
+          <a href="../pages/pricing.html" class="nav-link hover:text-white transition">PRICING</a>
+          <a href="../pages/blog.html" class="nav-link hover:text-white transition">BLOG</a>
+          
+          <div class="relative group">
+            <button class="hover:text-white flex items-center gap-1 transition">
+              PAGES <span class="text-[10px] mt-0.5">▼</span>
+            </button>
+            <div class="absolute top-full left-0 mt-2 w-56 rounded-xl glass border border-white/10 shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+              <div class="p-2 space-y-1">
+                <a href="../pages/faq.html" class="block px-4 py-2 text-xs hover:bg-emerald/10 hover:text-emerald rounded-lg transition">FAQ</a>
+                <a href="../pages/file-preparation.html" class="block px-4 py-2 text-xs hover:bg-emerald/10 hover:text-emerald rounded-lg transition font-medium">File Preparation Guide</a>
+                <a href="../pages/delivery-options.html" class="block px-4 py-2 text-xs hover:bg-emerald/10 hover:text-emerald rounded-lg transition">Delivery Options</a>
+                <a href="../pages/404.html" class="block px-4 py-2 text-xs hover:bg-emerald/10 hover:text-emerald rounded-lg transition">404</a>
+                <a href="../pages/coming-soon.html" class="block px-4 py-2 text-xs hover:bg-emerald/10 hover:text-emerald rounded-lg transition">Coming Soon</a>
+                <a href="../pages/maintenance.html" class="block px-4 py-2 text-xs hover:bg-emerald/10 hover:text-emerald rounded-lg transition">Maintenance</a>
+              </div>
+            </div>
+          </div>
+          
+          <a href="../pages/contact.html" class="nav-link hover:text-white transition">CONTACT</a>
+        </div>
+        
+        <!-- Right side tools -->
+        <div class="hidden md:flex items-center gap-4">
+          <button class="theme-toggle p-2 rounded-lg bg-white/5 hover:bg-white/10 text-white/80 hover:text-white border border-white/10 transition" aria-label="Toggle Theme">
+            <i data-lucide="sun" class="w-5 h-5 block dark:hidden"></i>
+            <i data-lucide="moon" class="w-5 h-5 hidden dark:block"></i>
+          </button>
+          
+          <button class="rtl-toggle px-4 py-2 text-sm text-white/85 hover:text-white transition rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 flex items-center justify-center gap-2">
+            <i data-lucide="arrow-left-right" class="w-4 h-4"></i>
+            <span>RTL</span>
+          </button>
+          
+          <a href="../auth/login.html" class="px-4 py-2 text-sm text-white/85 hover:text-white transition rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 flex items-center justify-center">LOGIN</a>
+          <a href="../auth/register.html" class="px-5 py-2 text-sm font-semibold rounded-xl bg-gradient-to-r from-emerald to-green text-white hover:opacity-90 transition shadow-lg shadow-emerald/10 border border-white/5">SIGN UP</a>
+        </div>
+        
+        <div class="md:hidden flex items-center gap-3">
+          <button class="theme-toggle p-2 rounded-lg bg-white/5 text-white border border-white/10 transition">
+            <i data-lucide="moon" class="w-5 h-5"></i>
+          </button>
+          <button id="mobile-menu-btn" class="p-2 rounded-lg bg-white/5 text-white border border-white/10 transition">
+            <i data-lucide="menu" class="w-6 h-6"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div id="mobile-menu" class="fixed inset-0 z-[100] translate-x-full transition-transform duration-300 ease-in-out bg-dark-teal/98 flex flex-col p-6 overflow-y-auto">
+    <div class="flex items-center justify-between mb-8">
+      <span class="font-display text-xl font-bold tracking-wider text-white">PRINT<span class="x-brand">X</span>TORE</span>
+      <button id="mobile-menu-close" class="p-2 rounded-lg bg-white/5 text-white border border-white/10">
+        <i data-lucide="x" class="w-6 h-6"></i>
+      </button>
+    </div>
+    <div class="flex flex-col gap-6 text-lg font-medium text-white/90">
+      <div>
+        <button class="mobile-accordion-header flex items-center justify-between w-full hover:text-white transition">
+          <span>HOME</span>
+          <i data-lucide="chevron-down" class="accordion-arrow w-4 h-4 transition"></i>
+        </button>
+        <div class="hidden pl-4 mt-2 space-y-2 text-sm text-white/60">
+          <a href="../index.html" class="block py-1 hover:text-white">Home 1 — General Services</a>
+          <a href="../home-2.html" class="block py-1 hover:text-white">Home 2 — Creative Print Studio</a>
+        </div>
+      </div>
+      <a href="../pages/about.html" class="hover:text-white transition">ABOUT</a>
+      <a href="../pages/services.html" class="hover:text-white transition font-semibold text-white">SERVICES</a>
+      <a href="../pages/gallery.html" class="hover:text-white transition">GALLERY</a>
+      <a href="../pages/pricing.html" class="hover:text-white transition">PRICING</a>
+      <a href="../pages/blog.html" class="hover:text-white transition">BLOG</a>
+      <div>
+        <button class="mobile-accordion-header flex items-center justify-between w-full hover:text-white transition">
+          <span>PAGES</span>
+          <i data-lucide="chevron-down" class="accordion-arrow w-4 h-4 transition"></i>
+        </button>
+        <div class="hidden pl-4 mt-2 space-y-2 text-sm text-white/60">
+          <a href="../pages/faq.html" class="block py-1 hover:text-white">FAQ</a>
+          <a href="../pages/file-preparation.html" class="block py-1 hover:text-white">File Preparation Guide</a>
+          <a href="../pages/delivery-options.html" class="block py-1 hover:text-white">Delivery Options</a>
+          <a href="../pages/404.html" class="block py-1 hover:text-white">404</a>
+          <a href="../pages/coming-soon.html" class="block py-1 hover:text-white">Coming Soon</a>
+          <a href="../pages/maintenance.html" class="block py-1 hover:text-white">Maintenance</a>
+        </div>
+      </div>
+      <a href="../pages/contact.html" class="hover:text-white transition">CONTACT</a>
+    </div>
+    <div class="mt-auto pt-8 border-t border-white/5 space-y-4">
+      <button class="rtl-toggle w-full py-3 rounded-xl bg-white/5 text-white text-sm font-semibold border border-white/10 transition flex items-center justify-center gap-2">
+        <i data-lucide="arrow-left-right" class="w-4 h-4"></i>
+        <span>RTL</span>
+      </button>
+      <div class="grid grid-cols-2 gap-4">
+        <a href="../auth/login.html" class="py-3 text-center rounded-xl bg-white/5 text-white border border-white/10 text-sm font-semibold">LOGIN</a>
+        <a href="../auth/register.html" class="py-3 text-center rounded-xl bg-gradient-to-r from-emerald to-green text-white text-sm font-semibold border border-white/5">SIGN UP</a>
+      </div>
+    </div>
+  </div>
+
+  
+  <!-- Detail Content Section -->
+  <section class="pt-40 pb-24 relative text-left bg-gradient-to-b from-dark/30 to-transparent">
+    <div class="w-full px-6 md:px-12 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+      
+      <!-- Left side: Hero Information -->
+      <div class="lg:col-span-7 space-y-6">
+        
+      <nav class="flex text-xs text-white/40 gap-2 mb-4 font-semibold uppercase tracking-wider reveal-text">
+        <a href="../index.html" class="hover:text-green">Home</a> /
+        <a href="../pages/services.html" class="hover:text-green">Services</a> /
+        <span class="text-white">Brochures</span>
+      </nav>
+  
+        <span class="inline-block px-3 py-1 rounded bg-green/10 text-green text-[10px] font-bold uppercase tracking-wider reveal-text">Marketing Materials</span>
+        <h1 class="text-4xl sm:text-5xl font-extrabold font-display text-white mt-2 reveal-text">Brochures</h1>
+        <p class="text-sm text-white/70 leading-relaxed max-w-xl reveal-text">
+          Professional bi-fold and tri-fold product catalogs. Deliver structured business stories, services directories, or detailed program reports.
+        </p>
+        
+        <!-- Key Bullet Highlights -->
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-4 border-t border-white/5 max-w-2xl reveal-text">
+          
+            <div class="flex items-start gap-3">
+              <div class="p-1 bg-green/10 text-green rounded-md mt-0.5">
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+              </div>
+              <div>
+                <h4 class="text-white text-xs font-bold font-display">Crease Scoring</h4>
+                <p class="text-[10px] text-white/50">Machine-scored lines prevent fiber cracks on edges.</p>
+              </div>
+            </div>
+  
+            <div class="flex items-start gap-3">
+              <div class="p-1 bg-green/10 text-green rounded-md mt-0.5">
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+              </div>
+              <div>
+                <h4 class="text-white text-xs font-bold font-display">Saddle-Stitch Booklets</h4>
+                <p class="text-[10px] text-white/50">Stitch binding holds up to 64 pages safely.</p>
+              </div>
+            </div>
+  
+            <div class="flex items-start gap-3">
+              <div class="p-1 bg-green/10 text-green rounded-md mt-0.5">
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+              </div>
+              <div>
+                <h4 class="text-white text-xs font-bold font-display">Coated or Matte Stocks</h4>
+                <p class="text-[10px] text-white/50">Premium satin coating layers or textured stock options.</p>
+              </div>
+            </div>
+  
+        </div>
+
+        <!-- Starting price & CTA scroll -->
+        <div class="flex items-center gap-6 pt-6 reveal-text">
+          <div>
+            <p class="text-[10px] text-white/40 uppercase">Starting Price</p>
+            <p class="text-2xl font-extrabold text-green font-display">₹1500</p>
+          </div>
+          <a href="#order-section" class="fade-up-cta px-6 py-3.5 rounded-xl bg-gradient-to-r from-emerald to-green text-white text-xs font-bold hover:opacity-90 transition border border-white/5 shadow-md shadow-emerald/10">
+            Configure Order &darr;
+          </a>
+        </div>
+      </div>
+
+      <!-- Right side: Large Service Image -->
+      <div class="lg:col-span-5 h-[300px] lg:h-[480px]">
+        <div class="relative rounded-[24px] overflow-hidden border border-white/10 shadow-2xl group w-full h-full">
+          <img src="../assets/images/service4.jpg" alt="Brochures" class="service-detail-image w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 absolute inset-0">
+          <div class="absolute inset-0 bg-gradient-to-t from-dark/90 via-dark/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+            <span class="text-[10px] text-green font-bold uppercase tracking-widest bg-dark/60 backdrop-blur px-2.5 py-1 rounded-md self-start">Marketing Materials</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Interactive Configurator and Specifications -->
+  <section class="py-16 border-t border-white/5" id="order-section">
+    <div class="w-full px-6 md:px-12 grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+      
+      <!-- Left side: Tables, Finishes, Specs -->
+      <div class="lg:col-span-8 space-y-12 text-left">
+        
+        <!-- Specifications table -->
+        <div class="space-y-4">
+          <h3 class="text-2xl font-bold font-display text-white">Product Specifications</h3>
+          <div class="overflow-x-auto rounded-2xl border border-white/10 bg-dark/20">
+            <table class="w-full text-sm">
+              <thead class="bg-white/5 text-white border-b border-white/10">
+                <tr>
+                  <th class="px-6 py-4 font-semibold text-left">Parameter</th>
+                  <th class="px-6 py-4 font-semibold text-left">Configuration Value</th>
+                </tr>
+              </thead>
+              <tbody class="text-white/70 divide-y divide-white/5">
+                
+                <tr>
+                  <td class="px-6 py-4 font-semibold text-white">Fold Types</td>
+                  <td class="px-6 py-4">Bi-fold, Tri-fold, Z-fold, Accordion fold</td>
+                </tr>
+                
+                <tr>
+                  <td class="px-6 py-4 font-semibold text-white">Available Stocks</td>
+                  <td class="px-6 py-4">150 GSM Coated Gloss, 170 GSM Matte Silk</td>
+                </tr>
+                
+                <tr>
+                  <td class="px-6 py-4 font-semibold text-white">Turnaround Time</td>
+                  <td class="px-6 py-4">3-5 Business Days</td>
+                </tr>
+                
+                <tr>
+                  <td class="px-6 py-4 font-semibold text-white">Binding Methods</td>
+                  <td class="px-6 py-4">Saddle-stitch, wire-o comb, loop staple</td>
+                </tr>
+                
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Custom Finishes -->
+        <div class="space-y-6">
+          <h3 class="text-2xl font-bold font-display text-white">Premium Finishes & Detailing</h3>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <div class="glass p-6 rounded-2xl border-white/5 flex gap-4">
+              <div class="p-3 bg-green/10 text-green rounded-xl h-12 w-12 flex items-center justify-center flex-shrink-0">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/></svg>
+              </div>
+              <div>
+                <h4 class="font-bold text-white text-sm">Protective Coatings</h4>
+                <p class="text-xs text-white/50 mt-1">Matte and gloss lamination layers block moisture and prevent folding creases or edge tears.</p>
+              </div>
+            </div>
+
+            <div class="glass p-6 rounded-2xl border-white/5 flex gap-4">
+              <div class="p-3 bg-teal/20 text-green rounded-xl h-12 w-12 flex items-center justify-center flex-shrink-0">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg>
+              </div>
+              <div>
+                <h4 class="font-bold text-white text-sm">Foil Edge Gilding</h4>
+                <p class="text-xs text-white/50 mt-1">Stamping authentic metallic film under temperature and pressure for metallic edge accents.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Use Cases -->
+        <div class="glass p-8 rounded-3xl border-white/5 space-y-3">
+          <h3 class="text-xl font-bold font-display text-white">Recommended Applications</h3>
+          <p class="text-xs text-white/60 leading-relaxed">Real estate property portfolios, corporate annual reports, museum guide maps, and high-end restaurant catalogs.</p>
+        </div>
+
+      </div>
+
+      <!-- Right side: Configurator Panel -->
+      <div class="lg:col-span-4 lg:sticky lg:top-28">
+        <div class="glass p-6 rounded-3xl border-white/5 space-y-6">
+          <div>
+            <h3 class="font-display font-bold text-xl text-white">Order Configurator</h3>
+            <p class="text-xs text-white/50">Estimate your parameters instantly.</p>
+          </div>
+          
+          <form id="price-calculator-form" class="space-y-4">
+            <div>
+              <label class="block text-xs font-bold text-white/60 mb-2 uppercase">Quantity</label>
+              <input type="number" id="calc-quantity" value="100" min="1" class="w-full p-3 rounded-xl bg-dark/40 border border-white/10 text-white text-sm focus:border-green focus:outline-none transition">
+            </div>
+
+            <div>
+              <label class="block text-xs font-bold text-white/60 mb-2 uppercase">Size Options</label>
+              <select id="calc-paper-size" class="w-full p-3.5 rounded-xl bg-dark/40 border border-white/10 text-white text-sm focus:border-green focus:outline-none transition">
+                <option value="A4 Tri-fold">A4 Tri-fold</option><option value="A5 Bi-fold">A5 Bi-fold</option><option value="DL Accordion-fold">DL Accordion-fold</option>
+              </select>
+            </div>
+
+            <div>
+              <label class="block text-xs font-bold text-white/60 mb-2 uppercase">Material Stock</label>
+              <select id="calc-paper-type" class="w-full p-3.5 rounded-xl bg-dark/40 border border-white/10 text-white text-sm focus:border-green focus:outline-none transition">
+                <option value="150 GSM Coated Gloss">150 GSM Coated Gloss</option><option value="170 GSM Matte Silk">170 GSM Matte Silk</option><option value="200 GSM Heavy Satin">200 GSM Heavy Satin</option>
+              </select>
+            </div>
+
+            <div>
+              <label class="block text-xs font-bold text-white/60 mb-2 uppercase">Finishing Finish</label>
+              <select id="calc-finish" class="w-full p-3.5 rounded-xl bg-dark/40 border border-white/10 text-white text-sm focus:border-green focus:outline-none transition">
+                <option value="None">None</option><option value="Matte Lamination">Matte Lamination</option><option value="Gloss Varnish">Gloss Varnish</option>
+              </select>
+            </div>
+
+            <!-- Hidden values to prevent calculator crashes -->
+            <input type="hidden" id="calc-product" value="Brochures">
+            <input type="hidden" id="calc-gsm" value="">
+            <input type="hidden" id="calc-binding" value="None">
+
+            <div class="flex items-center">
+              <label class="inline-flex items-center cursor-pointer">
+                <input type="checkbox" id="calc-double-side" checked class="sr-only peer">
+                <div class="w-11 h-6 bg-dark/40 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-white/20 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-green relative"></div>
+                <span class="ml-3 text-xs font-bold text-white/80 uppercase">Double-Sided</span>
+              </label>
+            </div>
+
+            <div class="pt-6 border-t border-white/5 flex items-center justify-between">
+              <div>
+                <p class="text-[10px] text-white/40 uppercase">Total Estimate</p>
+                <p id="calc-estimated-price" class="text-2xl font-extrabold text-white font-display">₹1500</p>
+              </div>
+              
+              <a href="../auth/login.html" class="px-5 py-3 rounded-xl bg-gradient-to-r from-emerald to-green text-white text-xs font-bold hover:opacity-90 transition border border-white/5 shadow-md">
+                Configure Order
+              </a>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Accordion section -->
+  <section class="py-16 border-t border-white/5">
+    <div class="w-full px-6 md:px-12 max-w-4xl mx-auto text-left space-y-8">
+      <h3 class="text-3xl font-bold font-display text-white text-center">Frequently Asked Questions</h3>
+      <div class="space-y-4">
+        
+        <div class="glass p-6 rounded-2xl border-white/5">
+          <h5 class="text-sm font-bold text-white flex gap-2"><span class="text-green">Q:</span> What is scoring?</h5>
+          <p class="text-xs text-white/50 mt-2 pl-5">Scoring presses a crease line into the heavy paper cardstock before folding it. This avoids fiber tears along the fold edge.</p>
+        </div>
+        
+        <div class="glass p-6 rounded-2xl border-white/5">
+          <h5 class="text-sm font-bold text-white flex gap-2"><span class="text-green">Q:</span> Can I get more pages?</h5>
+          <p class="text-xs text-white/50 mt-2 pl-5">Yes! For books/multi-page catalogs, see our Book Printing section or upload files to dashboard.</p>
+        </div>
+        
+      </div>
+    </div>
+  </section>
+
+  <!-- You May Also Like / Related Services -->
+  <section class="py-16 border-t border-white/5 bg-dark/20">
+    <div class="w-full px-6 md:px-12 text-left space-y-8">
+      <h3 class="text-2xl font-bold font-display text-white">You May Also Like</h3>
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+        
+          <a href="business-cards.html" class="glass rounded-2xl border-white/5 overflow-hidden flex flex-col justify-between hover:border-green/20 transition duration-300 group">
+            <div class="h-40 overflow-hidden bg-dark/50 relative">
+              <img src="https://images.unsplash.com/photo-1596265305660-67ac9f59c177?auto=format&fit=crop&w=800&q=80" alt="Business Cards" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+            </div>
+            <div class="p-6 space-y-2">
+              <span class="text-[9px] text-green font-bold uppercase tracking-wider">Business Printing</span>
+              <h4 class="font-bold text-white text-base font-display mt-1">Business Cards</h4>
+              <p class="text-xs text-white/50 line-clamp-2 mt-1">Configure starting from ₹450.</p>
+            </div>
+          </a>
+          
+          <a href="letterheads.html" class="glass rounded-2xl border-white/5 overflow-hidden flex flex-col justify-between hover:border-green/20 transition duration-300 group">
+            <div class="h-40 overflow-hidden bg-dark/50 relative">
+              <img src="https://images.unsplash.com/photo-1606857521015-7f9fcf423740?auto=format&fit=crop&w=800&q=80" alt="Letterheads" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+            </div>
+            <div class="p-6 space-y-2">
+              <span class="text-[9px] text-green font-bold uppercase tracking-wider">Business Printing</span>
+              <h4 class="font-bold text-white text-base font-display mt-1">Letterheads</h4>
+              <p class="text-xs text-white/50 line-clamp-2 mt-1">Configure starting from ₹500.</p>
+            </div>
+          </a>
+          
+          <a href="flyers-leaflets.html" class="glass rounded-2xl border-white/5 overflow-hidden flex flex-col justify-between hover:border-green/20 transition duration-300 group">
+            <div class="h-40 overflow-hidden bg-dark/50 relative">
+              <img src="https://images.unsplash.com/photo-1562654501-a0ccc0fc3fb1?auto=format&fit=crop&w=800&q=80" alt="Flyers & Leaflets" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+            </div>
+            <div class="p-6 space-y-2">
+              <span class="text-[9px] text-green font-bold uppercase tracking-wider">Marketing Materials</span>
+              <h4 class="font-bold text-white text-base font-display mt-1">Flyers & Leaflets</h4>
+              <p class="text-xs text-white/50 line-clamp-2 mt-1">Configure starting from ₹850.</p>
+            </div>
+          </a>
+          
+      </div>
+    </div>
+  </section>
+  
+
+  <!-- Footer -->
+  <footer class="border-t border-white/5 bg-dark pt-16 pb-12 text-left">
+    <div class="w-full px-6 md:px-12 grid grid-cols-1 md:grid-cols-12 gap-12">
+      <!-- Info Column -->
+      <div class="md:col-span-3 space-y-6">
+        <span class="font-display text-2xl font-bold tracking-wider text-white">PRINT<span class="x-brand">X</span>TORE</span>
+        <p class="text-sm text-white/50 max-w-sm">From Digital to Real. Providing next-generation print configurations for brands, startups, and designers globally.</p>
+        <div class="flex items-center gap-4 text-white/40">
+          <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="hover:text-green transition">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M9 8H7v3h2v9h4v-9h3.6l.4-3H13V6c0-.5.5-1 1-1h3V1H13c-3 0-4 2-4 4v3z"/></svg>
+          </a>
+          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="hover:text-green transition">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </a>
+          <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" class="hover:text-green transition">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.163a3.003 3.003 0 0 0-2.11-2.11C19.518 3.545 12 3.545 12 3.545s-7.518 0-9.388.507a3.003 3.003 0 0 0-2.11 2.11C0 8.033 0 12 0 12s0 3.967.502 5.837a3.003 3.003 0 0 0 2.11 2.11c1.87.507 9.388.507 9.388.507s7.518 0 9.388-.507a3.003 3.003 0 0 0 2.11-2.11C24 15.967 24 12 24 12s0-3.967-.502-5.837zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+          </a>
+          <a href="https://x.com" target="_blank" rel="noopener noreferrer" class="hover:text-green transition">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+          <a href="https://whatsapp.com" target="_blank" rel="noopener noreferrer" class="hover:text-green transition">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.504-5.724-1.466L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.82 1.45 5.43 0 9.85-4.38 9.85-9.8 0-2.63-1.02-5.1-2.88-6.96C16.63 2.02 14.19 1 12 1 6.56 1 2.14 5.38 2.13 10.8c0 1.71.45 3.38 1.32 4.88L2.44 20.3l4.79-1.25c1.55.85 3.2 1.25 4.82 1.25zM17.8 16.15c-.25.7-.75 1.25-1.45 1.5-.7.25-2.25-.35-4.35-1.2-2.1-.85-3.85-2.6-4.7-4.7-.85-2.1-.25-3.65 0-4.35.25-.7.8-1.2 1.5-1.45h.5c.2 0 .35.15.45.35l1 2.4c.05.15.05.3 0 .45-.05.1-.15.2-.25.3l-.6.6c-.15.15-.2.35-.1.55.5 1 1.6 2.1 2.6 2.6.2.1.4.05.55-.1l.6-.6c.1-.1.25-.2.4-.25s.3 0 .45.05l2.4 1c.2.1.35.25.35.45v.5z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Services Column -->
+      <div class="md:col-span-2 space-y-4">
+        <h4 class="font-bold text-white text-sm">Services</h4>
+        <ul class="space-y-2 text-sm text-white/50">
+          <li><a href="business-cards.html" class="hover:text-white transition">Business Cards</a></li>
+          <li><a href="../pages/services.html" class="hover:text-white transition">Flyers & Leaflets</a></li>
+          <li><a href="../pages/services.html" class="hover:text-white transition">Posters & Banners</a></li>
+          <li><a href="../pages/services.html" class="hover:text-white transition">Brochures</a></li>
+          <li><a href="../pages/services.html" class="hover:text-white transition">Custom Packaging</a></li>
+        </ul>
+      </div>
+
+      <!-- Company Column -->
+      <div class="md:col-span-2 space-y-4">
+        <h4 class="font-bold text-white text-sm">Company</h4>
+        <ul class="space-y-2 text-sm text-white/50">
+          <li><a href="../pages/about.html" class="hover:text-white transition">About Us</a></li>
+          <li><a href="../pages/gallery.html" class="hover:text-white transition">Gallery</a></li>
+          <li><a href="../pages/blog.html" class="hover:text-white transition">Blog & News</a></li>
+        </ul>
+      </div>
+
+      <!-- Support Column -->
+      <div class="md:col-span-2 space-y-4">
+        <h4 class="font-bold text-white text-sm">Support</h4>
+        <ul class="space-y-2 text-sm text-white/50">
+          <li><a href="../pages/faq.html" class="hover:text-white transition">FAQ Accordion</a></li>
+          <li><a href="../pages/file-preparation.html" class="hover:text-white transition">File Prep Guide</a></li>
+          <li><a href="../pages/delivery-options.html" class="hover:text-white transition">Delivery Options</a></li>
+          <li><a href="../pages/contact.html" class="hover:text-white transition">Contact Us</a></li>
+        </ul>
+      </div>
+
+      <!-- Newsletter Column -->
+      <div class="md:col-span-3 space-y-4">
+        <h4 class="font-bold text-white text-sm">Newsletter</h4>
+        <p class="text-xs text-white/50">Subscribe to receive layout templates and discounts.</p>
+        <form class="flex gap-2">
+          <input type="email" placeholder="Your email" class="flex-grow p-2.5 rounded-lg bg-white/5 border border-white/10 text-xs text-white focus:outline-none focus:border-green">
+          <button type="button" onclick="showToast('Thank you for subscribing!')" class="px-4 py-2.5 rounded-lg bg-gradient-to-r from-emerald to-green text-white text-xs font-semibold border border-white/5">Go</button>
+        </form>
+      </div>
+    </div>
+    
+    <!-- Giant Footer Logo and Copy -->
+    <div class="w-full px-6 md:px-12 mt-16 pt-8 border-t border-white/5 flex flex-col md:flex-row items-center justify-between gap-6 text-xs text-white/30">
+      <p>&copy; 2026 PRINTXTORE. All rights reserved. Premium Multipurpose Template.</p>
+      <div class="font-display font-black text-3xl tracking-widest text-white/10">
+        PRINT<span class="text-green/20">X</span>TORE
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    lucide.createIcons();
+
+    // Dynamically load service details from DB based on URL parameter
+    document.addEventListener("DOMContentLoaded", () => {
+      const urlParams = new URLSearchParams(window.location.search);
+      const serviceParam = urlParams.get('service');
+      if (serviceParam && typeof DB !== 'undefined') {
+        const services = DB.getServices();
+        const matchedSrv = services.find(s => 
+          s.name.toLowerCase() === serviceParam.toLowerCase() || 
+          serviceParam.toLowerCase().includes(s.name.toLowerCase()) ||
+          s.name.toLowerCase().includes(serviceParam.toLowerCase())
+        );
+        if (matchedSrv) {
+          const titleEl = document.getElementById('service-title');
+          const descEl = document.getElementById('service-description');
+          const productInput = document.getElementById('calc-product');
+          
+          if (titleEl) titleEl.textContent = matchedSrv.name;
+          if (descEl) descEl.textContent = matchedSrv.description;
+          if (productInput) {
+            productInput.value = matchedSrv.name;
+            // Dispatch change event to update the estimated cost immediately
+            productInput.dispatchEvent(new Event('change'));
+          }
+
+          // Dynamically adjust selector option values depending on size
+          const sizeSelect = document.getElementById('calc-paper-size');
+          if (sizeSelect) {
+            sizeSelect.innerHTML = "";
+            if (matchedSrv.name === "Business Cards") {
+              sizeSelect.innerHTML = `<option value="3.5\\" x 2.0\\">3.5" x 2.0" Standard</option>`;
+            } else if (matchedSrv.name === "Flyers & Leaflets") {
+              sizeSelect.innerHTML = `<option value="A5">A5 Flyer</option><option value="A4">A4 Flyer</option>`;
+            } else if (matchedSrv.name === "Posters & Banners" || matchedSrv.name === "Outdoor Signage") {
+              sizeSelect.innerHTML = `<option value="A2">A2 Poster</option><option value="A1">A1 Poster</option><option value="Custom">Custom Vinyl Banner</option>`;
+            } else if (matchedSrv.name === "Brochures") {
+              sizeSelect.innerHTML = `<option value="A4 Tri-fold">A4 Tri-fold Brochure</option><option value="A5 Bi-fold">A5 Bi-fold Brochure</option>`;
+            } else {
+              sizeSelect.innerHTML = `<option value="Standard">Standard Product Size</option><option value="Custom">Custom Specifications</option>`;
+            }
+            sizeSelect.dispatchEvent(new Event('change'));
+          }
+        }
+      }
+    });
+  </script>
+</body>
+</html>

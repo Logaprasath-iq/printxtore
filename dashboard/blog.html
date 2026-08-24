@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog Settings — PRINTXTORE</title>
+  <link class="rtl-flip" rel="icon" type="image/svg+xml" href="../assets/images/favicon.svg">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            dark: 'var(--color-dark)',
+            'dark-teal': 'var(--color-dark-teal)',
+            teal: 'var(--color-teal)',
+            emerald: 'var(--color-emerald)',
+            green: 'var(--color-green)',
+            'light-mint': 'var(--color-light-mint)',
+            'off-white': 'var(--color-off-white)'
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            display: ['Space Grotesk', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/lucide/dist/umd/lucide.min.js"></script>
+  <script src="../assets/js/database.js" defer></script>
+  <script src="../assets/js/theme-rtl.js" defer></script>
+  <script src="../assets/js/dashboard.js" defer></script>
+</head>
+<body class="bg-[#F7F5F0] dark:bg-[#18242D] text-[#1A2730] dark:text-[#F4F8F5] min-h-screen transition-colors duration-300">
+
+  <div class="min-h-screen flex flex-col md:flex-row relative">
+    
+    <!-- Sidebar navigation -->
+    <aside id="dashboard-sidebar" class="w-full md:w-64 bg-[#F0EDE6] dark:bg-[#121B22] border-r border-black/5 dark:border-white/5 flex flex-col p-6 text-left absolute md:relative z-40 transform -translate-x-full md:translate-x-0 transition-transform duration-350 ease-in-out min-h-screen">
+      <div class="mb-8 flex items-center justify-between">
+        <a href="../index.html" class="flex items-center gap-2 font-display text-xl font-bold tracking-wider text-[#1A2730] dark:text-white">
+          <span class="rtl-flip">
+            <svg class="w-7 h-7 text-[#F15A24]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z" />
+            </svg>
+          </span>
+          <span>PRINT<span class="x-brand">X</span>TORE</span>
+        </a>
+        <button id="sidebar-close-btn" class="p-1 rounded bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 text-[#1A2730] dark:text-white md:hidden">
+          <i data-lucide="x" class="w-4 h-4"></i>
+        </button>
+      </div>
+
+      <div class="mb-6 p-3 rounded bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10">
+        <label class="block text-[10px] font-bold text-[#1A2730]/40 dark:text-white/40 uppercase mb-2 tracking-wider">Demo Role Switcher</label>
+        <select id="demo-role-switcher" class="w-full p-2 rounded bg-white dark:bg-dark border border-black/15 dark:border-white/10 text-xs text-[#1A2730] dark:text-white focus:outline-none font-semibold">
+          <option value="client">Client Mode</option>
+          <option value="admin">Admin Mode</option>
+        </select>
+      </div>
+
+      <nav id="nav-client" class="client-only space-y-1 flex-grow hidden"></nav>
+
+      <!-- ADMIN NAVIGATION -->
+      <nav id="nav-admin" class="admin-only space-y-1 flex-grow hidden">
+        <a href="index.html" class="flex items-center gap-3 px-4 py-2.5 rounded-lg text-sm text-[#1A2730]/65 dark:text-white/60 hover:bg-black/5 dark:hover:bg-white/5 hover:text-[#1A2730] dark:hover:text-white transition font-semibold">
+          <i data-lucide="bar-chart-2" class="w-4 h-4"></i> Overview
+        </a>
+        <a href="orders.html" class="flex items-center gap-3 px-4 py-2.5 rounded-lg text-sm text-[#1A2730]/65 dark:text-white/60 hover:bg-black/5 dark:hover:bg-white/5 hover:text-[#1A2730] dark:hover:text-white transition font-semibold">
+          <i data-lucide="package" class="w-4 h-4"></i> Orders
+        </a>
+        <a href="customers.html" class="flex items-center gap-3 px-4 py-2.5 rounded-lg text-sm text-[#1A2730]/65 dark:text-white/60 hover:bg-black/5 dark:hover:bg-white/5 hover:text-[#1A2730] dark:hover:text-white transition font-semibold">
+          <i data-lucide="users" class="w-4 h-4"></i> Customers
+        </a>
+        <a href="services.html" class="flex items-center gap-3 px-4 py-2.5 rounded-lg text-sm text-[#1A2730]/65 dark:text-white/60 hover:bg-black/5 dark:hover:bg-white/5 hover:text-[#1A2730] dark:hover:text-white transition font-semibold">
+          <i data-lucide="sliders" class="w-4 h-4"></i> Services
+        </a>
+        <a href="products.html" class="flex items-center gap-3 px-4 py-2.5 rounded-lg text-sm text-[#1A2730]/65 dark:text-white/60 hover:bg-black/5 dark:hover:bg-white/5 hover:text-[#1A2730] dark:hover:text-white transition font-semibold">
+          <i data-lucide="box" class="w-4 h-4"></i> Products
+        </a>
+        <a href="pricing.html" class="flex items-center gap-3 px-4 py-2.5 rounded-lg text-sm text-[#1A2730]/65 dark:text-white/60 hover:bg-black/5 dark:hover:bg-white/5 hover:text-[#1A2730] dark:hover:text-white transition font-semibold">
+          <i data-lucide="calculator" class="w-4 h-4"></i> Pricing Specs
+        </a>
+        <a href="messages.html" class="flex items-center gap-3 px-4 py-2.5 rounded-lg text-sm text-[#1A2730]/65 dark:text-white/60 hover:bg-black/5 dark:hover:bg-white/5 hover:text-[#1A2730] dark:hover:text-white transition font-semibold">
+          <i data-lucide="mail" class="w-4 h-4"></i> Messages
+        </a>
+        <a href="blog.html" class="flex items-center gap-3 px-4 py-2.5 rounded-lg text-sm bg-gradient-to-r from-[#F15A24] to-[#ff6b3b] text-white font-bold shadow-lg">
+          <i data-lucide="newspaper" class="w-4 h-4"></i> Blog
+        </a>
+        <a href="settings.html" class="flex items-center gap-3 px-4 py-2.5 rounded-lg text-sm text-[#1A2730]/65 dark:text-white/60 hover:bg-black/5 dark:hover:bg-white/5 hover:text-[#1A2730] dark:hover:text-white transition font-semibold">
+          <i data-lucide="settings" class="w-4 h-4"></i> Settings
+        </a>
+      </nav>
+
+      <div class="mt-auto pt-6 border-t border-white/5">
+        <button class="logout-btn w-full py-2.5 rounded-lg bg-red-500/10 hover:bg-red-500/20 text-red-400 border border-red-500/20 transition text-xs font-semibold">LOGOUT</button>
+      </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="flex-grow p-6 md:p-10 space-y-8 overflow-y-auto text-left relative z-10 w-full">
+      <div class="flex items-center justify-between gap-4 pb-4 border-b border-black/5 dark:border-white/5">
+      <div class="flex items-center gap-3">
+        <div class="flex items-center gap-3">
+          <button id="sidebar-toggle-btn" class="p-2 rounded bg-black/5 dark:bg-white/5 border text-[#1A2730] dark:text-white md:hidden"><i data-lucide="menu" class="w-5 h-5"></i></button>
+          <div>
+            <h1 class="text-3xl font-bold font-display text-[#1A2730] dark:text-white">Blog</h1>
+            <p class="text-xs text-[#1A2730]/50 dark:text-white/50">Manage published articles and press updates.</p>
+          </div>
+        </div>
+        
+        <div class="flex items-center gap-3">
+          <button class="theme-toggle p-2.5 rounded-lg bg-black/5 dark:bg-white/5 hover:bg-black/10 dark:hover:bg-white/10 text-[#1A2730]/80 dark:text-white/80 hover:text-[#1A2730] dark:hover:text-white border border-black/10 dark:border-white/10 transition" aria-label="Toggle Theme">
+            <i data-lucide="sun" class="w-4 h-4 block dark:hidden"></i>
+            <i data-lucide="moon" class="w-4 h-4 hidden dark:block"></i>
+          </button>
+          
+          <button class="rtl-toggle px-3 py-1.5 text-xs text-[#1A2730]/85 dark:text-white/85 hover:text-[#1A2730] dark:hover:text-white transition rounded-lg bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 hover:bg-black/10 dark:hover:bg-white/10 flex items-center justify-center gap-1.5 font-semibold">
+            <i data-lucide="arrow-left-right" class="w-3.5 h-3.5"></i>
+            <span>RTL</span>
+          </button>
+        </div>
+      </div>
+      </div>
+
+      <div class="flex flex-col md:flex-row gap-4 items-center justify-between">
+        <div class="relative w-full md:w-80">
+          <input type="text" id="blog-search" placeholder="Search articles..." class="w-full p-3 pl-10 rounded-xl bg-white dark:bg-[#14212A] border border-black/15 dark:border-white/12 text-[#1A2730] dark:text-white text-sm focus:border-[#F15A24] focus:outline-none">
+          <i data-lucide="search" class="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-[#1A2730]/40 dark:text-white/40"></i>
+        </div>
+
+        <div class="flex gap-4 w-full md:w-auto">
+          <button onclick="openAddBlogModal()" class="px-4 py-3 bg-[#F15A24] hover:bg-[#ff6b3b] text-white text-xs font-bold rounded-xl shadow-lg transition uppercase tracking-wider">+ Add Blog</button>
+
+          <select id="blog-filter-status" class="w-full md:w-44 p-3 rounded-xl bg-white dark:bg-[#14212A] border border-black/15 dark:border-white/12 text-[#1A2730] dark:text-white text-sm focus:border-[#F15A24] focus:outline-none font-semibold">
+            <option value="All">All Articles</option>
+            <option value="Published">Published Only</option>
+            <option value="Draft">Drafts Only</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="glass p-6 rounded-3xl border-white/5 overflow-hidden">
+        <div class="overflow-x-auto">
+          <table class="w-full text-sm text-left">
+            <thead class="bg-black/5 dark:bg-white/5 text-[#1A2730]/80 dark:text-white/80 border-b border-black/5 dark:border-white/5">
+              <tr>
+                <th class="px-6 py-4 font-semibold">Title</th>
+                <th class="px-6 py-4 font-semibold">Category</th>
+                <th class="px-6 py-4 font-semibold">Author</th>
+                <th class="px-6 py-4 font-semibold">Date</th>
+                <th class="px-6 py-4 font-semibold">Status</th>
+                <th class="px-6 py-4 font-semibold text-right">Actions</th>
+              </tr>
+            </thead>
+            <tbody id="blog-tbody" class="divide-y divide-black/5 dark:divide-white/5">
+              <!-- JS Populated -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <div id="dashboard-modal" class="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm hidden">
+    <div class="bg-white dark:bg-[#202B35] max-w-xl w-full rounded-2xl border border-black/10 dark:border-white/5 p-6 md:p-8 space-y-6 relative max-h-[90vh] overflow-y-auto text-[#1A2730] dark:text-[#F4F8F5] shadow-2xl font-sans">
+      <button onclick="closeModal()" class="absolute top-4 right-4 text-[#1A2730]/50 dark:text-white/50 hover:text-red-500 transition"><i data-lucide="x" class="w-6 h-6"></i></button>
+      <div id="modal-content"></div>
+    </div>
+  </div>
+</body>
+</html>
