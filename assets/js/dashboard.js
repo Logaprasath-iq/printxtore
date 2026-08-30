@@ -173,6 +173,66 @@ const DEFAULT_MESSAGES = [
   const messages = getDB("printxtore_messages", DEFAULT_MESSAGES);
   const notifications = getDB("printxtore_notifications", DEFAULT_NOTIFICATIONS);
 
+  // Seed mock orders and notifications for new/empty clients so the dashboard is not plain!
+  if (currentUser && currentUser.role === "client") {
+    const userOrders = orders.filter(o => o.customerId === currentUser.id);
+    if (userOrders.length === 0) {
+      const mockOrders = [
+        {
+          id: "PX-2001",
+          customerId: currentUser.id,
+          customerName: currentUser.name,
+          product: "Flyers & Leaflets",
+          quantity: 1000,
+          specs: { size: "A5", paper: "Premium Silk 170 GSM", color: "Full Color", side: "Double Sided", finish: "None", binding: "None" },
+          file: { name: "marketing_flyer.pdf", size: "4.5 MB" },
+          price: 1850,
+          status: "Printing",
+          createdAt: new Date().toISOString().split('T')[0],
+          notes: "Glow print finish needed."
+        },
+        {
+          id: "PX-2002",
+          customerId: currentUser.id,
+          customerName: currentUser.name,
+          product: "Business Cards",
+          quantity: 250,
+          specs: { size: "3.5\" x 2.0\"", paper: "Premium Silk 350 GSM", color: "Full Color", side: "Double Sided", finish: "Spot UV", binding: "None" },
+          file: { name: "business_cards_final.pdf", size: "1.2 MB" },
+          price: 950,
+          status: "Artwork Review",
+          createdAt: new Date(Date.now() - 86400000).toISOString().split('T')[0],
+          notes: "Please confirm spot UV dimensions."
+        },
+        {
+          id: "PX-2003",
+          customerId: currentUser.id,
+          customerName: currentUser.name,
+          product: "Custom Packaging",
+          quantity: 100,
+          specs: { size: "Custom Box", paper: "Recycled Kraft Board", color: "1 Color (Black)", side: "Single Sided", finish: "None", binding: "None" },
+          file: { name: "packaging_diecut.pdf", size: "8.9 MB" },
+          price: 5200,
+          status: "Delivered",
+          createdAt: new Date(Date.now() - 5 * 86400000).toISOString().split('T')[0],
+          notes: "Eco-friendly soy inks."
+        }
+      ];
+      mockOrders.forEach(mo => orders.push(mo));
+      localStorage.setItem("printxtore_orders", JSON.stringify(orders));
+    }
+
+    const userNotifs = notifications.filter(n => n.userId === currentUser.id);
+    if (userNotifs.length === 0) {
+      const mockNotifs = [
+        { id: `notif-user-1`, userId: currentUser.id, message: "Your order PX-2001 status changed to: Printing.", read: false, date: new Date().toISOString().split('T')[0] },
+        { id: `notif-user-2`, userId: currentUser.id, message: "Your order PX-2002 has been received and is under Artwork Review.", read: false, date: new Date(Date.now() - 86400000).toISOString().split('T')[0] }
+      ];
+      mockNotifs.forEach(mn => notifications.push(mn));
+      localStorage.setItem("printxtore_notifications", JSON.stringify(notifications));
+    }
+  }
+
   // Sync printxtore_users with customers for login/signup integrity
   getDB("printxtore_users", DEFAULT_CUSTOMERS);
 
@@ -1002,6 +1062,11 @@ const DEFAULT_MESSAGES = [
   // --- 5. ARTWORK UPLOAD CONTROLLER (upload.html) ---
   // =========================================================================
   if (path.includes("upload")) {
+    const DEFAULT_ARTWORK = [
+      { id: "art-1001", fileName: "brochure_draft_v2.pdf", orderId: "PX-2001", uploadDate: "2026-08-25", size: "4.5 MB", status: "Approved" },
+      { id: "art-1002", fileName: "business_card_front.pdf", orderId: "PX-2002", uploadDate: "2026-08-26", size: "1.2 MB", status: "Pending Review" }
+    ];
+
     const container = document.getElementById("upload-container");
     container.innerHTML = `
       <div class="space-y-6">
@@ -1531,6 +1596,50 @@ const DEFAULT_MESSAGES = [
           </form>
         </div>
       `;
+
+      // Bind newly injected theme and RTL toggles inside Settings
+      const setToggles = container.querySelectorAll(".theme-toggle");
+      setToggles.forEach(toggle => {
+        toggle.addEventListener("click", () => {
+          let nowTheme = document.documentElement.getAttribute("data-theme");
+          let nextTheme = nowTheme === "dark" ? "light" : "dark";
+          
+          document.documentElement.setAttribute("data-theme", nextTheme);
+          if (nextTheme === "dark") {
+            document.documentElement.classList.add("dark");
+          } else {
+            document.documentElement.classList.remove("dark");
+          }
+          localStorage.setItem("px_theme", nextTheme);
+          window.dispatchEvent(new CustomEvent("themechange", { detail: { theme: nextTheme } }));
+        });
+      });
+
+      const setRtlToggles = container.querySelectorAll(".rtl-toggle");
+      setRtlToggles.forEach(toggle => {
+        const span = toggle.querySelector("span");
+        if (span) {
+          const isRtl = document.documentElement.getAttribute("dir") === "rtl";
+          span.textContent = isRtl ? "LTR" : "RTL";
+        }
+        toggle.addEventListener("click", () => {
+          let isRtl = document.documentElement.getAttribute("dir") === "rtl";
+          let nextRtl = !isRtl;
+          
+          document.documentElement.setAttribute("dir", nextRtl ? "rtl" : "ltr");
+          localStorage.setItem("px_rtl", nextRtl ? "true" : "false");
+          
+          document.querySelectorAll(".rtl-toggle span").forEach(s => {
+            s.textContent = nextRtl ? "LTR" : "RTL";
+          });
+          window.dispatchEvent(new CustomEvent("rtlchange", { detail: { rtl: nextRtl } }));
+        });
+      });
+
+      // Rerender icons since new icons were dynamically injected
+      if (typeof lucide !== 'undefined') {
+        lucide.createIcons();
+      }
       
       const email = document.getElementById("sett-email");
       const order = document.getElementById("sett-order");

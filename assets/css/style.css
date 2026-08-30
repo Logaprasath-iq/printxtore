@@ -586,3 +586,10 @@ html[data-theme="light"] #mobile-menu .rtl-toggle * {
   color: #1A2730 !important;
   border-color: rgba(26, 39, 48, 0.15) !important;
 }
+
+/* 5. Custom Gallery Item Overlay Controls: Keep text details always visible with a bottom shadow gradient */
+.gallery-item .overflow-hidden > div.absolute {
+  opacity: 1 !important;
+  background: linear-gradient(to top, rgba(15, 23, 30, 0.95) 0%, rgba(15, 23, 30, 0.4) 60%, rgba(15, 23, 30, 0) 100%) !important;
+  transition: opacity 0.3s ease !important;
+}
