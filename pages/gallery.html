@@ -32,6 +32,27 @@
     }
   </script>
   <link rel="stylesheet" href="../assets/css/style.css">
+  <style>
+    /* Ensure gallery card text over image overlay remains crisp white in Light Mode */
+    html[data-theme="light"] .gallery-item .absolute h4,
+    html[data-theme="light"] .gallery-item .absolute [class*="text-white"],
+    html[data-theme="light"] #masonry-gallery-container .gallery-item .absolute h4,
+    html[data-theme="light"] #masonry-gallery-container .gallery-item .absolute [class*="text-white"] {
+      color: #FFFFFF !important;
+      text-shadow: 0 1px 3px rgba(0, 0, 0, 0.9);
+    }
+    html[data-theme="light"] .gallery-item .absolute p,
+    html[data-theme="light"] .gallery-item .absolute [class*="text-white/50"],
+    html[data-theme="light"] .gallery-item .absolute [class*="text-white/60"],
+    html[data-theme="light"] #masonry-gallery-container .gallery-item .absolute p,
+    html[data-theme="light"] #masonry-gallery-container .gallery-item .absolute [class*="text-white/50"] {
+      color: rgba(255, 255, 255, 0.9) !important;
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.9);
+    }
+    html[data-theme="light"] .gallery-item .absolute span[class*="text-green"] {
+      color: #FF7A45 !important;
+    }
+  </style>
   
   <!-- CDNs -->
   <script src="https://cdn.jsdelivr.net/npm/lucide/dist/umd/lucide.min.js"></script>
@@ -87,9 +108,7 @@
                 <a href="faq.html" class="block px-4 py-2 text-xs hover:bg-emerald/10 hover:text-emerald rounded-lg transition">FAQ</a>
                 <a href="file-preparation.html" class="block px-4 py-2 text-xs hover:bg-emerald/10 hover:text-emerald rounded-lg transition font-medium">File Preparation Guide</a>
                 <a href="delivery-options.html" class="block px-4 py-2 text-xs hover:bg-emerald/10 hover:text-emerald rounded-lg transition">Delivery Options</a>
-                <a href="404.html" class="block px-4 py-2 text-xs hover:bg-emerald/10 hover:text-emerald rounded-lg transition">404</a>
-                <a href="coming-soon.html" class="block px-4 py-2 text-xs hover:bg-emerald/10 hover:text-emerald rounded-lg transition">Coming Soon</a>
-                <a href="maintenance.html" class="block px-4 py-2 text-xs hover:bg-emerald/10 hover:text-emerald rounded-lg transition">Maintenance</a>
+                <a href="../dashboard/index.html" class="block px-4 py-2 text-xs hover:bg-emerald/10 hover:text-emerald rounded-lg transition font-semibold text-green">Client Dashboard</a>
               </div>
             </div>
           </div>
@@ -108,7 +127,6 @@
             <i data-lucide="arrow-left-right" class="w-4 h-4"></i>
             <span>RTL</span>
           </button>
-          
           <a href="../auth/login.html" class="px-4 py-2 text-sm text-white/85 hover:text-white transition rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 flex items-center justify-center">LOGIN</a>
           <a href="../auth/register.html" class="px-5 py-2 text-sm font-semibold rounded-xl bg-gradient-to-r from-emerald to-green text-white hover:opacity-90 transition shadow-lg shadow-emerald/10 border border-white/5">SIGN UP</a>
         </div>
@@ -171,9 +189,7 @@
           <a href="faq.html" class="block py-1 hover:text-white">FAQ</a>
           <a href="file-preparation.html" class="block py-1 hover:text-white">File Preparation Guide</a>
           <a href="delivery-options.html" class="block py-1 hover:text-white">Delivery Options</a>
-          <a href="404.html" class="block py-1 hover:text-white">404</a>
-          <a href="coming-soon.html" class="block py-1 hover:text-white">Coming Soon</a>
-          <a href="maintenance.html" class="block py-1 hover:text-white">Maintenance</a>
+          <a href="../dashboard/index.html" class="block py-1 hover:text-white font-semibold text-green">Client Dashboard</a>
         </div>
       </div>
       <a href="contact.html" class="hover:text-white transition">CONTACT</a>
@@ -187,11 +203,11 @@
   </div>
 
   <!-- Gallery Header -->
-  <section class="pt-40 pb-20 text-left bg-cover bg-center overflow-hidden relative" style="background-image: url('../assets/images/gallery-hero1.jpg')">
-    <div class="absolute inset-0 bg-gradient-to-r from-dark via-dark/90 to-transparent opacity-95"></div>
-    <div class="w-full px-6 md:px-12 relative z-10">
-      <h1 class="text-4xl sm:text-5xl font-extrabold font-display text-white">Tactile Work Gallery</h1>
-      <p class="text-sm text-white/70 mt-2 max-w-lg">Inspect and zoom our custom-engineered printing projects, including packaging, catalogs, and branding materials.</p>
+  <section class="pt-40 pb-24 relative text-center bg-cover bg-center overflow-hidden flex items-center justify-center min-h-[380px]" style="background-image: url('../assets/images/gallery-hero1.jpg')">
+    <div class="absolute inset-0 bg-[#121B22]/80 backdrop-blur-[1px]"></div>
+    <div class="max-w-3xl mx-auto px-6 relative z-10 space-y-4 text-center">
+      <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight font-display text-white">Tactile Work Gallery</h1>
+      <p class="text-base sm:text-lg text-white/85 max-w-lg mx-auto leading-relaxed">Inspect and zoom our custom-engineered printing projects, including packaging, catalogs, and branding materials.</p>
     </div>
   </section>
 

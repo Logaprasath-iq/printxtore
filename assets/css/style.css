@@ -293,126 +293,63 @@ html[data-theme="light"] .bg-dark\/20 {
 }
 
 /* Widespread text color corrections in light mode */
-html[data-theme="light"] h1,
-html[data-theme="light"] h2,
-html[data-theme="light"] h3,
-html[data-theme="light"] h4,
-html[data-theme="light"] h5,
-html[data-theme="light"] h6 {
+html[data-theme="light"] h1:not(.gallery-item *):not(footer *):not(section.bg-cover *):not(section[style*="background-image"] *):not([style*="background-image"] *),
+html[data-theme="light"] h2:not(.gallery-item *):not(footer *):not(section.bg-cover *):not(section[style*="background-image"] *):not([style*="background-image"] *),
+html[data-theme="light"] h3:not(.gallery-item *):not(footer *):not(section.bg-cover *):not(section[style*="background-image"] *):not([style*="background-image"] *),
+html[data-theme="light"] h4:not(.gallery-item *):not(footer *):not(section.bg-cover *):not(section[style*="background-image"] *):not([style*="background-image"] *),
+html[data-theme="light"] h5:not(.gallery-item *):not(footer *):not(section.bg-cover *):not(section[style*="background-image"] *):not([style*="background-image"] *),
+html[data-theme="light"] h6:not(.gallery-item *):not(footer *):not(section.bg-cover *):not(section[style*="background-image"] *):not([style*="background-image"] *) {
   color: #1A2730 !important;
 }
 
 /* Target and fix Tailwind JIT text-white opacity classes using attribute selectors */
-html[data-theme="light"] [class*="text-white"]:not(footer *):not(button *):not(a.bg-gradient-to-r *) {
+html[data-theme="light"] [class*="text-white"]:not(footer *):not(button *):not(a.bg-gradient-to-r *):not(.gallery-item *):not([class*="gallery-item"] *):not(section.bg-cover *):not(section[style*="background-image"] *):not([style*="background-image"] *) {
   color: #1A2730 !important;
 }
-html[data-theme="light"] [class*="text-white/80"]:not(footer *):not(button *):not(a.bg-gradient-to-r *) {
+html[data-theme="light"] [class*="text-white/80"]:not(footer *):not(button *):not(a.bg-gradient-to-r *):not(.gallery-item *):not([class*="gallery-item"] *):not(section.bg-cover *):not(section[style*="background-image"] *):not([style*="background-image"] *) {
   color: rgba(26, 39, 48, 0.95) !important;
 }
-html[data-theme="light"] [class*="text-white/70"]:not(footer *):not(button *):not(a.bg-gradient-to-r *) {
+html[data-theme="light"] [class*="text-white/70"]:not(footer *):not(button *):not(a.bg-gradient-to-r *):not(.gallery-item *):not([class*="gallery-item"] *):not(section.bg-cover *):not(section[style*="background-image"] *):not([style*="background-image"] *) {
   color: rgba(26, 39, 48, 0.9) !important;
 }
-html[data-theme="light"] [class*="text-white/60"]:not(footer *):not(button *):not(a.bg-gradient-to-r *) {
+html[data-theme="light"] [class*="text-white/60"]:not(footer *):not(button *):not(a.bg-gradient-to-r *):not(.gallery-item *):not([class*="gallery-item"] *):not(section.bg-cover *):not(section[style*="background-image"] *):not([style*="background-image"] *) {
   color: rgba(26, 39, 48, 0.85) !important;
 }
-html[data-theme="light"] [class*="text-white/50"]:not(footer *):not(button *):not(a.bg-gradient-to-r *) {
+html[data-theme="light"] [class*="text-white/50"]:not(footer *):not(button *):not(a.bg-gradient-to-r *):not(.gallery-item *):not([class*="gallery-item"] *):not(section.bg-cover *):not(section[style*="background-image"] *):not([style*="background-image"] *) {
   color: rgba(26, 39, 48, 0.8) !important;
 }
-html[data-theme="light"] [class*="text-white/40"]:not(footer *):not(button *):not(a.bg-gradient-to-r *) {
+html[data-theme="light"] [class*="text-white/40"]:not(footer *):not(button *):not(a.bg-gradient-to-r *):not(.gallery-item *):not([class*="gallery-item"] *):not(section.bg-cover *):not(section[style*="background-image"] *):not([style*="background-image"] *) {
   color: rgba(26, 39, 48, 0.7) !important;
 }
-html[data-theme="light"] [class*="text-white/30"]:not(footer *):not(button *):not(a.bg-gradient-to-r *) {
+html[data-theme="light"] [class*="text-white/30"]:not(footer *):not(button *):not(a.bg-gradient-to-r *):not(.gallery-item *):not([class*="gallery-item"] *):not(section.bg-cover *):not(section[style*="background-image"] *):not([style*="background-image"] *) {
   color: rgba(26, 39, 48, 0.6) !important;
 }
 
-/* Reset/restore white text inside elements serving as dark containers in light mode */
-html[data-theme="light"] [class*="bg-dark"] h1,
-html[data-theme="light"] [class*="bg-dark"] h2,
-html[data-theme="light"] [class*="bg-dark"] h3,
-html[data-theme="light"] [class*="bg-dark"] h4,
-html[data-theme="light"] [class*="bg-dark"] h5,
-html[data-theme="light"] [class*="bg-dark"] h6,
-html[data-theme="light"] [class*="bg-black"] h1,
-html[data-theme="light"] [class*="bg-black"] h2,
-html[data-theme="light"] [class*="bg-black"] h3,
-html[data-theme="light"] [class*="bg-black"] h4,
-html[data-theme="light"] [class*="bg-black"] h5,
-html[data-theme="light"] [class*="bg-black"] h6,
-html[data-theme="light"] [class*="bg-emerald"] h1,
-html[data-theme="light"] [class*="bg-emerald"] h2,
-html[data-theme="light"] [class*="bg-emerald"] h3,
-html[data-theme="light"] [class*="bg-emerald"] h4,
-html[data-theme="light"] [class*="bg-emerald"] h5,
-html[data-theme="light"] [class*="bg-emerald"] h6,
-html[data-theme="light"] [class*="from-dark"] h1,
-html[data-theme="light"] [class*="from-dark"] h2,
-html[data-theme="light"] [class*="from-dark"] h3,
-html[data-theme="light"] [class*="from-dark"] h4,
-html[data-theme="light"] [class*="from-dark"] h5,
-html[data-theme="light"] [class*="from-dark"] h6,
-html[data-theme="light"] [class*="from-black"] h1,
-html[data-theme="light"] [class*="from-black"] h2,
-html[data-theme="light"] [class*="from-black"] h3,
-html[data-theme="light"] [class*="from-black"] h4,
-html[data-theme="light"] [class*="from-black"] h5,
-html[data-theme="light"] [class*="from-black"] h6 {
+/* Maintain white text ONLY on genuinely dark backgrounds in light mode */
+html[data-theme="light"] .bg-black *,
+html[data-theme="light"] [class*="bg-black"] *,
+html[data-theme="light"] .bg-emerald *,
+html[data-theme="light"] [class*="bg-emerald"]:not([class*="text-"]) *,
+html[data-theme="light"] .bg-red-500,
+html[data-theme="light"] .bg-red-600,
+html[data-theme="light"] [class*="bg-red-500"],
+html[data-theme="light"] .bg-green:not([class*="/"]):not([class*="text-green"]),
+html[data-theme="light"] [class*="bg-green"]:not([class*="/"]):not([class*="text-green"]) {
   color: #FFFFFF !important;
 }
 
-html[data-theme="light"] [class*="bg-dark"] [class*="text-white"],
-html[data-theme="light"] [class*="bg-black"] [class*="text-white"],
-html[data-theme="light"] [class*="bg-emerald"] [class*="text-white"],
-html[data-theme="light"] [class*="from-dark"] [class*="text-white"],
-html[data-theme="light"] [class*="from-black"] [class*="text-white"],
-html[data-theme="light"] [class*="via-dark"] [class*="text-white"],
-html[data-theme="light"] [class*="bg-dark"] a,
-html[data-theme="light"] [class*="bg-black"] a,
-html[data-theme="light"] [class*="bg-dark"] span,
-html[data-theme="light"] [class*="bg-black"] span {
-  color: #FFFFFF !important;
+/* Ensure all brand tags, subtitle headings, and labels with text-green have high contrast in light mode */
+html[data-theme="light"] .text-green,
+html[data-theme="light"] [class*="text-green"] {
+  color: #E95D2C !important;
 }
 
-html[data-theme="light"] [class*="bg-dark"] [class*="text-white/80"],
-html[data-theme="light"] [class*="bg-black"] [class*="text-white/80"],
-html[data-theme="light"] [class*="from-dark"] [class*="text-white/80"],
-html[data-theme="light"] [class*="from-black"] [class*="text-white/80"] {
-  color: rgba(255, 255, 255, 0.8) !important;
+/* Ensure text-dark classes are legible dark text in light mode */
+html[data-theme="light"] .text-dark,
+html[data-theme="light"] [class*="text-dark"] {
+  color: #1A2730 !important;
 }
 
-html[data-theme="light"] [class*="bg-dark"] [class*="text-white/70"],
-html[data-theme="light"] [class*="bg-black"] [class*="text-white/70"],
-html[data-theme="light"] [class*="from-dark"] [class*="text-white/70"],
-html[data-theme="light"] [class*="from-black"] [class*="text-white/70"] {
-  color: rgba(255, 255, 255, 0.7) !important;
-}
-
-html[data-theme="light"] [class*="bg-dark"] [class*="text-white/60"],
-html[data-theme="light"] [class*="bg-black"] [class*="text-white/60"],
-html[data-theme="light"] [class*="from-dark"] [class*="text-white/60"],
-html[data-theme="light"] [class*="from-black"] [class*="text-white/60"] {
-  color: rgba(255, 255, 255, 0.6) !important;
-}
-
-html[data-theme="light"] [class*="bg-dark"] [class*="text-white/50"],
-html[data-theme="light"] [class*="bg-black"] [class*="text-white/50"],
-html[data-theme="light"] [class*="from-dark"] [class*="text-white/50"],
-html[data-theme="light"] [class*="from-black"] [class*="text-white/50"] {
-  color: rgba(255, 255, 255, 0.5) !important;
-}
-
-html[data-theme="light"] [class*="bg-dark"] [class*="text-white/40"],
-html[data-theme="light"] [class*="bg-black"] [class*="text-white/40"],
-html[data-theme="light"] [class*="from-dark"] [class*="text-white/40"],
-html[data-theme="light"] [class*="from-black"] [class*="text-white/40"] {
-  color: rgba(255, 255, 255, 0.4) !important;
-}
-
-html[data-theme="light"] [class*="bg-dark"] [class*="text-white/30"],
-html[data-theme="light"] [class*="bg-black"] [class*="text-white/30"],
-html[data-theme="light"] [class*="from-dark"] [class*="text-white/30"],
-html[data-theme="light"] [class*="from-black"] [class*="text-white/30"] {
-  color: rgba(255, 255, 255, 0.3) !important;
-}
 
 /* Retain white text inside elements explicitly serving as badges on dark/accent backgrounds */
 html[data-theme="light"] .x-brand {
@@ -426,7 +363,11 @@ html[data-theme="light"] .x-brand {
 footer {
   background-color: #1A2730 !important;
   color: #F4F8F5 !important;
-  border-top-color: rgba(255, 255, 255, 0.05) !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.12) !important;
+}
+
+html[data-theme="light"] footer {
+  border-top: 1px solid rgba(26, 39, 48, 0.12) !important;
 }
 
 footer h4,
@@ -443,8 +384,17 @@ footer a:hover {
   color: #E95D2C !important;
 }
 
-footer .border-t {
-  border-top-color: rgba(255, 255, 255, 0.05) !important;
+/* Footer divider line visibility across both light and dark modes */
+footer .border-t,
+footer .border-white\/5,
+footer .border-white\/10,
+footer [class*="border-white"],
+html[data-theme="light"] footer .border-t,
+html[data-theme="light"] footer .border-white\/5,
+html[data-theme="light"] footer .border-white\/10,
+html[data-theme="light"] footer [class*="border-white"] {
+  border-color: rgba(255, 255, 255, 0.18) !important;
+  border-top-color: rgba(255, 255, 255, 0.18) !important;
 }
 
 /* Specific footer override to immunize it from Light Mode text adjustments */
@@ -590,6 +540,234 @@ html[data-theme="light"] #mobile-menu .rtl-toggle * {
 /* 5. Custom Gallery Item Overlay Controls: Keep text details always visible with a bottom shadow gradient */
 .gallery-item .overflow-hidden > div.absolute {
   opacity: 1 !important;
-  background: linear-gradient(to top, rgba(15, 23, 30, 0.95) 0%, rgba(15, 23, 30, 0.4) 60%, rgba(15, 23, 30, 0) 100%) !important;
+  background: linear-gradient(to top, rgba(15, 23, 30, 0.95) 0%, rgba(15, 23, 30, 0.5) 60%, rgba(15, 23, 30, 0) 100%) !important;
   transition: opacity 0.3s ease !important;
 }
+
+/* Gallery Item Text Contrast: Always legible white text over image overlay in both light and dark modes */
+.gallery-item div.absolute,
+.gallery-item div.absolute *,
+html[data-theme="light"] .gallery-item div.absolute,
+html[data-theme="light"] .gallery-item div.absolute *,
+html[data-theme="light"] #masonry-gallery-container .gallery-item div.absolute,
+html[data-theme="light"] #masonry-gallery-container .gallery-item div.absolute * {
+  color: #FFFFFF !important;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.9) !important;
+}
+
+.gallery-item div.absolute p,
+.gallery-item div.absolute p *,
+html[data-theme="light"] .gallery-item div.absolute p,
+html[data-theme="light"] .gallery-item div.absolute p *,
+html[data-theme="light"] #masonry-gallery-container .gallery-item div.absolute p,
+html[data-theme="light"] #masonry-gallery-container .gallery-item div.absolute p * {
+  color: rgba(255, 255, 255, 0.88) !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.9) !important;
+}
+
+.gallery-item div.absolute span[class*="text-green"],
+html[data-theme="light"] .gallery-item div.absolute span[class*="text-green"],
+html[data-theme="light"] #masonry-gallery-container .gallery-item div.absolute span[class*="text-green"] {
+  color: #FF7A45 !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8) !important;
+}
+
+/* Gallery Filter Buttons: high contrast in Light Mode */
+html[data-theme="light"] .gal-filter:not(.active) {
+  color: #1A2730 !important;
+  border-color: rgba(26, 39, 48, 0.2) !important;
+  background-color: rgba(26, 39, 48, 0.05) !important;
+}
+html[data-theme="light"] .gal-filter:not(.active):hover {
+  background-color: rgba(26, 39, 48, 0.12) !important;
+  color: #E95D2C !important;
+}
+html[data-theme="light"] .gal-filter.active {
+  color: #FFFFFF !important;
+}
+
+/* 6. FAQ Accordion contrast in Light Mode (About page & FAQ page) */
+html[data-theme="light"] .faq-trigger-btn,
+html[data-theme="light"] .faq-trigger-btn *,
+html[data-theme="light"] .faq-item-box button,
+html[data-theme="light"] .faq-item-box button * {
+  color: #1A2730 !important;
+}
+html[data-theme="light"] .faq-trigger-btn:hover,
+html[data-theme="light"] .faq-trigger-btn:hover * {
+  color: #E95D2C !important;
+}
+html[data-theme="light"] .faq-content-pane,
+html[data-theme="light"] .faq-content-pane * {
+  color: rgba(26, 39, 48, 0.85) !important;
+}
+html[data-theme="light"] .faq-content-pane strong {
+  color: #1A2730 !important;
+}
+
+/* 7. Hero section text contrast protection over background photo banners */
+section.bg-cover h1,
+section.bg-cover h2,
+section[style*="background-image"] h1,
+section[style*="background-image"] h2,
+html[data-theme="light"] section.bg-cover h1,
+html[data-theme="light"] section.bg-cover h2,
+html[data-theme="light"] section.bg-cover [class*="text-white"],
+html[data-theme="light"] section[style*="background-image"] h1,
+html[data-theme="light"] section[style*="background-image"] h2,
+html[data-theme="light"] section[style*="background-image"] [class*="text-white"],
+html[data-theme="light"] [style*="background-image"] h1,
+html[data-theme="light"] [style*="background-image"] h2,
+html[data-theme="light"] [style*="background-image"] [class*="text-white"] {
+  color: #FFFFFF !important;
+}
+
+html[data-theme="light"] section.bg-cover .text-transparent,
+html[data-theme="light"] section[style*="background-image"] .text-transparent,
+html[data-theme="light"] [style*="background-image"] .text-transparent {
+  color: transparent !important;
+  -webkit-text-fill-color: transparent !important;
+  text-shadow: none !important;
+}
+
+section.bg-cover p,
+section[style*="background-image"] p,
+html[data-theme="light"] section.bg-cover p,
+html[data-theme="light"] section.bg-cover [class*="text-white/70"],
+html[data-theme="light"] section.bg-cover [class*="text-white/80"],
+html[data-theme="light"] section.bg-cover [class*="text-white/85"],
+html[data-theme="light"] section.bg-cover [class*="text-white/90"],
+html[data-theme="light"] section[style*="background-image"] p,
+html[data-theme="light"] section[style*="background-image"] [class*="text-white/70"],
+html[data-theme="light"] section[style*="background-image"] [class*="text-white/80"],
+html[data-theme="light"] section[style*="background-image"] [class*="text-white/85"],
+html[data-theme="light"] section[style*="background-image"] [class*="text-white/90"],
+html[data-theme="light"] [style*="background-image"] p,
+html[data-theme="light"] [style*="background-image"] [class*="text-white/70"],
+html[data-theme="light"] [style*="background-image"] [class*="text-white/80"],
+html[data-theme="light"] [style*="background-image"] [class*="text-white/85"],
+html[data-theme="light"] [style*="background-image"] [class*="text-white/90"] {
+  color: #FFFFFF !important;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.85) !important;
+}
+
+/* 8. Timeline connector line and nodes contrast in Light Mode */
+html[data-theme="light"] section [class*="before:bg-white"]::before {
+  background-color: rgba(26, 39, 48, 0.22) !important;
+}
+html[data-theme="light"] .border-dark {
+  border-color: #F4F8F5 !important;
+}
+
+/* 9. Home 1 What We Create Bento Cards in Light Mode */
+html[data-theme="light"] #what-we-create .glass {
+  background: #1A2730 !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+html[data-theme="light"] #what-we-create [class*="bg-cover"] {
+  opacity: 0.95 !important;
+}
+
+html[data-theme="light"] #what-we-create [class*="bg-gradient-to-t"] {
+  display: block !important;
+  background: linear-gradient(to top, rgba(15, 23, 30, 0.92) 0%, rgba(15, 23, 30, 0.5) 50%, transparent 100%) !important;
+}
+
+html[data-theme="light"] #what-we-create .glass h3,
+html[data-theme="light"] #what-we-create .glass [class*="text-white"] {
+  color: #FFFFFF !important;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8) !important;
+}
+
+html[data-theme="light"] #what-we-create .glass p,
+html[data-theme="light"] #what-we-create .glass [class*="text-white/70"] {
+  color: rgba(255, 255, 255, 0.9) !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8) !important;
+}
+
+html[data-theme="light"] #what-we-create .glass span[class*="text-green"],
+html[data-theme="light"] #what-we-create .glass a[class*="text-green"] {
+  color: #FF7A45 !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8) !important;
+}
+
+/* 10. Navbar Responsive Alignment & Collision Prevention (768px, 1024px, etc.) */
+
+/* Ensure brand logo never shrinks or wraps onto multiple lines at any screen width */
+#main-navbar a:first-child,
+#main-navbar .font-display {
+  flex-shrink: 0 !important;
+  white-space: nowrap !important;
+}
+
+/* Below 1024px (< lg, including 768px tablet portrait):
+   Display clean tablet/mobile navbar with Theme toggle and Hamburger drawer;
+   Hide desktop nav links and buttons to prevent overflow and wrapping */
+@media (max-width: 1023.98px) {
+  #main-navbar .hidden.md\:flex {
+    display: none !important;
+  }
+  #main-navbar .md\:hidden {
+    display: flex !important;
+    align-items: center;
+    gap: 0.75rem;
+  }
+}
+
+/* 1024px to 1279px (lg laptops and tablets in landscape):
+   Fit all 8 desktop nav links and all 4 utility buttons comfortably without wrapping or clipping */
+@media (min-width: 1024px) and (max-width: 1279.98px) {
+  #main-navbar .hidden.md\:flex {
+    display: flex !important;
+  }
+  #main-navbar .md\:hidden {
+    display: none !important;
+  }
+  #main-navbar > div {
+    padding-left: 1.5rem !important;
+    padding-right: 1.5rem !important;
+  }
+  #main-navbar .gap-8 {
+    gap: 0.85rem !important;
+  }
+  #main-navbar .nav-link, 
+  #main-navbar button, 
+  #main-navbar .text-sm {
+    font-size: 0.78rem !important;
+  }
+  #main-navbar .gap-4 {
+    gap: 0.4rem !important;
+  }
+  #main-navbar .px-4 {
+    padding-left: 0.6rem !important;
+    padding-right: 0.6rem !important;
+  }
+  #main-navbar .px-5 {
+    padding-left: 0.85rem !important;
+    padding-right: 0.85rem !important;
+  }
+}
+
+/* Mobile Menu Drawer Styling */
+#mobile-menu {
+  background-color: rgba(26, 39, 48, 0.98);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+html[data-theme="light"] #mobile-menu {
+  background-color: #FFFFFF;
+  color: #1A2730;
+}
+html[data-theme="light"] #mobile-menu a,
+html[data-theme="light"] #mobile-menu button {
+  color: #1A2730;
+}
+html[data-theme="light"] #mobile-menu .text-white\/60,
+html[data-theme="light"] #mobile-menu .text-white\/70,
+html[data-theme="light"] #mobile-menu .text-white\/85,
+html[data-theme="light"] #mobile-menu .text-white\/90 {
+  color: rgba(26, 39, 48, 0.8);
+}
+
+

@@ -36,10 +36,15 @@ document.addEventListener("DOMContentLoaded", () => {
   // Check auth session
   let currentUser = JSON.parse(localStorage.getItem("printxtore_session"));
   
-  // Enforce authentication
+  // Auto-initialize demo session if none exists so dashboard is immediately accessible
   if (!currentUser && !window.location.pathname.includes("login.html") && !window.location.pathname.includes("register.html")) {
-    window.location.href = "../auth/login.html";
-    return;
+    currentUser = {
+      id: "cust-1",
+      name: "Emma Watson",
+      email: "demo@printxtore.com",
+      role: "client"
+    };
+    localStorage.setItem("printxtore_session", JSON.stringify(currentUser));
   }
 
   // --- INITIALIZE SYNCED LOCALSTORAGE DATABASES ---

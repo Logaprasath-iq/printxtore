@@ -90,9 +90,7 @@
                 <a href="pages/faq.html" class="block px-4 py-2 text-xs hover:bg-emerald/10 hover:text-emerald rounded-lg transition">FAQ</a>
                 <a href="pages/file-preparation.html" class="block px-4 py-2 text-xs hover:bg-emerald/10 hover:text-emerald rounded-lg transition font-medium">File Preparation Guide</a>
                 <a href="pages/delivery-options.html" class="block px-4 py-2 text-xs hover:bg-emerald/10 hover:text-emerald rounded-lg transition">Delivery Options</a>
-                <a href="pages/404.html" class="block px-4 py-2 text-xs hover:bg-emerald/10 hover:text-emerald rounded-lg transition">404</a>
-                <a href="pages/coming-soon.html" class="block px-4 py-2 text-xs hover:bg-emerald/10 hover:text-emerald rounded-lg transition">Coming Soon</a>
-                <a href="pages/maintenance.html" class="block px-4 py-2 text-xs hover:bg-emerald/10 hover:text-emerald rounded-lg transition">Maintenance</a>
+                <a href="dashboard/index.html" class="block px-4 py-2 text-xs hover:bg-emerald/10 hover:text-emerald rounded-lg transition font-semibold text-green">Client Dashboard</a>
               </div>
             </div>
           </div>
@@ -111,7 +109,6 @@
             <i data-lucide="arrow-left-right" class="w-4 h-4"></i>
             <span>RTL</span>
           </button>
-          
           <a href="auth/login.html" class="px-4 py-2 text-sm text-white/85 hover:text-white transition rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 flex items-center justify-center">LOGIN</a>
           <a href="auth/register.html" class="px-5 py-2 text-sm font-semibold rounded-xl bg-gradient-to-r from-emerald to-green text-white hover:opacity-90 transition shadow-lg shadow-emerald/10 border border-white/5">SIGN UP</a>
         </div>
@@ -178,9 +175,7 @@
           <a href="pages/faq.html" class="block py-1 hover:text-white">FAQ</a>
           <a href="pages/file-preparation.html" class="block py-1 hover:text-white">File Preparation Guide</a>
           <a href="pages/delivery-options.html" class="block py-1 hover:text-white">Delivery Options</a>
-          <a href="pages/404.html" class="block py-1 hover:text-white">404</a>
-          <a href="pages/coming-soon.html" class="block py-1 hover:text-white">Coming Soon</a>
-          <a href="pages/maintenance.html" class="block py-1 hover:text-white">Maintenance</a>
+          <a href="dashboard/index.html" class="block py-1 hover:text-white font-semibold text-green">Client Dashboard</a>
         </div>
       </div>
       
@@ -448,9 +443,14 @@
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
         <!-- Option 1: Pickup -->
-        <div class="glass p-6 rounded-3xl border-white/5 flex flex-col justify-between hover:border-green/20 transition duration-300">
+        <div class="glass p-5 rounded-3xl border-white/5 flex flex-col justify-between hover:border-green/20 transition duration-300 group">
           <div class="space-y-4">
-            <div class="w-10 h-10 rounded-xl bg-green/10 text-green flex items-center justify-center"><i data-lucide="store" class="w-5 h-5"></i></div>
+            <div class="w-full h-40 rounded-2xl overflow-hidden relative shadow-md">
+              <img src="./assets/images/store-pickup.jpg" alt="Store Pickup" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy">
+              <div class="absolute top-3 left-3 w-9 h-9 rounded-xl bg-dark/80 backdrop-blur-md text-green flex items-center justify-center border border-white/10 shadow-lg">
+                <i data-lucide="store" class="w-4 h-4"></i>
+              </div>
+            </div>
             <h3 class="text-lg font-bold font-display text-white">Store Pickup</h3>
             <p class="text-xs text-white/50">Collect batches directly from our main district print hub once ready.</p>
             
@@ -464,9 +464,14 @@
         </div>
 
         <!-- Option 2: Standard Shipping -->
-        <div class="glass p-6 rounded-3xl border-white/5 flex flex-col justify-between hover:border-green/20 transition duration-300">
+        <div class="glass p-5 rounded-3xl border-white/5 flex flex-col justify-between hover:border-green/20 transition duration-300 group">
           <div class="space-y-4">
-            <div class="w-10 h-10 rounded-xl bg-teal/20 text-green flex items-center justify-center"><i data-lucide="truck" class="w-5 h-5"></i></div>
+            <div class="w-full h-40 rounded-2xl overflow-hidden relative shadow-md">
+              <img src="./assets/images/standard-delivery.jpg" alt="Standard Delivery" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy">
+              <div class="absolute top-3 left-3 w-9 h-9 rounded-xl bg-dark/80 backdrop-blur-md text-green flex items-center justify-center border border-white/10 shadow-lg">
+                <i data-lucide="truck" class="w-4 h-4"></i>
+              </div>
+            </div>
             <h3 class="text-lg font-bold font-display text-white">Standard Delivery</h3>
             <p class="text-xs text-white/50">Shipped via reliable ground couriers straight to your warehouse.</p>
             
@@ -480,9 +485,14 @@
         </div>
 
         <!-- Option 3: Express -->
-        <div class="glass p-6 rounded-3xl border-white/5 flex flex-col justify-between border-green/20 transition duration-300">
+        <div class="glass p-5 rounded-3xl border-white/5 flex flex-col justify-between border-green/20 transition duration-300 group">
           <div class="space-y-4">
-            <div class="w-10 h-10 rounded-xl bg-green/10 text-green flex items-center justify-center"><i data-lucide="plane-takeoff" class="w-5 h-5"></i></div>
+            <div class="w-full h-40 rounded-2xl overflow-hidden relative shadow-md">
+              <img src="./assets/images/express-delivery.jpg" alt="Express Delivery" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy">
+              <div class="absolute top-3 left-3 w-9 h-9 rounded-xl bg-dark/80 backdrop-blur-md text-green flex items-center justify-center border border-white/10 shadow-lg">
+                <i data-lucide="plane-takeoff" class="w-4 h-4"></i>
+              </div>
+            </div>
             <h3 class="text-lg font-bold font-display text-white">Express Delivery</h3>
             <p class="text-xs text-white/50">Priority air shipping for tight deadlines or marketing events.</p>
             
@@ -496,9 +506,14 @@
         </div>
 
         <!-- Option 4: Local Courier -->
-        <div class="glass p-6 rounded-3xl border-white/5 flex flex-col justify-between hover:border-green/20 transition duration-300">
+        <div class="glass p-5 rounded-3xl border-white/5 flex flex-col justify-between hover:border-green/20 transition duration-300 group">
           <div class="space-y-4">
-            <div class="w-10 h-10 rounded-xl bg-teal/20 text-green flex items-center justify-center"><i data-lucide="bike" class="w-5 h-5"></i></div>
+            <div class="w-full h-40 rounded-2xl overflow-hidden relative shadow-md">
+              <img src="./assets/images/local-courier.jpg" alt="Local Courier" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy">
+              <div class="absolute top-3 left-3 w-9 h-9 rounded-xl bg-dark/80 backdrop-blur-md text-green flex items-center justify-center border border-white/10 shadow-lg">
+                <i data-lucide="bike" class="w-4 h-4"></i>
+              </div>
+            </div>
             <h3 class="text-lg font-bold font-display text-white">Same-Day Local</h3>
             <p class="text-xs text-white/50">Hand-delivered by bike messenger inside the metro zone.</p>
             
