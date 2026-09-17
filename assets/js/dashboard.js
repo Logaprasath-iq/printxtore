@@ -36,13 +36,39 @@ document.addEventListener("DOMContentLoaded", () => {
   // Check auth session
   let currentUser = JSON.parse(localStorage.getItem("printxtore_session"));
   
+  // URL role override (e.g. clicking Admin Dashboard link)
+  try {
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.get("role") === "admin") {
+      currentUser = {
+        id: "admin-1",
+        name: "PrintXtore Admin",
+        email: "admin@printxtore.com",
+        role: "admin",
+        phone: "+91 9876543210"
+      };
+      localStorage.setItem("printxtore_session", JSON.stringify(currentUser));
+    } else if (urlParams.get("role") === "client") {
+      currentUser = {
+        id: "cust-1",
+        name: "Emma Watson",
+        email: "demo@printxtore.com",
+        role: "client",
+        phone: "+91 9999988888",
+        company: "Watson Designs"
+      };
+      localStorage.setItem("printxtore_session", JSON.stringify(currentUser));
+    }
+  } catch (e) {}
+
   // Auto-initialize demo session if none exists so dashboard is immediately accessible
   if (!currentUser && !window.location.pathname.includes("login.html") && !window.location.pathname.includes("register.html")) {
     currentUser = {
-      id: "cust-1",
-      name: "Emma Watson",
-      email: "demo@printxtore.com",
-      role: "client"
+      id: "admin-1",
+      name: "PrintXtore Admin",
+      email: "admin@printxtore.com",
+      role: "admin",
+      phone: "+91 9876543210"
     };
     localStorage.setItem("printxtore_session", JSON.stringify(currentUser));
   }

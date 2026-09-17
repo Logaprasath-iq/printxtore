@@ -258,15 +258,28 @@ html[data-theme="light"] #main-navbar {
 }
 
 /* Nav links, logo, and toggles */
-html[data-theme="light"] #main-navbar a,
+html[data-theme="light"] #main-navbar a:not(.bg-gradient-to-r):not([href*="register"]),
 html[data-theme="light"] #main-navbar button,
 html[data-theme="light"] #main-navbar span:not(.x-brand) {
   color: #1A2730 !important;
 }
 
-html[data-theme="light"] #main-navbar a:hover,
+html[data-theme="light"] #main-navbar a:not(.bg-gradient-to-r):not([href*="register"]):hover,
 html[data-theme="light"] #main-navbar button:hover {
   color: #E95D2C !important;
+}
+
+/* Ensure SIGN UP button maintains solid white contrast in Light Mode (normal and hover) */
+html[data-theme="light"] #main-navbar a[href*="register"],
+html[data-theme="light"] #main-navbar a[href*="register"]:hover,
+html[data-theme="light"] #main-navbar a[href*="register"] *,
+html[data-theme="light"] #main-navbar a[href*="register"]:hover *,
+html[data-theme="light"] #main-navbar a.bg-gradient-to-r,
+html[data-theme="light"] #main-navbar a.bg-gradient-to-r:hover,
+html[data-theme="light"] #main-navbar a.bg-gradient-to-r *,
+html[data-theme="light"] #main-navbar a.bg-gradient-to-r:hover * {
+  color: #FFFFFF !important;
+  opacity: 1 !important;
 }
 
 /* Glass element styles in light mode */
@@ -716,7 +729,7 @@ html[data-theme="light"] #what-we-create .glass a[class*="text-green"] {
 }
 
 /* 1024px to 1279px (lg laptops and tablets in landscape):
-   Fit all 8 desktop nav links and all 4 utility buttons comfortably without wrapping or clipping */
+   Fit all desktop nav links (including DASHBOARD) and all 4 utility buttons comfortably without wrapping or clipping */
 @media (min-width: 1024px) and (max-width: 1279.98px) {
   #main-navbar .hidden.md\:flex {
     display: flex !important;
@@ -725,29 +738,64 @@ html[data-theme="light"] #what-we-create .glass a[class*="text-green"] {
     display: none !important;
   }
   #main-navbar > div {
-    padding-left: 1.5rem !important;
-    padding-right: 1.5rem !important;
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
   }
   #main-navbar .gap-8 {
-    gap: 0.85rem !important;
+    gap: 0.55rem !important;
   }
   #main-navbar .nav-link, 
   #main-navbar button, 
   #main-navbar .text-sm {
-    font-size: 0.78rem !important;
+    font-size: 0.73rem !important;
   }
   #main-navbar .gap-4 {
-    gap: 0.4rem !important;
+    gap: 0.35rem !important;
   }
   #main-navbar .px-4 {
-    padding-left: 0.6rem !important;
-    padding-right: 0.6rem !important;
+    padding-left: 0.5rem !important;
+    padding-right: 0.5rem !important;
+    font-size: 0.73rem !important;
   }
   #main-navbar .px-5 {
-    padding-left: 0.85rem !important;
-    padding-right: 0.85rem !important;
+    padding-left: 0.75rem !important;
+    padding-right: 0.75rem !important;
+    font-size: 0.73rem !important;
+    white-space: nowrap !important;
   }
 }
+
+/* 1280px to 1439.98px (standard laptops & 720p/HD monitors):
+   Ensure all 9 nav links and right-side utility buttons fit comfortably without overflowing or clipping */
+@media (min-width: 1280px) and (max-width: 1439.98px) {
+  #main-navbar > div {
+    padding-left: 1.5rem !important;
+    padding-right: 1.5rem !important;
+  }
+  #main-navbar .gap-8 {
+    gap: 1.1rem !important;
+  }
+  #main-navbar .gap-4 {
+    gap: 0.6rem !important;
+  }
+  #main-navbar .nav-link, 
+  #main-navbar button, 
+  #main-navbar .text-sm {
+    font-size: 0.8125rem !important;
+  }
+  #main-navbar .px-4 {
+    padding-left: 0.75rem !important;
+    padding-right: 0.75rem !important;
+    font-size: 0.8125rem !important;
+  }
+  #main-navbar .px-5 {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+    font-size: 0.8125rem !important;
+    white-space: nowrap !important;
+  }
+}
+
 
 /* Mobile Menu Drawer Styling */
 #mobile-menu {
