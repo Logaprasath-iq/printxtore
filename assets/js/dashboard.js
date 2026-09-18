@@ -36,39 +36,15 @@ document.addEventListener("DOMContentLoaded", () => {
   // Check auth session
   let currentUser = JSON.parse(localStorage.getItem("printxtore_session"));
   
-  // URL role override (e.g. clicking Admin Dashboard link)
-  try {
-    const urlParams = new URLSearchParams(window.location.search);
-    if (urlParams.get("role") === "admin") {
-      currentUser = {
-        id: "admin-1",
-        name: "PrintXtore Admin",
-        email: "admin@printxtore.com",
-        role: "admin",
-        phone: "+91 9876543210"
-      };
-      localStorage.setItem("printxtore_session", JSON.stringify(currentUser));
-    } else if (urlParams.get("role") === "client") {
-      currentUser = {
-        id: "cust-1",
-        name: "Emma Watson",
-        email: "demo@printxtore.com",
-        role: "client",
-        phone: "+91 9999988888",
-        company: "Watson Designs"
-      };
-      localStorage.setItem("printxtore_session", JSON.stringify(currentUser));
-    }
-  } catch (e) {}
-
-  // Auto-initialize demo session if none exists so dashboard is immediately accessible
-  if (!currentUser && !window.location.pathname.includes("login.html") && !window.location.pathname.includes("register.html")) {
+  // Initialize customer session so Customer Dashboard is immediately accessible
+  if (!currentUser || (currentUser.role !== "customer" && currentUser.role !== "client")) {
     currentUser = {
-      id: "admin-1",
-      name: "PrintXtore Admin",
-      email: "admin@printxtore.com",
-      role: "admin",
-      phone: "+91 9876543210"
+      id: "cust-1",
+      name: "Emma Watson",
+      email: "demo@printxtore.com",
+      role: "customer",
+      phone: "+91 9999988888",
+      company: "Watson Designs"
     };
     localStorage.setItem("printxtore_session", JSON.stringify(currentUser));
   }
@@ -169,7 +145,7 @@ document.addEventListener("DOMContentLoaded", () => {
     excerpt: "Discover why tactile print marketing and physical collateral are still essential for modern brand engagement.",
     image: "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=800&q=80",
     readTime: "4 min",
-    contentHtml: "<p>In a saturated digital landscape, tangible brand representations create a lasting impression. From heavy business cards to customized brochures and packaging, print design establishes a tactile connection with clients. We explore the cognitive science behind brand memory retention through high-quality physical print media.</p>",
+    contentHtml: "<p>In a saturated digital landscape, tangible brand representations create a lasting impression. From heavy business cards to customized brochures and packaging, print design establishes a tactile connection with customers. We explore the cognitive science behind brand memory retention through high-quality physical print media.</p>",
     status: "Published"
   },
   {
@@ -204,8 +180,8 @@ const DEFAULT_MESSAGES = [
   const messages = getDB("printxtore_messages", DEFAULT_MESSAGES);
   const notifications = getDB("printxtore_notifications", DEFAULT_NOTIFICATIONS);
 
-  // Seed mock orders and notifications for new/empty clients so the dashboard is not plain!
-  if (currentUser && currentUser.role === "client") {
+  // Seed mock orders and notifications for new/empty customers so the dashboard is not plain!
+  if (currentUser && (currentUser.role === "customer" || currentUser.role === "client")) {
     const userOrders = orders.filter(o => o.customerId === currentUser.id);
     if (userOrders.length === 0) {
       const mockOrders = [
@@ -267,23 +243,12 @@ const DEFAULT_MESSAGES = [
   // Sync printxtore_users with customers for login/signup integrity
   getDB("printxtore_users", DEFAULT_CUSTOMERS);
 
-  // Set up view toggling (client vs admin navigation display)
+  // Customer Navigation Display
   const clientNav = document.getElementById("nav-client");
-  const adminNav = document.getElementById("nav-admin");
-  
+  if (clientNav) clientNav.classList.remove("hidden");
+  document.querySelectorAll(".client-only").forEach(el => el.classList.remove("hidden"));
+  document.querySelectorAll(".admin-only").forEach(el => el.classList.add("hidden"));
   if (currentUser) {
-    if (currentUser.role === "client") {
-      if (clientNav) clientNav.classList.remove("hidden");
-      if (adminNav) adminNav.classList.add("hidden");
-      document.querySelectorAll(".client-only").forEach(el => el.classList.remove("hidden"));
-      document.querySelectorAll(".admin-only").forEach(el => el.classList.add("hidden"));
-    } else {
-      if (adminNav) adminNav.classList.remove("hidden");
-      if (clientNav) clientNav.classList.add("hidden");
-      document.querySelectorAll(".admin-only").forEach(el => el.classList.remove("hidden"));
-      document.querySelectorAll(".client-only").forEach(el => el.classList.add("hidden"));
-    }
-    // Populate header name
     document.querySelectorAll(".user-name-display").forEach(el => el.textContent = currentUser.name);
   }
 
@@ -297,22 +262,6 @@ const DEFAULT_MESSAGES = [
       link.classList.add("bg-gradient-to-r", "from-[#F15A24]", "to-[#ff6b3b]", "text-white", "font-bold", "shadow-lg");
     }
   });
-
-  // Demo switcher control
-  const switcher = document.getElementById("demo-role-switcher");
-  if (switcher && currentUser) {
-    switcher.value = currentUser.role;
-    switcher.addEventListener("change", () => {
-      const selected = switcher.value;
-      if (selected === "admin") {
-        currentUser = { id: "admin-1", name: "PrintXtore Admin", email: "admin@printxtore.com", role: "admin", phone: "+91 9876543210" };
-      } else {
-        currentUser = { id: "cust-1", name: "Emma Watson", email: "demo@printxtore.com", role: "client", phone: "+91 9999988888", company: "Watson Designs" };
-      }
-      localStorage.setItem("printxtore_session", JSON.stringify(currentUser));
-      window.location.href = "index.html";
-    });
-  }
 
   // Logout Control
   document.querySelectorAll(".logout-btn").forEach(btn => {
@@ -330,7 +279,7 @@ const DEFAULT_MESSAGES = [
   // =========================================================================
   const isOverview = path.includes("index.html") || path.endsWith("/dashboard") || path.endsWith("/dashboard/") || path.endsWith("/");
   if (isOverview) {
-    if (currentUser.role === "client") {
+    if (currentUser.role === "client" || currentUser.role === "customer") {
       const clientOrders = orders.filter(o => o.customerId === currentUser.id);
 
       const activeCount = clientOrders.filter(o => o.status !== "Delivered" && o.status !== "Cancelled").length;
@@ -409,10 +358,10 @@ const DEFAULT_MESSAGES = [
                 const active = idx === curIdx;
                 return `
                   <div class="flex items-center gap-2">
-                    <div class="w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold ${active ? 'bg-[#F15A24] text-white animate-pulse' : (completed ? 'bg-green text-white' : 'bg-black/10 dark:bg-white/5 text-[#1A2730]/40 dark:text-white/40')}">
+                    <div class="w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold ${active ? 'bg-[#F15A24] text-white animate-pulse' : (completed ? 'bg-green text-white' : 'bg-black/10 dark:bg-white/10 text-[#1A2730] dark:text-white/80')}">
                       ${completed ? '✓' : idx + 1}
                     </div>
-                    <span class="text-xs ${active ? 'text-[#F15A24] font-bold' : (completed ? 'text-[#1A2730] dark:text-white font-medium' : 'text-[#1A2730]/40 dark:text-white/40')}">${stg}</span>
+                    <span class="text-xs ${active ? 'text-[#F15A24] font-bold' : (completed ? 'text-[#1A2730] dark:text-white font-semibold' : 'text-[#475569] dark:text-white/60 font-medium')}">${stg}</span>
                   </div>
                 `;
               }).join('<div class="hidden md:block flex-grow h-0.5 bg-black/10 dark:bg-white/5"></div>')}
@@ -437,15 +386,15 @@ const DEFAULT_MESSAGES = [
       } else {
         recents.forEach(o => {
           tbody.innerHTML += `
-            <tr class="hover:bg-black/5 dark:hover:bg-white/5 transition">
-              <td class="px-6 py-4 font-semibold">${o.id}</td>
-              <td class="px-6 py-4">${o.product}</td>
-              <td class="px-6 py-4 text-[#1A2730]/60 dark:text-white/60">${new Date(o.createdAt).toLocaleDateString()}</td>
-              <td class="px-6 py-4 text-[#1A2730]/50 dark:text-white/50">${o.quantity}</td>
+            <tr class="hover:bg-black/5 dark:hover:bg-white/5 transition border-b border-black/5 dark:border-white/5">
+              <td class="px-6 py-4 font-semibold text-[#1A2730] dark:text-white">${o.id}</td>
+              <td class="px-6 py-4 text-[#1A2730] dark:text-white font-medium">${o.product}</td>
+              <td class="px-6 py-4 text-[#475569] dark:text-gray-400 font-medium">${new Date(o.createdAt).toLocaleDateString()}</td>
+              <td class="px-6 py-4 text-[#475569] dark:text-gray-400 font-medium">${o.quantity}</td>
               <td class="px-6 py-4 font-bold text-[#F15A24]">₹${o.price.toLocaleString()}</td>
               <td class="px-6 py-4">${getStatusBadgeHtml(o.status)}</td>
               <td class="px-6 py-4 text-right">
-                <button onclick="viewOrderDetails('${o.id}')" class="px-3 py-1 bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 rounded-lg text-xs font-semibold hover:bg-black/10 dark:hover:bg-white/10 transition">View</button>
+                <button onclick="viewOrderDetails('${o.id}')" class="px-3.5 py-1.5 bg-white dark:bg-white/5 border border-black/15 dark:border-white/10 text-[#1A2730] dark:text-white rounded-lg text-xs font-semibold hover:bg-black/5 dark:hover:bg-white/10 shadow-sm transition">View</button>
               </td>
             </tr>
           `;
@@ -718,7 +667,7 @@ const DEFAULT_MESSAGES = [
     // Bind order list render
     function renderOrdersTable() {
       let list = [...orders];
-      if (currentUser.role === "client") {
+      if (currentUser.role === "customer" || currentUser.role === "client") {
         list = list.filter(o => o.customerId === currentUser.id);
       }
 
@@ -752,23 +701,23 @@ const DEFAULT_MESSAGES = [
       list.forEach(o => {
         const canEdit = o.status === "File Received" || o.status === "Artwork Review";
         const tr = document.createElement("tr");
-        tr.className = "hover:bg-black/5 dark:hover:bg-white/5 transition";
+        tr.className = "hover:bg-black/5 dark:hover:bg-white/5 transition border-b border-black/5 dark:border-white/5";
         tr.innerHTML = `
-          <td class="px-6 py-4 font-semibold">${o.id}</td>
-          ${currentUser.role === 'admin' ? `<td class="px-6 py-4 text-[#1A2730]/85 dark:text-white/85">${o.customerName}</td>` : ''}
-          <td class="px-6 py-4">${o.product}</td>
-          <td class="px-6 py-4 text-[#1A2730]/50 dark:text-white/50">${o.quantity}</td>
+          <td class="px-6 py-4 font-semibold text-[#1A2730] dark:text-white">${o.id}</td>
+          ${currentUser.role === 'admin' ? `<td class="px-6 py-4 text-[#1A2730] dark:text-white">${o.customerName}</td>` : ''}
+          <td class="px-6 py-4 text-[#1A2730] dark:text-white font-medium">${o.product}</td>
+          <td class="px-6 py-4 text-[#475569] dark:text-gray-400 font-medium">${o.quantity}</td>
           <td class="px-6 py-4 font-bold text-[#F15A24]">₹${o.price.toLocaleString()}</td>
           <td class="px-6 py-4">${getStatusBadgeHtml(o.status)}</td>
           <td class="px-6 py-4 text-right space-x-2">
-            <button onclick="viewOrderDetails('${o.id}')" class="px-2.5 py-1.5 bg-black/5 dark:bg-white/5 border rounded-lg hover:bg-black/10 transition text-xs font-semibold">View</button>
+            <button onclick="viewOrderDetails('${o.id}')" class="px-3.5 py-1.5 bg-white dark:bg-white/5 border border-black/15 dark:border-white/10 text-[#1A2730] dark:text-white rounded-lg text-xs font-semibold hover:bg-black/5 dark:hover:bg-white/10 shadow-sm transition">View</button>
             ${currentUser.role === 'admin' ? `
-              <button onclick="openAdminOrderEdit('${o.id}')" class="px-2.5 py-1.5 bg-[#F15A24]/10 hover:bg-[#F15A24]/20 text-[#F15A24] border border-[#F15A24]/20 rounded-lg text-xs font-semibold transition">Edit</button>
-              <button onclick="deleteAdminOrder('${o.id}')" class="px-2.5 py-1.5 bg-red-500/10 hover:bg-red-500/25 text-red-500 border border-red-500/20 rounded-lg text-xs font-semibold transition">Delete</button>
+              <button onclick="openAdminOrderEdit('${o.id}')" class="px-3.5 py-1.5 bg-[#F15A24]/10 hover:bg-[#F15A24]/20 text-[#F15A24] border border-[#F15A24]/20 rounded-lg text-xs font-semibold transition">Edit</button>
+              <button onclick="deleteAdminOrder('${o.id}')" class="px-3.5 py-1.5 bg-red-500/10 hover:bg-red-500/25 text-red-500 border border-red-500/20 rounded-lg text-xs font-semibold transition">Delete</button>
             ` : `
-              ${canEdit ? `<button onclick="editClientOrder('${o.id}')" class="px-2.5 py-1.5 bg-[#F15A24]/10 hover:bg-[#F15A24]/20 text-[#F15A24] border border-[#F15A24]/20 rounded-lg text-xs font-semibold transition">Edit</button>` : ''}
-              ${canEdit ? `<button onclick="cancelClientOrder('${o.id}')" class="px-2.5 py-1.5 bg-red-500/10 hover:bg-red-500/25 text-red-500 border border-red-500/20 rounded-lg text-xs font-semibold transition">Cancel</button>` : ''}
-              ${o.status === 'Delivered' ? `<button onclick="reorderClientOrder('${o.id}')" class="px-2.5 py-1.5 bg-green/10 hover:bg-green/20 text-green border border-green/20 rounded-lg text-xs font-semibold transition">Reorder</button>` : ''}
+              ${canEdit ? `<button onclick="editClientOrder('${o.id}')" class="px-3.5 py-1.5 bg-[#F15A24]/10 hover:bg-[#F15A24]/20 text-[#F15A24] border border-[#F15A24]/20 rounded-lg text-xs font-semibold transition">Edit</button>` : ''}
+              ${canEdit ? `<button onclick="cancelClientOrder('${o.id}')" class="px-3.5 py-1.5 bg-red-500/10 hover:bg-red-500/25 text-red-500 border border-red-500/20 rounded-lg text-xs font-semibold transition">Cancel</button>` : ''}
+              ${o.status === 'Delivered' ? `<button onclick="reorderClientOrder('${o.id}')" class="px-3.5 py-1.5 bg-green/10 hover:bg-green/20 text-green border border-green/20 rounded-lg text-xs font-semibold transition">Reorder</button>` : ''}
             `}
           </td>
         `;
@@ -1102,11 +1051,11 @@ const DEFAULT_MESSAGES = [
     container.innerHTML = `
       <div class="space-y-6">
         <div class="glass p-6 md:p-8 rounded-3xl border-white/5 max-w-xl mx-auto space-y-6 text-center">
-          <div id="drag-drop-zone" class="border-2 border-dashed border-black/15 dark:border-white/10 hover:border-[#F15A24] rounded-2xl p-8 flex flex-col items-center justify-center gap-3 bg-black/5 dark:bg-dark/20 hover:bg-black/10 transition cursor-pointer">
-            <i data-lucide="upload-cloud" class="w-10 h-10 text-gray-400"></i>
+          <div id="drag-drop-zone" class="border-2 border-dashed border-black/20 dark:border-white/10 hover:border-[#F15A24] rounded-2xl p-8 flex flex-col items-center justify-center gap-3 bg-white dark:bg-dark/20 hover:bg-black/5 dark:hover:bg-white/5 transition cursor-pointer shadow-sm">
+            <i data-lucide="upload-cloud" class="w-10 h-10 text-[#F15A24]"></i>
             <div>
-              <p class="text-sm font-semibold">Click or drag artwork files here</p>
-              <p class="text-[10px] text-gray-400 mt-1">Accepts PDF, PNG, JPG, JPEG, SVG (Max 25MB)</p>
+              <p class="text-sm font-bold text-[#1A2730] dark:text-white">Click or drag artwork files here</p>
+              <p class="text-[10px] text-[#475569] dark:text-gray-400 mt-1 font-medium">Accepts PDF, PNG, JPG, JPEG, SVG (Max 25MB)</p>
             </div>
             <input type="file" id="artwork-file-input" class="hidden" accept=".pdf,.png,.jpg,.jpeg,.svg">
           </div>
@@ -1214,16 +1163,16 @@ const DEFAULT_MESSAGES = [
 
       list.forEach(a => {
         tbody.innerHTML += `
-          <tr class="hover:bg-black/5 dark:hover:bg-white/5 transition">
-            <td class="px-6 py-4 font-semibold">${a.fileName}</td>
-            <td class="px-6 py-4 text-gray-500">${a.orderId}</td>
-            <td class="px-6 py-4 text-gray-400">${a.uploadDate}</td>
-            <td class="px-6 py-4 text-gray-400">${a.size}</td>
+          <tr class="hover:bg-black/5 dark:hover:bg-white/5 transition border-b border-black/5 dark:border-white/5">
+            <td class="px-6 py-4 font-semibold text-[#1A2730] dark:text-white">${a.fileName}</td>
+            <td class="px-6 py-4 text-[#475569] dark:text-gray-400 font-medium">${a.orderId}</td>
+            <td class="px-6 py-4 text-[#475569] dark:text-gray-400">${a.uploadDate}</td>
+            <td class="px-6 py-4 text-[#475569] dark:text-gray-400 font-medium">${a.size}</td>
             <td class="px-6 py-4">
-              <span class="px-2 py-0.5 rounded border text-[10px] font-semibold ${a.status === 'Approved' ? 'bg-green/10 text-green border-green/20':'bg-yellow-500/10 text-yellow-400 border-yellow-500/20'}">${a.status}</span>
+              <span class="px-2 py-0.5 rounded border text-[10px] font-semibold ${a.status === 'Approved' ? 'bg-green/10 text-green border-green/20':'bg-yellow-500/10 text-yellow-600 dark:text-yellow-400 border-yellow-500/20'}">${a.status}</span>
             </td>
             <td class="px-6 py-4 text-right">
-              <button onclick="deleteArtwork('${a.id}')" class="text-red-500 hover:underline text-xs font-bold">Delete</button>
+              <button onclick="deleteArtwork('${a.id}')" class="px-3 py-1 bg-red-500/10 hover:bg-red-500/20 text-red-600 dark:text-red-400 border border-red-500/20 rounded-lg text-xs font-semibold transition">Delete</button>
             </td>
           </tr>
         `;
@@ -1278,15 +1227,15 @@ const DEFAULT_MESSAGES = [
       clientOrders.forEach((o, idx) => {
         const invNo = `INV-2026-${1001 + idx}`;
         tbody.innerHTML += `
-          <tr class="hover:bg-black/5 dark:hover:bg-white/5 transition">
-            <td class="px-6 py-4 font-semibold">${invNo}</td>
-            <td class="px-6 py-4 text-gray-500">${o.id}</td>
-            <td class="px-6 py-4 text-gray-400">${new Date(o.createdAt).toLocaleDateString()}</td>
-            <td class="px-6 py-4">${currentUser.name}</td>
-            <td class="px-6 py-4 text-gray-500">${o.product}</td>
+          <tr class="hover:bg-black/5 dark:hover:bg-white/5 transition border-b border-black/5 dark:border-white/5">
+            <td class="px-6 py-4 font-semibold text-[#1A2730] dark:text-white">${invNo}</td>
+            <td class="px-6 py-4 text-[#475569] dark:text-gray-400 font-medium">${o.id}</td>
+            <td class="px-6 py-4 text-[#475569] dark:text-gray-400">${new Date(o.createdAt).toLocaleDateString()}</td>
+            <td class="px-6 py-4 text-[#1A2730] dark:text-white font-medium">${currentUser.name}</td>
+            <td class="px-6 py-4 text-[#1A2730] dark:text-white font-medium">${o.product}</td>
             <td class="px-6 py-4 font-bold text-[#F15A24]">₹${o.price.toLocaleString()}</td>
             <td class="px-6 py-4 text-right">
-              <button onclick="viewInvoiceModal('${o.id}', '${invNo}')" class="px-3 py-1.5 bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 rounded-lg text-xs font-semibold hover:bg-black/10 transition">View</button>
+              <button onclick="viewInvoiceModal('${o.id}', '${invNo}')" class="px-3.5 py-1.5 bg-white dark:bg-white/5 border border-black/15 dark:border-white/10 text-[#1A2730] dark:text-white rounded-lg text-xs font-semibold hover:bg-black/5 dark:hover:bg-white/10 shadow-sm transition">View</button>
             </td>
           </tr>
         `;
@@ -1593,7 +1542,7 @@ const DEFAULT_MESSAGES = [
   if (path.includes("settings")) {
     const container = document.getElementById("settings-container");
     
-    if (currentUser.role === "client") {
+    if (currentUser.role === "customer" || currentUser.role === "client") {
       container.innerHTML = `
         <div class="glass p-6 md:p-8 rounded-3xl border-white/5 max-w-xl mx-auto space-y-6">
           <form id="client-settings-form" class="space-y-6">
@@ -1811,7 +1760,7 @@ const DEFAULT_MESSAGES = [
           email,
           phone: document.getElementById("ac-phone").value.trim() || "N/A",
           company: document.getElementById("ac-company").value.trim() || "N/A",
-          role: "client",
+          role: "customer",
           status: "Active"
         };
         customers.unshift(newCust);
@@ -2693,14 +2642,14 @@ const DEFAULT_MESSAGES = [
   // =========================================================================
   function getStatusBadgeHtml(status) {
     switch (status) {
-      case "File Received": return `<span class="px-2.5 py-0.5 rounded-full text-[10px] font-semibold bg-blue-500/10 text-blue-400 border border-blue-500/20">${status}</span>`;
-      case "Artwork Review": return `<span class="px-2.5 py-0.5 rounded-full text-[10px] font-semibold bg-yellow-500/10 text-yellow-400 border border-yellow-500/20">${status}</span>`;
-      case "Printing": return `<span class="px-2.5 py-0.5 rounded-full text-[10px] font-semibold bg-purple-500/10 text-purple-400 border border-purple-500/20">${status}</span>`;
-      case "Quality Check": return `<span class="px-2.5 py-0.5 rounded-full text-[10px] font-semibold bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">${status}</span>`;
-      case "Ready": return `<span class="px-2.5 py-0.5 rounded-full text-[10px] font-semibold bg-teal-500/10 text-teal-400 border border-teal-500/20">${status}</span>`;
-      case "Delivered": return `<span class="px-2.5 py-0.5 rounded-full text-[10px] font-semibold bg-green/10 text-green border border-green/20">${status}</span>`;
-      case "Cancelled": return `<span class="px-2.5 py-0.5 rounded-full text-[10px] font-semibold bg-red-500/10 text-red-400 border border-red-500/20">${status}</span>`;
-      default: return `<span class="px-2.5 py-0.5 rounded-full text-[10px] font-semibold bg-white/10 text-white border border-white/20">${status}</span>`;
+      case "File Received": return `<span class="px-2.5 py-0.5 rounded-full text-[10px] font-semibold bg-blue-500/10 text-blue-600 dark:text-blue-400 border border-blue-500/20">${status}</span>`;
+      case "Artwork Review": return `<span class="px-2.5 py-0.5 rounded-full text-[10px] font-semibold bg-yellow-500/10 text-amber-700 dark:text-yellow-400 border border-yellow-500/20">${status}</span>`;
+      case "Printing": return `<span class="px-2.5 py-0.5 rounded-full text-[10px] font-semibold bg-purple-500/10 text-purple-700 dark:text-purple-400 border border-purple-500/20">${status}</span>`;
+      case "Quality Check": return `<span class="px-2.5 py-0.5 rounded-full text-[10px] font-semibold bg-indigo-500/10 text-indigo-700 dark:text-indigo-400 border border-indigo-500/20">${status}</span>`;
+      case "Ready": return `<span class="px-2.5 py-0.5 rounded-full text-[10px] font-semibold bg-teal-500/10 text-teal-700 dark:text-teal-400 border border-teal-500/20">${status}</span>`;
+      case "Delivered": return `<span class="px-2.5 py-0.5 rounded-full text-[10px] font-semibold bg-green/10 text-[#E95D2C] dark:text-green border border-green/20">${status}</span>`;
+      case "Cancelled": return `<span class="px-2.5 py-0.5 rounded-full text-[10px] font-semibold bg-red-500/10 text-red-600 dark:text-red-400 border border-red-500/20">${status}</span>`;
+      default: return `<span class="px-2.5 py-0.5 rounded-full text-[10px] font-semibold bg-black/5 dark:bg-white/10 text-[#1A2730] dark:text-white border border-black/10 dark:border-white/20">${status}</span>`;
     }
   }
 

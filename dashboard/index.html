@@ -62,73 +62,33 @@
         </button>
       </div>
 
-      <!-- Demo View Switcher -->
-      <div class="mb-6 p-3 rounded bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10">
-        <label class="block text-[10px] font-bold text-[#1A2730]/40 dark:text-white/40 uppercase mb-2 tracking-wider">Demo Role Switcher</label>
-        <select id="demo-role-switcher" class="w-full p-2 rounded bg-white dark:bg-dark border border-black/15 dark:border-white/10 text-xs text-[#1A2730] dark:text-white focus:outline-none font-semibold">
-          <option value="client">Client Mode</option>
-          <option value="admin">Admin Mode</option>
-        </select>
-      </div>
-
-      <!-- CLIENT NAVIGATION -->
-      <nav id="nav-client" class="client-only space-y-1 flex-grow hidden">
+      <!-- CUSTOMER NAVIGATION -->
+      <nav id="nav-client" class="space-y-1 flex-grow">
         <a href="index.html" class="flex items-center gap-3 px-4 py-2.5 rounded-lg text-sm bg-gradient-to-r from-[#F15A24] to-[#ff6b3b] text-white font-bold shadow-lg">
           <i data-lucide="grid" class="w-4 h-4"></i> Overview
         </a>
-        <a href="new-order.html" class="flex items-center gap-3 px-4 py-2.5 rounded-lg text-sm text-[#1A2730]/65 dark:text-white/60 hover:bg-black/5 dark:hover:bg-white/5 hover:text-[#1A2730] dark:hover:text-white transition font-semibold">
+        <a href="new-order.html" class="flex items-center gap-3 px-4 py-2.5 rounded-lg text-sm text-[#1A2730]/75 dark:text-white/70 hover:bg-black/5 dark:hover:bg-white/5 hover:text-[#1A2730] dark:hover:text-white transition font-semibold">
           <i data-lucide="plus-circle" class="w-4 h-4"></i> New Print Order
         </a>
-        <a href="orders.html" class="flex items-center gap-3 px-4 py-2.5 rounded-lg text-sm text-[#1A2730]/65 dark:text-white/60 hover:bg-black/5 dark:hover:bg-white/5 hover:text-[#1A2730] dark:hover:text-white transition font-semibold">
+        <a href="orders.html" class="flex items-center gap-3 px-4 py-2.5 rounded-lg text-sm text-[#1A2730]/75 dark:text-white/70 hover:bg-black/5 dark:hover:bg-white/5 hover:text-[#1A2730] dark:hover:text-white transition font-semibold">
           <i data-lucide="shopping-bag" class="w-4 h-4"></i> My Orders
         </a>
-        <a href="track.html" class="flex items-center gap-3 px-4 py-2.5 rounded-lg text-sm text-[#1A2730]/65 dark:text-white/60 hover:bg-black/5 dark:hover:bg-white/5 hover:text-[#1A2730] dark:hover:text-white transition font-semibold">
+        <a href="track.html" class="flex items-center gap-3 px-4 py-2.5 rounded-lg text-sm text-[#1A2730]/75 dark:text-white/70 hover:bg-black/5 dark:hover:bg-white/5 hover:text-[#1A2730] dark:hover:text-white transition font-semibold">
           <i data-lucide="map-pin" class="w-4 h-4"></i> Track Order
         </a>
-        <a href="upload.html" class="flex items-center gap-3 px-4 py-2.5 rounded-lg text-sm text-[#1A2730]/65 dark:text-white/60 hover:bg-black/5 dark:hover:bg-white/5 hover:text-[#1A2730] dark:hover:text-white transition font-semibold">
+        <a href="upload.html" class="flex items-center gap-3 px-4 py-2.5 rounded-lg text-sm text-[#1A2730]/75 dark:text-white/70 hover:bg-black/5 dark:hover:bg-white/5 hover:text-[#1A2730] dark:hover:text-white transition font-semibold">
           <i data-lucide="upload" class="w-4 h-4"></i> Upload Artwork
         </a>
-        <a href="invoices.html" class="flex items-center gap-3 px-4 py-2.5 rounded-lg text-sm text-[#1A2730]/65 dark:text-white/60 hover:bg-black/5 dark:hover:bg-white/5 hover:text-[#1A2730] dark:hover:text-white transition font-semibold">
+        <a href="invoices.html" class="flex items-center gap-3 px-4 py-2.5 rounded-lg text-sm text-[#1A2730]/75 dark:text-white/70 hover:bg-black/5 dark:hover:bg-white/5 hover:text-[#1A2730] dark:hover:text-white transition font-semibold">
           <i data-lucide="file-text" class="w-4 h-4"></i> Invoices
         </a>
-        <a href="profile.html" class="flex items-center gap-3 px-4 py-2.5 rounded-lg text-sm text-[#1A2730]/65 dark:text-white/60 hover:bg-black/5 dark:hover:bg-white/5 hover:text-[#1A2730] dark:hover:text-white transition font-semibold">
+        <a href="profile.html" class="flex items-center gap-3 px-4 py-2.5 rounded-lg text-sm text-[#1A2730]/75 dark:text-white/70 hover:bg-black/5 dark:hover:bg-white/5 hover:text-[#1A2730] dark:hover:text-white transition font-semibold">
           <i data-lucide="user" class="w-4 h-4"></i> Profile
         </a>
-        <a href="notifications.html" class="flex items-center gap-3 px-4 py-2.5 rounded-lg text-sm text-[#1A2730]/65 dark:text-white/60 hover:bg-black/5 dark:hover:bg-white/5 hover:text-[#1A2730] dark:hover:text-white transition font-semibold">
+        <a href="notifications.html" class="flex items-center gap-3 px-4 py-2.5 rounded-lg text-sm text-[#1A2730]/75 dark:text-white/70 hover:bg-black/5 dark:hover:bg-white/5 hover:text-[#1A2730] dark:hover:text-white transition font-semibold">
           <i data-lucide="bell" class="w-4 h-4"></i> Notifications
         </a>
-        <a href="settings.html" class="flex items-center gap-3 px-4 py-2.5 rounded-lg text-sm text-[#1A2730]/65 dark:text-white/60 hover:bg-black/5 dark:hover:bg-white/5 hover:text-[#1A2730] dark:hover:text-white transition font-semibold">
-          <i data-lucide="settings" class="w-4 h-4"></i> Settings
-        </a>
-      </nav>
-
-      <!-- ADMIN NAVIGATION -->
-      <nav id="nav-admin" class="admin-only space-y-1 flex-grow hidden">
-        <a href="index.html" class="flex items-center gap-3 px-4 py-2.5 rounded-lg text-sm bg-gradient-to-r from-[#F15A24] to-[#ff6b3b] text-white font-bold shadow-lg">
-          <i data-lucide="bar-chart-2" class="w-4 h-4"></i> Overview
-        </a>
-        <a href="orders.html" class="flex items-center gap-3 px-4 py-2.5 rounded-lg text-sm text-[#1A2730]/65 dark:text-white/60 hover:bg-black/5 dark:hover:bg-white/5 hover:text-[#1A2730] dark:hover:text-white transition font-semibold">
-          <i data-lucide="package" class="w-4 h-4"></i> Orders
-        </a>
-        <a href="customers.html" class="flex items-center gap-3 px-4 py-2.5 rounded-lg text-sm text-[#1A2730]/65 dark:text-white/60 hover:bg-black/5 dark:hover:bg-white/5 hover:text-[#1A2730] dark:hover:text-white transition font-semibold">
-          <i data-lucide="users" class="w-4 h-4"></i> Customers
-        </a>
-        <a href="services.html" class="flex items-center gap-3 px-4 py-2.5 rounded-lg text-sm text-[#1A2730]/65 dark:text-white/60 hover:bg-black/5 dark:hover:bg-white/5 hover:text-[#1A2730] dark:hover:text-white transition font-semibold">
-          <i data-lucide="sliders" class="w-4 h-4"></i> Services
-        </a>
-        <a href="products.html" class="flex items-center gap-3 px-4 py-2.5 rounded-lg text-sm text-[#1A2730]/65 dark:text-white/60 hover:bg-black/5 dark:hover:bg-white/5 hover:text-[#1A2730] dark:hover:text-white transition font-semibold">
-          <i data-lucide="box" class="w-4 h-4"></i> Products
-        </a>
-        <a href="pricing.html" class="flex items-center gap-3 px-4 py-2.5 rounded-lg text-sm text-[#1A2730]/65 dark:text-white/60 hover:bg-black/5 dark:hover:bg-white/5 hover:text-[#1A2730] dark:hover:text-white transition font-semibold">
-          <i data-lucide="calculator" class="w-4 h-4"></i> Pricing Specs
-        </a>
-        <a href="messages.html" class="flex items-center gap-3 px-4 py-2.5 rounded-lg text-sm text-[#1A2730]/65 dark:text-white/60 hover:bg-black/5 dark:hover:bg-white/5 hover:text-[#1A2730] dark:hover:text-white transition font-semibold">
-          <i data-lucide="mail" class="w-4 h-4"></i> Messages
-        </a>
-        <a href="blog.html" class="flex items-center gap-3 px-4 py-2.5 rounded-lg text-sm text-[#1A2730]/65 dark:text-white/60 hover:bg-black/5 dark:hover:bg-white/5 hover:text-[#1A2730] dark:hover:text-white transition font-semibold">
-          <i data-lucide="newspaper" class="w-4 h-4"></i> Blog
-        </a>
-        <a href="settings.html" class="flex items-center gap-3 px-4 py-2.5 rounded-lg text-sm text-[#1A2730]/65 dark:text-white/60 hover:bg-black/5 dark:hover:bg-white/5 hover:text-[#1A2730] dark:hover:text-white transition font-semibold">
+        <a href="settings.html" class="flex items-center gap-3 px-4 py-2.5 rounded-lg text-sm text-[#1A2730]/75 dark:text-white/70 hover:bg-black/5 dark:hover:bg-white/5 hover:text-[#1A2730] dark:hover:text-white transition font-semibold">
           <i data-lucide="settings" class="w-4 h-4"></i> Settings
         </a>
       </nav>
@@ -140,7 +100,6 @@
 
     <!-- Main Content Area -->
     <main class="flex-grow p-6 md:p-10 space-y-8 overflow-y-auto text-left relative z-10 w-full">
-      
       <!-- Top Header -->
       <div class="flex items-center justify-between gap-4 pb-4 border-b border-black/5 dark:border-white/5">
         <div class="flex items-center gap-3">
@@ -154,26 +113,26 @@
         </div>
         
         <div class="flex items-center gap-3">
-          <a href="../index.html" class="px-3.5 py-1.5 text-xs text-[#1A2730]/85 dark:text-white/85 hover:text-[#1A2730] dark:hover:text-white transition rounded-lg bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 hover:bg-black/10 dark:hover:bg-white/10 flex items-center justify-center gap-1.5 font-semibold">
+          <a href="../index.html" class="px-3.5 py-1.5 text-xs text-[#1A2730] dark:text-white transition rounded-lg bg-white dark:bg-white/5 border border-black/15 dark:border-white/10 hover:bg-black/5 dark:hover:bg-white/10 flex items-center justify-center gap-1.5 font-semibold shadow-sm">
             <i data-lucide="globe" class="w-3.5 h-3.5"></i>
             <span>Back to Site</span>
           </a>
 
-          <button class="theme-toggle p-2.5 rounded-lg bg-black/5 dark:bg-white/5 hover:bg-black/10 dark:hover:bg-white/10 text-[#1A2730]/80 dark:text-white/80 hover:text-[#1A2730] dark:hover:text-white border border-black/10 dark:border-white/10 transition" aria-label="Toggle Theme">
+          <button class="theme-toggle p-2.5 rounded-lg bg-white dark:bg-white/5 hover:bg-black/5 dark:hover:bg-white/10 text-[#1A2730] dark:text-white border border-black/15 dark:border-white/10 transition shadow-sm" aria-label="Toggle Theme">
             <i data-lucide="sun" class="w-4 h-4 block dark:hidden"></i>
             <i data-lucide="moon" class="w-4 h-4 hidden dark:block"></i>
           </button>
           
-          <button class="rtl-toggle px-3 py-1.5 text-xs text-[#1A2730]/85 dark:text-white/85 hover:text-[#1A2730] dark:hover:text-white transition rounded-lg bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 hover:bg-black/10 dark:hover:bg-white/10 flex items-center justify-center gap-1.5 font-semibold">
+          <button class="rtl-toggle px-3 py-1.5 text-xs text-[#1A2730] dark:text-white hover:text-[#1A2730] dark:hover:text-white transition rounded-lg bg-white dark:bg-white/5 border border-black/15 dark:border-white/10 hover:bg-black/5 dark:hover:bg-white/10 flex items-center justify-center gap-1.5 font-semibold shadow-sm">
             <i data-lucide="arrow-left-right" class="w-3.5 h-3.5"></i>
             <span>RTL</span>
           </button>
         </div>
       </div>
 
-      <!-- CLIENT OVERVIEW PANEL -->
-      <div class="client-only hidden space-y-8">
-        <!-- Client stats row -->
+      <!-- CUSTOMER OVERVIEW PANEL -->
+      <div class="space-y-8">
+        <!-- Customer stats row -->
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           <div class="glass p-6 rounded-2xl border-white/5">
             <p class="text-xs text-[#1A2730]/40 dark:text-white/40 uppercase tracking-widest font-bold">Active Orders</p>
@@ -205,9 +164,9 @@
             <h4 class="text-sm font-bold uppercase tracking-wider">Quick Actions</h4>
             <div class="grid grid-cols-2 gap-3">
               <a href="new-order.html" class="p-3 bg-gradient-to-r from-[#F15A24] to-[#ff6b3b] text-white text-xs font-bold rounded-xl text-center shadow-lg hover:opacity-90 transition">+ New Print Order</a>
-              <a href="upload.html" class="p-3 bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 text-xs font-bold rounded-xl text-center hover:bg-black/10 transition">Upload Artwork</a>
-              <a href="orders.html" class="p-3 bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 text-xs font-bold rounded-xl text-center hover:bg-black/10 transition">Reorder Previous</a>
-              <a href="track.html" class="p-3 bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 text-xs font-bold rounded-xl text-center hover:bg-black/10 transition">Track Order</a>
+              <a href="upload.html" class="p-3 bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 text-xs font-bold rounded-xl text-center hover:bg-black/10 transition text-[#1A2730] dark:text-white">Upload Artwork</a>
+              <a href="orders.html" class="p-3 bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 text-xs font-bold rounded-xl text-center hover:bg-black/10 transition text-[#1A2730] dark:text-white">Reorder Previous</a>
+              <a href="track.html" class="p-3 bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 text-xs font-bold rounded-xl text-center hover:bg-black/10 transition text-[#1A2730] dark:text-white">Track Order</a>
             </div>
           </div>
         </div>
@@ -307,49 +266,6 @@
                 <!-- Javascript Injected -->
               </tbody>
             </table>
-          </div>
-        </div>
-      </div>
-
-      <!-- ADMIN OVERVIEW PANEL -->
-      <div class="admin-only hidden space-y-8">
-        <!-- Admin stats row -->
-        <div class="grid grid-cols-1 sm:grid-cols-4 gap-6">
-          <div class="glass p-6 rounded-2xl border-white/5">
-            <p class="text-xs text-[#1A2730]/40 dark:text-white/40 uppercase tracking-widest font-bold">Total Revenue</p>
-            <p id="stat-admin-rev" class="text-3xl font-black text-[#F15A24] font-display mt-2">₹0</p>
-          </div>
-          <div class="glass p-6 rounded-2xl border-white/5">
-            <p class="text-xs text-[#1A2730]/40 dark:text-white/40 uppercase tracking-widest font-bold">Active Jobs</p>
-            <p id="stat-admin-orders" class="text-3xl font-black text-[#1A2730] dark:text-white font-display mt-2">0</p>
-          </div>
-          <div class="glass p-6 rounded-2xl border-white/5">
-            <p class="text-xs text-[#1A2730]/40 dark:text-white/40 uppercase tracking-widest font-bold">Customers</p>
-            <p id="stat-admin-customers" class="text-3xl font-black text-[#1A2730] dark:text-white font-display mt-2">0</p>
-          </div>
-          <div class="glass p-6 rounded-2xl border-white/5">
-            <p class="text-xs text-[#1A2730]/40 dark:text-white/40 uppercase tracking-widest font-bold">Completed Orders</p>
-            <p id="stat-admin-completed" class="text-3xl font-black text-[#1A2730] dark:text-white font-display mt-2">0</p>
-          </div>
-        </div>
-
-        <!-- Charts panel -->
-        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
-          <div class="lg:col-span-2 glass p-6 rounded-3xl border-white/5 space-y-6">
-            <div class="flex justify-between items-center">
-              <h3 class="font-bold text-[#1A2730] dark:text-white font-display text-sm uppercase tracking-wider">Monthly Revenue Trend</h3>
-              <span class="text-xs text-green font-semibold">2026 Live Data</span>
-            </div>
-            <div class="h-80 w-full relative">
-              <canvas id="analytics-revenue-chart"></canvas>
-            </div>
-          </div>
-
-          <div class="glass p-6 rounded-3xl border-white/5 space-y-6">
-            <h3 class="font-bold text-[#1A2730] dark:text-white font-display text-sm uppercase tracking-wider">Popular Verticals</h3>
-            <div class="h-64 w-full relative">
-              <canvas id="analytics-services-chart"></canvas>
-            </div>
           </div>
         </div>
       </div>

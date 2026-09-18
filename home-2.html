@@ -90,12 +90,12 @@
                 <a href="pages/faq.html" class="block px-4 py-2 text-xs hover:bg-emerald/10 hover:text-emerald rounded-lg transition">FAQ</a>
                 <a href="pages/file-preparation.html" class="block px-4 py-2 text-xs hover:bg-emerald/10 hover:text-emerald rounded-lg transition font-medium">File Preparation Guide</a>
                 <a href="pages/delivery-options.html" class="block px-4 py-2 text-xs hover:bg-emerald/10 hover:text-emerald rounded-lg transition">Delivery Options</a>
-                <a href="dashboard/index.html?role=admin" class="block px-4 py-2 text-xs hover:bg-emerald/10 hover:text-emerald rounded-lg transition font-semibold text-green">Admin Dashboard</a>
               </div>
             </div>
           </div>
           
           <a href="pages/contact.html" class="nav-link hover:text-white transition">CONTACT</a>
+          <a href="dashboard/index.html" class="nav-link hover:text-white transition">DASHBOARD</a>
         </div>
         
         <!-- Right side tools -->
@@ -115,8 +115,9 @@
         
         <!-- Mobile menu toggler -->
         <div class="md:hidden flex items-center gap-3">
-          <button class="theme-toggle p-2 rounded-lg bg-white/5 text-white border border-white/10 transition">
-            <i data-lucide="moon" class="w-5 h-5"></i>
+          <button class="theme-toggle p-2 rounded-lg bg-white/5 text-white border border-white/10 transition" aria-label="Toggle Theme">
+            <i data-lucide="sun" class="w-5 h-5 block dark:hidden"></i>
+            <i data-lucide="moon" class="w-5 h-5 hidden dark:block"></i>
           </button>
           <button id="mobile-menu-btn" class="p-2 rounded-lg bg-white/5 text-white border border-white/10 transition">
             <i data-lucide="menu" class="w-6 h-6"></i>
@@ -175,11 +176,11 @@
           <a href="pages/faq.html" class="block py-1 hover:text-white">FAQ</a>
           <a href="pages/file-preparation.html" class="block py-1 hover:text-white">File Preparation Guide</a>
           <a href="pages/delivery-options.html" class="block py-1 hover:text-white">Delivery Options</a>
-          <a href="dashboard/index.html?role=admin" class="block py-1 hover:text-white font-semibold text-green">Admin Dashboard</a>
         </div>
       </div>
       
       <a href="pages/contact.html" class="hover:text-white transition">CONTACT</a>
+      <a href="dashboard/index.html" class="hover:text-white transition font-semibold flex items-center justify-between"><span>DASHBOARD</span><span class="text-xs px-2 py-0.5 rounded bg-white/10 dark:bg-white/10 text-white/80 dark:text-white font-bold">Portal</span></a>
     </div>
     
     <div class="mt-auto pt-8 border-t border-white/5">
@@ -242,7 +243,7 @@
         <h2 class="text-xs text-green font-bold uppercase tracking-widest font-display">THE PHILOSOPHY</h2>
         <h3 class="text-4xl font-extrabold font-display text-white">We Believe in the Power of Tactility.</h3>
         <p class="text-white/60">
-          In a world saturated with digital interfaces, a physical object is the ultimate medium of premium brand value. When clients touch your business cards, open your packages, or look at your posters, they feel the craftsmanship.
+          In a world saturated with digital interfaces, a physical object is the ultimate medium of premium brand value. When customers touch your business cards, open your packages, or look at your posters, they feel the craftsmanship.
         </p>
         <blockquote class="border-l-4 border-green pl-4 italic text-white/80">
           "The weight of paper is the weight of your promise."
@@ -597,6 +598,7 @@
         <div class="space-y-4">
           <h4 class="font-bold text-white text-sm">Company</h4>
           <ul class="space-y-2 text-sm text-white/50">
+            <li><a href="dashboard/index.html" class="hover:text-white transition font-semibold text-green">Customer Dashboard</a></li>
             <li><a href="pages/about.html" class="hover:text-white transition">About Us</a></li>
             <li><a href="pages/gallery.html" class="hover:text-white transition">Gallery</a></li>
             <li><a href="pages/blog.html" class="hover:text-white transition">Blog & News</a></li>

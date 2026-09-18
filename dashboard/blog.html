@@ -54,43 +54,33 @@
         </button>
       </div>
 
-      <div class="mb-6 p-3 rounded bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10">
-        <label class="block text-[10px] font-bold text-[#1A2730]/40 dark:text-white/40 uppercase mb-2 tracking-wider">Demo Role Switcher</label>
-        <select id="demo-role-switcher" class="w-full p-2 rounded bg-white dark:bg-dark border border-black/15 dark:border-white/10 text-xs text-[#1A2730] dark:text-white focus:outline-none font-semibold">
-          <option value="client">Client Mode</option>
-          <option value="admin">Admin Mode</option>
-        </select>
-      </div>
-
-      <nav id="nav-client" class="client-only space-y-1 flex-grow hidden"></nav>
-
-      <!-- ADMIN NAVIGATION -->
-      <nav id="nav-admin" class="admin-only space-y-1 flex-grow hidden">
-        <a href="index.html" class="flex items-center gap-3 px-4 py-2.5 rounded-lg text-sm text-[#1A2730]/65 dark:text-white/60 hover:bg-black/5 dark:hover:bg-white/5 hover:text-[#1A2730] dark:hover:text-white transition font-semibold">
-          <i data-lucide="bar-chart-2" class="w-4 h-4"></i> Overview
+      <!-- CUSTOMER NAVIGATION -->
+      <nav id="nav-client" class="space-y-1 flex-grow">
+        <a href="index.html" class="flex items-center gap-3 px-4 py-2.5 rounded-lg text-sm text-[#1A2730]/75 dark:text-white/70 hover:bg-black/5 dark:hover:bg-white/5 hover:text-[#1A2730] dark:hover:text-white transition font-semibold">
+          <i data-lucide="grid" class="w-4 h-4"></i> Overview
         </a>
-        <a href="orders.html" class="flex items-center gap-3 px-4 py-2.5 rounded-lg text-sm text-[#1A2730]/65 dark:text-white/60 hover:bg-black/5 dark:hover:bg-white/5 hover:text-[#1A2730] dark:hover:text-white transition font-semibold">
-          <i data-lucide="package" class="w-4 h-4"></i> Orders
+        <a href="new-order.html" class="flex items-center gap-3 px-4 py-2.5 rounded-lg text-sm text-[#1A2730]/75 dark:text-white/70 hover:bg-black/5 dark:hover:bg-white/5 hover:text-[#1A2730] dark:hover:text-white transition font-semibold">
+          <i data-lucide="plus-circle" class="w-4 h-4"></i> New Print Order
         </a>
-        <a href="customers.html" class="flex items-center gap-3 px-4 py-2.5 rounded-lg text-sm text-[#1A2730]/65 dark:text-white/60 hover:bg-black/5 dark:hover:bg-white/5 hover:text-[#1A2730] dark:hover:text-white transition font-semibold">
-          <i data-lucide="users" class="w-4 h-4"></i> Customers
+        <a href="orders.html" class="flex items-center gap-3 px-4 py-2.5 rounded-lg text-sm text-[#1A2730]/75 dark:text-white/70 hover:bg-black/5 dark:hover:bg-white/5 hover:text-[#1A2730] dark:hover:text-white transition font-semibold">
+          <i data-lucide="shopping-bag" class="w-4 h-4"></i> My Orders
         </a>
-        <a href="services.html" class="flex items-center gap-3 px-4 py-2.5 rounded-lg text-sm text-[#1A2730]/65 dark:text-white/60 hover:bg-black/5 dark:hover:bg-white/5 hover:text-[#1A2730] dark:hover:text-white transition font-semibold">
-          <i data-lucide="sliders" class="w-4 h-4"></i> Services
+        <a href="track.html" class="flex items-center gap-3 px-4 py-2.5 rounded-lg text-sm text-[#1A2730]/75 dark:text-white/70 hover:bg-black/5 dark:hover:bg-white/5 hover:text-[#1A2730] dark:hover:text-white transition font-semibold">
+          <i data-lucide="map-pin" class="w-4 h-4"></i> Track Order
         </a>
-        <a href="products.html" class="flex items-center gap-3 px-4 py-2.5 rounded-lg text-sm text-[#1A2730]/65 dark:text-white/60 hover:bg-black/5 dark:hover:bg-white/5 hover:text-[#1A2730] dark:hover:text-white transition font-semibold">
-          <i data-lucide="box" class="w-4 h-4"></i> Products
+        <a href="upload.html" class="flex items-center gap-3 px-4 py-2.5 rounded-lg text-sm text-[#1A2730]/75 dark:text-white/70 hover:bg-black/5 dark:hover:bg-white/5 hover:text-[#1A2730] dark:hover:text-white transition font-semibold">
+          <i data-lucide="upload" class="w-4 h-4"></i> Upload Artwork
         </a>
-        <a href="pricing.html" class="flex items-center gap-3 px-4 py-2.5 rounded-lg text-sm text-[#1A2730]/65 dark:text-white/60 hover:bg-black/5 dark:hover:bg-white/5 hover:text-[#1A2730] dark:hover:text-white transition font-semibold">
-          <i data-lucide="calculator" class="w-4 h-4"></i> Pricing Specs
+        <a href="invoices.html" class="flex items-center gap-3 px-4 py-2.5 rounded-lg text-sm text-[#1A2730]/75 dark:text-white/70 hover:bg-black/5 dark:hover:bg-white/5 hover:text-[#1A2730] dark:hover:text-white transition font-semibold">
+          <i data-lucide="file-text" class="w-4 h-4"></i> Invoices
         </a>
-        <a href="messages.html" class="flex items-center gap-3 px-4 py-2.5 rounded-lg text-sm text-[#1A2730]/65 dark:text-white/60 hover:bg-black/5 dark:hover:bg-white/5 hover:text-[#1A2730] dark:hover:text-white transition font-semibold">
-          <i data-lucide="mail" class="w-4 h-4"></i> Messages
+        <a href="profile.html" class="flex items-center gap-3 px-4 py-2.5 rounded-lg text-sm text-[#1A2730]/75 dark:text-white/70 hover:bg-black/5 dark:hover:bg-white/5 hover:text-[#1A2730] dark:hover:text-white transition font-semibold">
+          <i data-lucide="user" class="w-4 h-4"></i> Profile
         </a>
-        <a href="blog.html" class="flex items-center gap-3 px-4 py-2.5 rounded-lg text-sm bg-gradient-to-r from-[#F15A24] to-[#ff6b3b] text-white font-bold shadow-lg">
-          <i data-lucide="newspaper" class="w-4 h-4"></i> Blog
+        <a href="notifications.html" class="flex items-center gap-3 px-4 py-2.5 rounded-lg text-sm text-[#1A2730]/75 dark:text-white/70 hover:bg-black/5 dark:hover:bg-white/5 hover:text-[#1A2730] dark:hover:text-white transition font-semibold">
+          <i data-lucide="bell" class="w-4 h-4"></i> Notifications
         </a>
-        <a href="settings.html" class="flex items-center gap-3 px-4 py-2.5 rounded-lg text-sm text-[#1A2730]/65 dark:text-white/60 hover:bg-black/5 dark:hover:bg-white/5 hover:text-[#1A2730] dark:hover:text-white transition font-semibold">
+        <a href="settings.html" class="flex items-center gap-3 px-4 py-2.5 rounded-lg text-sm text-[#1A2730]/75 dark:text-white/70 hover:bg-black/5 dark:hover:bg-white/5 hover:text-[#1A2730] dark:hover:text-white transition font-semibold">
           <i data-lucide="settings" class="w-4 h-4"></i> Settings
         </a>
       </nav>
@@ -102,28 +92,34 @@
 
     <!-- Main Content Area -->
     <main class="flex-grow p-6 md:p-10 space-y-8 overflow-y-auto text-left relative z-10 w-full">
+      <!-- Top Header -->
       <div class="flex items-center justify-between gap-4 pb-4 border-b border-black/5 dark:border-white/5">
-      <div class="flex items-center gap-3">
         <div class="flex items-center gap-3">
-          <button id="sidebar-toggle-btn" class="p-2 rounded bg-black/5 dark:bg-white/5 border text-[#1A2730] dark:text-white md:hidden"><i data-lucide="menu" class="w-5 h-5"></i></button>
+          <button id="sidebar-toggle-btn" class="p-2 rounded bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 text-[#1A2730] dark:text-white md:hidden">
+            <i data-lucide="menu" class="w-5 h-5"></i>
+          </button>
           <div>
             <h1 class="text-3xl font-bold font-display text-[#1A2730] dark:text-white">Blog</h1>
-            <p class="text-xs text-[#1A2730]/50 dark:text-white/50">Manage published articles and press updates.</p>
+            <p class="text-xs text-[#1A2730]/50 dark:text-white/50">Read insights and printing tutorials.</p>
           </div>
         </div>
         
         <div class="flex items-center gap-3">
-          <button class="theme-toggle p-2.5 rounded-lg bg-black/5 dark:bg-white/5 hover:bg-black/10 dark:hover:bg-white/10 text-[#1A2730]/80 dark:text-white/80 hover:text-[#1A2730] dark:hover:text-white border border-black/10 dark:border-white/10 transition" aria-label="Toggle Theme">
+          <a href="../index.html" class="px-3.5 py-1.5 text-xs text-[#1A2730] dark:text-white transition rounded-lg bg-white dark:bg-white/5 border border-black/15 dark:border-white/10 hover:bg-black/5 dark:hover:bg-white/10 flex items-center justify-center gap-1.5 font-semibold shadow-sm">
+            <i data-lucide="globe" class="w-3.5 h-3.5"></i>
+            <span>Back to Site</span>
+          </a>
+
+          <button class="theme-toggle p-2.5 rounded-lg bg-white dark:bg-white/5 hover:bg-black/5 dark:hover:bg-white/10 text-[#1A2730] dark:text-white border border-black/15 dark:border-white/10 transition shadow-sm" aria-label="Toggle Theme">
             <i data-lucide="sun" class="w-4 h-4 block dark:hidden"></i>
             <i data-lucide="moon" class="w-4 h-4 hidden dark:block"></i>
           </button>
           
-          <button class="rtl-toggle px-3 py-1.5 text-xs text-[#1A2730]/85 dark:text-white/85 hover:text-[#1A2730] dark:hover:text-white transition rounded-lg bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 hover:bg-black/10 dark:hover:bg-white/10 flex items-center justify-center gap-1.5 font-semibold">
+          <button class="rtl-toggle px-3 py-1.5 text-xs text-[#1A2730] dark:text-white hover:text-[#1A2730] dark:hover:text-white transition rounded-lg bg-white dark:bg-white/5 border border-black/15 dark:border-white/10 hover:bg-black/5 dark:hover:bg-white/10 flex items-center justify-center gap-1.5 font-semibold shadow-sm">
             <i data-lucide="arrow-left-right" class="w-3.5 h-3.5"></i>
             <span>RTL</span>
           </button>
         </div>
-      </div>
       </div>
 
       <div class="flex flex-col md:flex-row gap-4 items-center justify-between">

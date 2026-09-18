@@ -338,17 +338,35 @@ html[data-theme="light"] [class*="text-white/30"]:not(footer *):not(button *):no
   color: rgba(26, 39, 48, 0.6) !important;
 }
 
-/* Maintain white text ONLY on genuinely dark backgrounds in light mode */
-html[data-theme="light"] .bg-black *,
-html[data-theme="light"] [class*="bg-black"] *,
-html[data-theme="light"] .bg-emerald *,
-html[data-theme="light"] [class*="bg-emerald"]:not([class*="text-"]) *,
-html[data-theme="light"] .bg-red-500,
-html[data-theme="light"] .bg-red-600,
-html[data-theme="light"] [class*="bg-red-500"],
+/* Maintain white text ONLY on genuinely dark solid backgrounds in light mode */
+html[data-theme="light"] .bg-black:not([class*="/"]) *,
+html[data-theme="light"] [class~="bg-black"]:not([class*="/"]) *,
+html[data-theme="light"] .bg-emerald:not([class*="/"]) *,
+html[data-theme="light"] [class~="bg-emerald"]:not([class*="/"]):not([class*="text-"]) *,
+html[data-theme="light"] .bg-red-500:not([class*="/"]),
+html[data-theme="light"] .bg-red-600:not([class*="/"]),
+html[data-theme="light"] [class~="bg-red-500"]:not([class*="/"]),
 html[data-theme="light"] .bg-green:not([class*="/"]):not([class*="text-green"]),
-html[data-theme="light"] [class*="bg-green"]:not([class*="/"]):not([class*="text-green"]) {
+html[data-theme="light"] [class~="bg-green"]:not([class*="/"]):not([class*="text-green"]) {
   color: #FFFFFF !important;
+}
+
+/* Dashboard Table styling in light mode */
+html[data-theme="light"] table th,
+html[data-theme="light"] thead th,
+html[data-theme="light"] th {
+  color: #1A2730 !important;
+  font-weight: 700 !important;
+}
+
+html[data-theme="light"] table td:not([class*="text-green"]):not([class*="text-red"]):not([class*="text-[#F15A24]"]):not(.badge *):not([class*="badge"] *) {
+  color: #1A2730;
+}
+
+/* Dashboard quick links and buttons with translucent backgrounds */
+html[data-theme="light"] a[class*="bg-black/5"],
+html[data-theme="light"] button[class*="bg-black/5"] {
+  color: #1A2730 !important;
 }
 
 /* Ensure all brand tags, subtitle headings, and labels with text-green have high contrast in light mode */
@@ -738,60 +756,60 @@ html[data-theme="light"] #what-we-create .glass a[class*="text-green"] {
     display: none !important;
   }
   #main-navbar > div {
-    padding-left: 1rem !important;
-    padding-right: 1rem !important;
+    padding-left: 0.75rem !important;
+    padding-right: 0.75rem !important;
   }
   #main-navbar .gap-8 {
-    gap: 0.55rem !important;
+    gap: 0.45rem !important;
   }
   #main-navbar .nav-link, 
   #main-navbar button, 
   #main-navbar .text-sm {
-    font-size: 0.73rem !important;
+    font-size: 0.70rem !important;
   }
   #main-navbar .gap-4 {
-    gap: 0.35rem !important;
+    gap: 0.25rem !important;
   }
   #main-navbar .px-4 {
-    padding-left: 0.5rem !important;
-    padding-right: 0.5rem !important;
-    font-size: 0.73rem !important;
+    padding-left: 0.4rem !important;
+    padding-right: 0.4rem !important;
+    font-size: 0.70rem !important;
   }
   #main-navbar .px-5 {
-    padding-left: 0.75rem !important;
-    padding-right: 0.75rem !important;
-    font-size: 0.73rem !important;
+    padding-left: 0.6rem !important;
+    padding-right: 0.6rem !important;
+    font-size: 0.70rem !important;
     white-space: nowrap !important;
   }
 }
 
 /* 1280px to 1439.98px (standard laptops & 720p/HD monitors):
-   Ensure all 9 nav links and right-side utility buttons fit comfortably without overflowing or clipping */
+   Ensure all 9 nav links (including DASHBOARD) and right-side utility buttons fit comfortably without overflowing or clipping */
 @media (min-width: 1280px) and (max-width: 1439.98px) {
   #main-navbar > div {
-    padding-left: 1.5rem !important;
-    padding-right: 1.5rem !important;
+    padding-left: 1.25rem !important;
+    padding-right: 1.25rem !important;
   }
   #main-navbar .gap-8 {
-    gap: 1.1rem !important;
+    gap: 0.85rem !important;
   }
   #main-navbar .gap-4 {
-    gap: 0.6rem !important;
+    gap: 0.5rem !important;
   }
   #main-navbar .nav-link, 
   #main-navbar button, 
   #main-navbar .text-sm {
-    font-size: 0.8125rem !important;
+    font-size: 0.78rem !important;
   }
   #main-navbar .px-4 {
-    padding-left: 0.75rem !important;
-    padding-right: 0.75rem !important;
-    font-size: 0.8125rem !important;
+    padding-left: 0.65rem !important;
+    padding-right: 0.65rem !important;
+    font-size: 0.78rem !important;
   }
   #main-navbar .px-5 {
-    padding-left: 1rem !important;
-    padding-right: 1rem !important;
-    font-size: 0.8125rem !important;
+    padding-left: 0.85rem !important;
+    padding-right: 0.85rem !important;
+    font-size: 0.78rem !important;
     white-space: nowrap !important;
   }
 }
@@ -817,5 +835,398 @@ html[data-theme="light"] #mobile-menu .text-white\/85,
 html[data-theme="light"] #mobile-menu .text-white\/90 {
   color: rgba(26, 39, 48, 0.8);
 }
+
+/* ==========================================================================
+   11. LIGHT MODE CONTRAST ENHANCEMENTS: Toggles, Auth & Customer Dashboard
+   ========================================================================== */
+
+/* Universal Theme, RTL Toggle & Mobile Buttons Contrast in Light Mode */
+html[data-theme="light"] .theme-toggle,
+html[data-theme="light"] .rtl-toggle,
+html[data-theme="light"] #mobile-menu-btn,
+html[data-theme="light"] #mobile-menu-close,
+html[data-theme="light"] #sidebar-toggle-btn {
+  background-color: #FFFFFF !important;
+  color: #1A2730 !important;
+  border-color: rgba(26, 39, 48, 0.22) !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08) !important;
+}
+
+html[data-theme="light"] .theme-toggle:hover,
+html[data-theme="light"] .rtl-toggle:hover,
+html[data-theme="light"] #mobile-menu-btn:hover,
+html[data-theme="light"] #mobile-menu-close:hover,
+html[data-theme="light"] #sidebar-toggle-btn:hover {
+  background-color: #F0EDE6 !important;
+  border-color: #F15A24 !important;
+  color: #F15A24 !important;
+}
+
+html[data-theme="light"] .theme-toggle svg,
+html[data-theme="light"] .rtl-toggle svg,
+html[data-theme="light"] #mobile-menu-btn svg,
+html[data-theme="light"] #mobile-menu-close svg,
+html[data-theme="light"] #sidebar-toggle-btn svg {
+  stroke: #1A2730 !important;
+}
+
+html[data-theme="light"] .rtl-toggle svg {
+  stroke: #1A2730 !important;
+  color: #1A2730 !important;
+}
+
+html[data-theme="light"] .rtl-toggle span {
+  color: #1A2730 !important;
+}
+
+/* Ensure Sun/Moon icon visibility toggles cleanly in Light vs Dark */
+html[data-theme="light"] .theme-toggle svg[data-lucide="sun"],
+html[data-theme="light"] .theme-toggle svg.lucide-sun {
+  display: block !important;
+  stroke: #1A2730 !important;
+}
+html[data-theme="light"] .theme-toggle svg[data-lucide="moon"],
+html[data-theme="light"] .theme-toggle svg.lucide-moon {
+  display: none !important;
+}
+
+html[data-theme="dark"] .theme-toggle svg[data-lucide="sun"],
+html[data-theme="dark"] .theme-toggle svg.lucide-sun {
+  display: none !important;
+}
+html[data-theme="dark"] .theme-toggle svg[data-lucide="moon"],
+html[data-theme="dark"] .theme-toggle svg.lucide-moon {
+  display: block !important;
+  stroke: #FFFFFF !important;
+}
+
+/* Dashboard Top Header Tools in Light Mode */
+html[data-theme="light"] main a[href*="index.html"],
+html[data-theme="light"] main a[href*="index.html"]:hover {
+  background-color: #FFFFFF !important;
+  color: #1A2730 !important;
+  border-color: rgba(26, 39, 48, 0.2) !important;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05) !important;
+}
+html[data-theme="light"] main a[href*="index.html"] svg {
+  stroke: #1A2730 !important;
+}
+html[data-theme="light"] main a[href*="index.html"] span {
+  color: #1A2730 !important;
+}
+
+/* Customer Dashboard Sidebar in Light Mode */
+html[data-theme="light"] #dashboard-sidebar {
+  background-color: #F4F1EA !important;
+  border-right-color: rgba(26, 39, 48, 0.12) !important;
+}
+
+html[data-theme="light"] #dashboard-sidebar nav a:not(.bg-gradient-to-r) {
+  color: #1A2730 !important;
+  font-weight: 600 !important;
+}
+
+html[data-theme="light"] #dashboard-sidebar nav a:not(.bg-gradient-to-r) svg {
+  stroke: #1A2730 !important;
+  color: #1A2730 !important;
+  opacity: 0.85 !important;
+}
+
+html[data-theme="light"] #dashboard-sidebar nav a:not(.bg-gradient-to-r):hover {
+  background-color: rgba(26, 39, 48, 0.08) !important;
+  color: #F15A24 !important;
+}
+
+html[data-theme="light"] #dashboard-sidebar nav a:not(.bg-gradient-to-r):hover svg {
+  stroke: #F15A24 !important;
+  color: #F15A24 !important;
+}
+
+html[data-theme="light"] #dashboard-sidebar nav a.bg-gradient-to-r {
+  color: #FFFFFF !important;
+}
+html[data-theme="light"] #dashboard-sidebar nav a.bg-gradient-to-r svg {
+  stroke: #FFFFFF !important;
+  color: #FFFFFF !important;
+}
+
+html[data-theme="light"] #dashboard-sidebar .logout-btn {
+  background-color: rgba(239, 68, 68, 0.12) !important;
+  color: #DC2626 !important;
+  border-color: rgba(239, 68, 68, 0.3) !important;
+  font-weight: 700 !important;
+}
+
+/* Customer Dashboard Cards, Stat Badges, and Quick Actions in Light Mode */
+/* =========================================================================
+   12. DASHBOARD LIGHT & DARK MODE COMPREHENSIVE CONTRAST RULES
+   ========================================================================= */
+
+/* Light Mode: Body & Main Backgrounds */
+html[data-theme="light"] body {
+  background-color: #F7F5F0 !important;
+  color: #1A2730 !important;
+}
+
+html[data-theme="light"] main {
+  background-color: #F7F5F0 !important;
+  color: #1A2730 !important;
+}
+
+/* Light Mode: All Dashboard Cards & Glass Containers */
+html[data-theme="light"] main .glass,
+html[data-theme="light"] main [class*="glass"] {
+  background-color: #FFFFFF !important;
+  border: 1px solid rgba(26, 39, 48, 0.12) !important;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04) !important;
+  color: #1A2730 !important;
+}
+
+html[data-theme="light"] main h1,
+html[data-theme="light"] main h2,
+html[data-theme="light"] main h3,
+html[data-theme="light"] main h4,
+html[data-theme="light"] main h5,
+html[data-theme="light"] main h6 {
+  color: #1A2730 !important;
+}
+
+html[data-theme="light"] main p.uppercase,
+html[data-theme="light"] main p[class*="tracking-widest"],
+html[data-theme="light"] main h4[class*="tracking-wider"] {
+  color: #475569 !important;
+  font-weight: 700 !important;
+}
+
+html[data-theme="light"] #stat-client-active,
+html[data-theme="light"] #stat-client-completed,
+html[data-theme="light"] #stat-client-pending {
+  color: #1A2730 !important;
+  font-weight: 800 !important;
+}
+
+html[data-theme="light"] #stat-client-spent {
+  color: #F15A24 !important;
+  font-weight: 800 !important;
+}
+
+/* Light Mode: Tables across Overview, My Orders, Invoices, Artwork Upload */
+html[data-theme="light"] table {
+  color: #1A2730 !important;
+  background-color: #FFFFFF !important;
+}
+
+html[data-theme="light"] thead {
+  background-color: #F1EFE9 !important;
+  border-bottom: 2px solid rgba(26, 39, 48, 0.12) !important;
+}
+
+html[data-theme="light"] thead th {
+  color: #1A2730 !important;
+  font-weight: 700 !important;
+  font-size: 0.8125rem !important;
+}
+
+html[data-theme="light"] tbody {
+  color: #1A2730 !important;
+}
+
+html[data-theme="light"] tbody tr {
+  border-bottom: 1px solid rgba(26, 39, 48, 0.08) !important;
+  color: #1A2730 !important;
+}
+
+html[data-theme="light"] tbody tr:hover {
+  background-color: rgba(26, 39, 48, 0.03) !important;
+}
+
+html[data-theme="light"] tbody td {
+  color: #1A2730 !important;
+}
+
+html[data-theme="light"] tbody td:not([class*="text-[#F15A24]"]):not([class*="text-red"]):not([class*="text-green"]):not([class*="text-yellow"]):not([class*="text-emerald"]):not([class*="text-amber"]) {
+  color: #1A2730 !important;
+}
+
+html[data-theme="light"] tbody td .text-gray-500,
+html[data-theme="light"] tbody td.text-gray-500,
+html[data-theme="light"] tbody td .text-gray-400,
+html[data-theme="light"] tbody td.text-gray-400 {
+  color: #475569 !important;
+  font-weight: 500 !important;
+}
+
+/* Table action buttons in light mode */
+html[data-theme="light"] table button:not([class*="text-red"]):not([class*="text-green"]):not([class*="bg-red"]):not([class*="bg-green"]):not([class*="bg-[#F15A24]"]),
+html[data-theme="light"] table a:not([class*="bg-gradient-to-r"]):not([class*="bg-[#F15A24]"]):not([class*="text-red"]) {
+  background-color: #FFFFFF !important;
+  color: #1A2730 !important;
+  border: 1px solid rgba(26, 39, 48, 0.2) !important;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04) !important;
+  font-weight: 600 !important;
+}
+
+html[data-theme="light"] table button:not([class*="text-red"]):not([class*="text-green"]):not([class*="bg-red"]):not([class*="bg-green"]):not([class*="bg-[#F15A24]"]):hover,
+html[data-theme="light"] table a:not([class*="bg-gradient-to-r"]):not([class*="bg-[#F15A24]"]):not([class*="text-red"]):hover {
+  background-color: #F7F5F0 !important;
+  color: #F15A24 !important;
+  border-color: #F15A24 !important;
+}
+
+/* Light Mode: Inputs, Selects, and Labels */
+html[data-theme="light"] main input:not([type="checkbox"]):not([type="radio"]),
+html[data-theme="light"] main select,
+html[data-theme="light"] main textarea {
+  background-color: #FFFFFF !important;
+  color: #1A2730 !important;
+  border: 1px solid rgba(26, 39, 48, 0.2) !important;
+}
+
+html[data-theme="light"] main input::placeholder,
+html[data-theme="light"] main textarea::placeholder {
+  color: #94A3B8 !important;
+}
+
+html[data-theme="light"] main label {
+  color: #1A2730 !important;
+  font-weight: 700 !important;
+}
+
+/* Light Mode: Drag & Drop Artwork Upload Zone */
+html[data-theme="light"] #drag-drop-zone {
+  background-color: #FFFFFF !important;
+  border: 2px dashed rgba(26, 39, 48, 0.22) !important;
+}
+
+html[data-theme="light"] #drag-drop-zone p {
+  color: #1A2730 !important;
+}
+
+html[data-theme="light"] #drag-drop-zone p.text-\[10px\] {
+  color: #475569 !important;
+  font-weight: 600 !important;
+}
+
+html[data-theme="light"] #drag-drop-zone svg {
+  stroke: #F15A24 !important;
+}
+
+/* Light Mode: Quick Action Buttons */
+html[data-theme="light"] main a[href*="upload.html"],
+html[data-theme="light"] main a[href*="orders.html"]:not(#dashboard-sidebar a),
+html[data-theme="light"] main a[href*="track.html"]:not(#dashboard-sidebar a) {
+  background-color: #FFFFFF !important;
+  color: #1A2730 !important;
+  border: 1px solid rgba(26, 39, 48, 0.2) !important;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04) !important;
+  font-weight: 700 !important;
+}
+
+html[data-theme="light"] main a[href*="upload.html"]:hover,
+html[data-theme="light"] main a[href*="orders.html"]:not(#dashboard-sidebar a):hover,
+html[data-theme="light"] main a[href*="track.html"]:not(#dashboard-sidebar a):hover {
+  background-color: #F7F5F0 !important;
+  border-color: #F15A24 !important;
+  color: #F15A24 !important;
+}
+
+/* Light Mode: Job Tracker & Stepper */
+html[data-theme="light"] #client-job-tracker > div {
+  background-color: #FFFFFF !important;
+  border: 1px solid rgba(26, 39, 48, 0.12) !important;
+}
+
+html[data-theme="light"] #client-job-tracker span {
+  color: #1A2730 !important;
+}
+
+html[data-theme="light"] #client-job-tracker p {
+  color: #475569 !important;
+}
+
+/* Light Mode: Spending Summary & Notifications */
+html[data-theme="light"] #spend-this-month,
+html[data-theme="light"] #spend-prev-month,
+html[data-theme="light"] #spend-avg-order {
+  color: #1A2730 !important;
+  font-weight: 800 !important;
+}
+
+html[data-theme="light"] #recent-notifications-list > div {
+  background-color: #F8FAFC !important;
+  border: 1px solid rgba(26, 39, 48, 0.1) !important;
+  color: #1A2730 !important;
+}
+
+html[data-theme="light"] #recent-notifications-list span {
+  color: #1A2730 !important;
+}
+
+html[data-theme="light"] #recent-notifications-list p {
+  color: #475569 !important;
+}
+
+/* Dark Mode: Body, Main, Tables & Header Contrast */
+html[data-theme="dark"] body,
+html.dark body {
+  background-color: #0E161B !important;
+  color: #F4F8F5 !important;
+}
+
+html[data-theme="dark"] main,
+html.dark main {
+  background-color: #0E161B !important;
+  color: #F4F8F5 !important;
+}
+
+html[data-theme="dark"] table,
+html.dark table {
+  color: #F4F8F5 !important;
+}
+
+html[data-theme="dark"] thead,
+html.dark thead {
+  background-color: rgba(255, 255, 255, 0.04) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+}
+
+html[data-theme="dark"] thead th,
+html.dark thead th {
+  color: #F4F8F5 !important;
+  font-weight: 700 !important;
+}
+
+html[data-theme="dark"] tbody tr,
+html.dark tbody tr {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06) !important;
+}
+
+html[data-theme="dark"] tbody td,
+html.dark tbody td {
+  color: #E2E8F0 !important;
+}
+
+html[data-theme="dark"] tbody td .text-gray-500,
+html[data-theme="dark"] tbody td .text-gray-400,
+html.dark tbody td .text-gray-500,
+html.dark tbody td .text-gray-400 {
+  color: #94A3B8 !important;
+}
+
+html[data-theme="dark"] table button:not([class*="text-red"]):not([class*="text-green"]):not([class*="bg-red"]):not([class*="bg-green"]):not([class*="bg-[#F15A24]"]),
+html.dark table button:not([class*="text-red"]):not([class*="text-green"]):not([class*="bg-red"]):not([class*="bg-green"]):not([class*="bg-[#F15A24]"]) {
+  background-color: rgba(255, 255, 255, 0.05) !important;
+  color: #FFFFFF !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+}
+
+html[data-theme="dark"] table button:not([class*="text-red"]):not([class*="text-green"]):not([class*="bg-red"]):not([class*="bg-green"]):not([class*="bg-[#F15A24]"]):hover,
+html.dark table button:not([class*="text-red"]):not([class*="text-green"]):not([class*="bg-red"]):not([class*="bg-green"]):not([class*="bg-[#F15A24]"]):hover {
+  background-color: rgba(255, 255, 255, 0.1) !important;
+  color: #F15A24 !important;
+  border-color: #F15A24 !important;
+}
+
+
 
 

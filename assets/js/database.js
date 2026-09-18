@@ -1,10 +1,10 @@
 // PRINTXTORE Unified Database & Session Engine
 
 const DEFAULT_CUSTOMERS = [
-  { id: "cust-1", name: "Sarah Jenkins", email: "sarah.j@example.com", phone: "+1 (555) 234-5678", role: "client", company: "Aero Design Studio", status: "Active" },
-  { id: "cust-2", name: "Alex Rivera", email: "alex.r@example.com", phone: "+1 (555) 876-5432", role: "client", company: "PixelTech", status: "Active" },
-  { id: "cust-3", name: "David Chen", email: "david.c@example.com", phone: "+1 (555) 456-7890", role: "client", company: "Chen Consulting", status: "Active" },
-  { id: "cust-4", name: "Emma Watson", email: "demo@printxtore.com", phone: "+1 (555) 111-2222", role: "client", company: "Creative Hub", status: "Active" },
+  { id: "cust-1", name: "Sarah Jenkins", email: "sarah.j@example.com", phone: "+1 (555) 234-5678", role: "customer", company: "Aero Design Studio", status: "Active" },
+  { id: "cust-2", name: "Alex Rivera", email: "alex.r@example.com", phone: "+1 (555) 876-5432", role: "customer", company: "PixelTech", status: "Active" },
+  { id: "cust-3", name: "David Chen", email: "david.c@example.com", phone: "+1 (555) 456-7890", role: "customer", company: "Chen Consulting", status: "Active" },
+  { id: "cust-4", name: "Emma Watson", email: "demo@printxtore.com", phone: "+1 (555) 111-2222", role: "customer", company: "Creative Hub", status: "Active" },
   { id: "cust-admin", name: "PrintXtore Admin", email: "admin@printxtore.com", phone: "+1 (555) 000-9999", role: "admin", company: "PRINTXTORE HQ", status: "Active" }
 ];
 
@@ -89,7 +89,7 @@ const DEFAULT_BLOG = [
     excerpt: "Discover why tactile print marketing and physical collateral are still essential for modern brand engagement.",
     image: "../assets/images/blog5.jpg",
     readTime: "4 min",
-    contentHtml: "<p>In a saturated digital landscape, tangible brand representations create a lasting impression. From heavy business cards to customized brochures and packaging, print design establishes a tactile connection with clients. We explore the cognitive science behind brand memory retention through high-quality physical print media.</p>",
+    contentHtml: "<p>In a saturated digital landscape, tangible brand representations create a lasting impression. From heavy business cards to customized brochures and packaging, print design establishes a tactile connection with customers. We explore the cognitive science behind brand memory retention through high-quality physical print media.</p>",
     status: "Published"
   },
   {
