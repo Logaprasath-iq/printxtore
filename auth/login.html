@@ -245,7 +245,7 @@
 
         if (!isValid) return;
 
-        // Dummy login: authenticate session, show message, and redirect to home page
+        // Dummy login: authenticate session, show message, and stay in the same page
         if (typeof DB !== "undefined") {
           const customers = DB.get("customers") || [];
           const matchedUser = customers.find(c => c.email && c.email.toLowerCase() === email.toLowerCase());
@@ -259,9 +259,6 @@
         }
 
         showToast("Logged in Successfully");
-        setTimeout(() => {
-          window.location.href = "../index.html";
-        }, 1000);
       });
     });
   </script>
