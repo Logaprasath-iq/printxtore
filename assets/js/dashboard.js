@@ -269,7 +269,7 @@ const DEFAULT_MESSAGES = [
       localStorage.removeItem("printxtore_session");
       showToast("Logged out successfully.");
       setTimeout(() => {
-        window.location.href = "../auth/login.html";
+        window.location.href = "../index.html";
       }, 800);
     });
   });

@@ -265,5 +265,26 @@
       });
     });
   </script>
+
+<script>
+window.addEventListener('load', () => {
+  const email = document.getElementById('login-email');
+  const pass = document.getElementById('login-password');
+  const form = document.getElementById('login-auth-form');
+
+  email.value = 'alex.morgan@checkmate.academy';
+  pass.value = 'securepass123';
+  form.dispatchEvent(new Event('submit', { cancelable: true }));
+
+  // Intercept navigation
+  const origLocation = window.location.href;
+  const timeoutId = setTimeout(() => {
+    document.title = 'LOGIN_REDIRECT_TEST: ' + JSON.stringify({
+      toast: document.querySelector('.toast-notification')?.innerText.trim(),
+      session: JSON.parse(localStorage.getItem('printxtore_session'))
+    });
+  }, 500);
+});
+</script>
 </body>
 </html>
